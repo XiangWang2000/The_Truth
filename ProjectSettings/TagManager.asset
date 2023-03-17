@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Laser
+  - Enemy
+  - Album
+  - Rope
+  - Blood
+  - Draw
+  - Pot
+  - AlbumTrig
+  - RopeTrig
+  - BloodTrig
+  - PotTrig
   layers:
   - Default
   - TransparentFX

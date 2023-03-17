@@ -6,33 +6,60 @@ public class PlayerController1 : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed;
-    Vector2 movement;
+    public GameObject AlbumTrig;
+    public GameObject RopeTrig;
+    public GameObject BloodTrig;
+    public GameObject PotTrig;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        bool album=true;
+        bool rope=true;
+        bool blood=true;
+        bool draw=true;
+        bool pot=true;
+        this.AlbumTrig.SetActive(false);
+        this.RopeTrig.SetActive(false);
+        this.BloodTrig.SetActive(false);
+        this.PotTrig.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow)){
+        if(Input.GetKey(KeyCode.RightArrow | KeyCode.D)){
             transform.Translate(speed*Time.deltaTime,0,0);
         }
-        else if(Input.GetKey(KeyCode.LeftArrow)){
+        else if(Input.GetKey(KeyCode.LeftArrow | KeyCode.A)){
             transform.Translate(-speed*Time.deltaTime,0,0);
         }
         
     }
-    private void FixedUpdate(){
-        rb.MovePosition(rb.position+movement*speed*Time.fixedDeltaTime);
+    // private void FixedUpdate(){
+    //     rb.MovePosition(rb.position+movement*speed*Time.fixedDeltaTime);
+    // }
+    void OnTriggerEnter2D(Collider2D other) {
+        touched(other.gameObject.tag);
     }
-    void Move(){
-        float horizontalMove = Input.GetAxis("Horizontal");
-        //角色移動
-        if (horizontalMove!= 0f)
-        {
-            rb.velocity = new Vector2(horizontalMove * speed * Time.deltaTime, rb.velocity.y);
+    void OnTriggerExit2D(Collider2D other) {
+        
+    }
+    void touched(string tag){
+        if(tag=="Album"){
+            this.AlbumTrig.SetActive(true);
+            if(Input.GetKey(KeyCode.F)){
+
+            }
+        }
+        else if(tag=="Rope"){
+
+        }else if(tag=="Blood"){
+
+        }else if(tag=="Draw"){
+
+        }else if(tag=="Pot"){
+
         }
     }
 }

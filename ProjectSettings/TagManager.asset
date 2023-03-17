@@ -6,15 +6,6 @@ TagManager:
   tags:
   - Laser
   - Enemy
-  - Album
-  - Rope
-  - Blood
-  - Draw
-  - Pot
-  - AlbumTrig
-  - RopeTrig
-  - BloodTrig
-  - PotTrig
   layers:
   - Default
   - TransparentFX
@@ -22,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - MapRange
   - 
   - 
   - 

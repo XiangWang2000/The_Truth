@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonChoose : MonoBehaviour
 {   
@@ -9,6 +10,8 @@ public class ButtonChoose : MonoBehaviour
     public GameObject ExitConfirm;
     GameObject [] ConfirmArray  = new GameObject [3];
     int count = 0 ; 
+
+    public Animation Anim;
     // Start is called before the first frame update
     void Start()
     {   
@@ -36,9 +39,17 @@ public class ButtonChoose : MonoBehaviour
             }
         }
         Debug.Log(count);
+        if(Input.GetKeyDown(KeyCode.Return)){
+            Anim.Play("O0");
+        }
     }
     void ShowConfirm(int No1,int No2){
         ConfirmArray[No1].SetActive(false);
         ConfirmArray[No2].SetActive(true);
+    }
+    void LoadMap(){
+        switch(count){
+                case 0:Application.LoadLevel("Intro1");break;
+            }
     }
 }

@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 895208442}
   - component: {fileID: 895208443}
+  - component: {fileID: 895208444}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -550,10 +551,24 @@ Animation:
   m_Animation: {fileID: 7400000, guid: b4e0ad4fdec4c884cbcccb9d80de8ba7, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: b4e0ad4fdec4c884cbcccb9d80de8ba7, type: 2}
+  - {fileID: 7400000, guid: 53e0b5358411807478b44b26024903ec, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &895208444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895208441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caeecd18ed1670428c27c5ead9ad915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Anim: {fileID: 895208443}
 --- !u!1 &1026680968
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +721,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: b7a5f850c6effc44f84f3aedcb214529, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: b7a5f850c6effc44f84f3aedcb214529, type: 2}
+  - {fileID: 7400000, guid: 96b4195da6c5abe4982b4665c0e60118, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -790,6 +806,7 @@ MonoBehaviour:
   StartConfirm: {fileID: 1316451731}
   ResumeConfirm: {fileID: 1607631263}
   ExitConfirm: {fileID: 519095393}
+  Anim: {fileID: 1031361761}
 --- !u!1 &1316451731
 GameObject:
   m_ObjectHideFlags: 0

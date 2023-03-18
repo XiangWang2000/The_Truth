@@ -40,7 +40,14 @@ public class ButtonChoose : MonoBehaviour
         }
         Debug.Log(count);
         if(Input.GetKeyDown(KeyCode.Return)){
-            Anim.Play("O0");
+            if(count==0){
+                Anim.Play("O0");
+            }else if (count==1){
+
+            }else{
+                Application.Quit();
+                // EditorApplication.isPlaying="false";
+            }
         }
     }
     void ShowConfirm(int No1,int No2){

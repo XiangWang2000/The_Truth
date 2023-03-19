@@ -30,6 +30,7 @@ public class IC : MonoBehaviour
                 case "Intro6":Anim.Play("O6");break;
                 case "Intro7":Anim.Play("O7");break;
                 case "Intro8":Anim.Play("O8");break;
+                case "Intro9":Anim.Play("O9");break;
             }
         }   
     }

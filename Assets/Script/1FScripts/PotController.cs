@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PotController : MonoBehaviour
 {
     public GameObject trig;
+    public GameObject dialog_box;
+    public GameObject camera;
+    public Text dialog;
+    int count=0;
     bool take=false;
     bool touched=false;
+    bool read=false;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
+        this.dialog_box.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,10 +26,28 @@ public class PotController : MonoBehaviour
         if(Input.GetKey("f") && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            //this.gameObject.SetActive(false);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.dialog_box.SetActive(true);
+            // Debug.Log(camera.transform.position.y);
+            this.dialog_box.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y-3,dialog_box.transform.position.z);
             take=true;
             touched=false;
+            Debug.Log("開始對話");
+        }
+        if(read==false && take==true){
+            if(count==0){
+                dialog.text = "獲得道具「燒焦的鍋子」：";
+                count++;
+            }
+            if(Input.GetKeyDown("space")){
+                if(count==1){
+                    dialog.text = "";
+                    this.dialog_box.SetActive(false);
+                    this.gameObject.SetActive(false);
+                    read=true;
+                }
+            count++;
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other) {

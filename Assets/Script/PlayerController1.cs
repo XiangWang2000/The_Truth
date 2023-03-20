@@ -16,12 +16,12 @@ public class PlayerController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a") & Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift)){
+        if((Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
             transform.Translate(-runspeed*Time.deltaTime,0,0);
             if(transform.localScale.x>0){
             transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
         }
-        }else if(Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d") & Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift)){
+        }else if((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
             transform.Translate(runspeed*Time.deltaTime,0,0);
             if(transform.localScale.x<0){
             transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);

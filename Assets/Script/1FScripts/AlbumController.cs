@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AlbumController : MonoBehaviour
 {
     public GameObject trig;
+    public GameObject dialog_box;
+    public GameObject camera;
+    public Text dialog;
+    int count=0;
     bool take=false;
     bool touched=false;
+    bool read=false;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
+        this.dialog_box.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,8 +26,33 @@ public class AlbumController : MonoBehaviour
         if(Input.GetKey("f") && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
+            this.dialog_box.SetActive(true);
+            // Debug.Log(camera.transform.position.y);
+            this.dialog_box.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y-3,dialog_box.transform.position.z);
             take=true;
             touched=false;
+            Debug.Log("開始對話");
+        }
+        if(read==false && take==true){
+            if(count==0){
+                    dialog.text = "獲得道具「一箱相簿」：";
+                    count++;
+                }
+            if(Input.GetKeyDown("space")){
+                if(count==1){
+                    dialog.text = "「在大酒櫃的最下層找到了放滿相簿的紙箱。」";
+                }
+                else if(count==2){
+                    dialog.text = "「裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯」";
+                }else if(count==3){
+                    dialog.text = "「或許房子的男主人與女主人感情不太好？」";
+                }else if(count==4){
+                    dialog.text = "";
+                    this.dialog_box.SetActive(false);
+                    read=true;
+                }
+            count++;
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other) {

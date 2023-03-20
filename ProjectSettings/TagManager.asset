@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Laser
   - Enemy
-  - Sound
+  - Sound1
+  - Sound2
   layers:
   - Default
   - TransparentFX

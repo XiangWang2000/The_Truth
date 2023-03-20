@@ -8,6 +8,7 @@ public class ButtonChoose : MonoBehaviour
     public GameObject StartConfirm;
     public GameObject ResumeConfirm;
     public GameObject ExitConfirm;
+    [SerializeField] private AudioSource ButtonAudio;
     GameObject [] ConfirmArray  = new GameObject [3];
     int count = 0 ; 
 
@@ -15,6 +16,7 @@ public class ButtonChoose : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        ButtonAudio = GetComponent<AudioSource>();
         ConfirmArray[0] = StartConfirm;
         ConfirmArray[1] = ResumeConfirm;
         ConfirmArray[2] = ExitConfirm;
@@ -27,12 +29,14 @@ public class ButtonChoose : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.DownArrow)){
+            ButtonAudio.Play(0);
             if(count != 2){
                 count+=1;
                 ShowConfirm(count-1,count);
             }
         }
          if(Input.GetKeyDown(KeyCode.UpArrow)){
+            ButtonAudio.Play(0);
             if(count != 0){
                 count-=1;
                 ShowConfirm(count+1,count);
@@ -40,6 +44,7 @@ public class ButtonChoose : MonoBehaviour
         }
         Debug.Log(count);
         if(Input.GetKeyDown(KeyCode.Return)){
+            ButtonAudio.Play(0);
             if(count==0){
                 Anim.Play("O0");
             }else if (count==1){

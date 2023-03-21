@@ -34,13 +34,13 @@ public class DadFight : MonoBehaviour
             this.trig.SetActive(false);
             StartCoroutine(ToFight());
             Anim.Play("SwitchFadeOut");
-
+            touched = false;
         }else if (touched==true){
             if(timer_i-timer_i_f==2){
                 Debug.Log("沒輸F");
                 this.trig.SetActive(false);
                 StartCoroutine(ToDead());
-                Anim.Play("SwitchFadeOut");
+                Anim.Play("Dead");
             }
         }
     }

@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # Fungus
 Assets/Fungus
+Assets/FungusExamples
+Assets/Fungus.meta
+Assets/FungusExamples.meta

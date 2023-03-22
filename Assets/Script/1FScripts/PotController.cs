@@ -60,7 +60,7 @@ public class PotController : MonoBehaviour
             }
         }
         GameDataManager.Propos = Propos;
-        Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[2]);
+        // Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[2]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

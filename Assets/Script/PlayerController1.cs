@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerController1 : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public GameObject menu;
+    public GameObject basemap;
     public float speed;
     public float runspeed;
+    bool menuopened=false;
+    int count=0;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        menu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,6 +43,22 @@ public class PlayerController1 : MonoBehaviour
             transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
         }
         }
-        
+        if(Input.GetKeyDown(KeyCode.Escape) && menuopened==false){
+            menuopened=true;
+            menu.SetActive(true);
+        }else if(Input.GetKeyDown(KeyCode.Escape) && menuopened==true){
+            menuopened=false;
+            menu.SetActive(false);
+        }
+        if(count<3 && (Input.GetKeyDown(KeyCode.DownArrow) | Input.GetKeyDown("s")) && menuopened==true){
+            Debug.Log("按了下");
+            basemap.transform.localPosition=new Vector3(basemap.transform.localPosition.x,basemap.transform.localPosition.y-100,basemap.transform.localPosition.z);
+            count++;
+        }
+        if(count>0 && (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && menuopened==true){
+            Debug.Log("按了上");
+            basemap.transform.localPosition=new Vector3(basemap.transform.localPosition.x,basemap.transform.localPosition.y+100,basemap.transform.localPosition.z);
+            count--;
+        }
     }
 }

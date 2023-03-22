@@ -65,7 +65,7 @@ public class AlbumController : MonoBehaviour
             }
         }
         GameDataManager.Propos = Propos;
-        Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[1]);
+        //Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[1]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

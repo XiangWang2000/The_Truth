@@ -60,7 +60,7 @@ public class RopeController : MonoBehaviour
             }
         }
         GameDataManager.Propos = Propos;
-        Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[0]);
+        //Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[0]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

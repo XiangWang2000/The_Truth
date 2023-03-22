@@ -8,6 +8,7 @@ public class AlbumController : MonoBehaviour
     public GameObject trig;
     public GameObject dialog_box;
     public GameObject camera;
+    public GameObject draw;
     public Text dialog;
     int count=0;
     bool take=false;
@@ -18,6 +19,7 @@ public class AlbumController : MonoBehaviour
     {
         this.trig.SetActive(false);
         this.dialog_box.SetActive(false);
+        this.draw.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,8 +29,10 @@ public class AlbumController : MonoBehaviour
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);
+            this.draw.SetActive(true);
             // Debug.Log(camera.transform.position.y);
             this.dialog_box.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y-3,dialog_box.transform.position.z);
+            this.draw.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y,draw.transform.position.z);
             take=true;
             touched=false;
             Debug.Log("開始對話");
@@ -40,6 +44,7 @@ public class AlbumController : MonoBehaviour
                 }
             if(Input.GetKeyDown("space")){
                 if(count==1){
+                    this.draw.SetActive(false);
                     dialog.text = "「在大酒櫃的最下層找到了放滿相簿的紙箱。」";
                 }
                 else if(count==2){

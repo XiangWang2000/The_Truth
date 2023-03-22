@@ -13,13 +13,17 @@ public class PotController : MonoBehaviour
     int count=0;
     bool take=false;
     bool touched=false;
-    bool read=false;
+    bool read=false; 
+
+    private int [] Propos;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         this.dialog_box.SetActive(false);
         this.draw.SetActive(false);
+
+        Propos = GameDataManager.Propos;
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class PotController : MonoBehaviour
         }
         if(read==false && take==true){
             if(count==0){
+                Propos[2] = 1;
                 dialog.text = "獲得道具「燒焦的鍋子」：";
                 count++;
             }
@@ -54,6 +59,8 @@ public class PotController : MonoBehaviour
             count++;
             }
         }
+        GameDataManager.Propos = Propos;
+        Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[2]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

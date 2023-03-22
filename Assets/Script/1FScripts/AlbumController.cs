@@ -14,12 +14,16 @@ public class AlbumController : MonoBehaviour
     bool take=false;
     bool touched=false;
     bool read=false;
+
+    private int [] Propos;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         this.dialog_box.SetActive(false);
         this.draw.SetActive(false);
+
+        Propos = GameDataManager.Propos;
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class AlbumController : MonoBehaviour
         }
         if(read==false && take==true){
             if(count==0){
+                    Propos[1] = 1;
                     dialog.text = "獲得道具「一箱相簿」：";
                     count++;
                 }
@@ -59,6 +64,8 @@ public class AlbumController : MonoBehaviour
             count++;
             }
         }
+        GameDataManager.Propos = Propos;
+        Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[1]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

@@ -13,11 +13,12 @@ public class DadFight : MonoBehaviour
     int timer_i = 0;
     int timer_i_f = 0;
 
-
+    private int [] Propos;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
+        GameDataManager.Propos =  Propos;
     }
 
     // Update is called once per frame
@@ -32,9 +33,15 @@ public class DadFight : MonoBehaviour
         if(Input.GetKey(KeyCode.F) && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            StartCoroutine(ToFight());
-            Anim.Play("SwitchFadeOut");
-            touched = false;
+            if(Propos[0]==0){
+                Debug.Log("道具不夠");
+                StartCoroutine(ToDead());
+                Anim.Play("Dead");
+            }else{
+                StartCoroutine(ToFight());
+                Anim.Play("SwitchFadeOut");
+                touched = false;
+            }
         }else if (touched==true){
             if(timer_i-timer_i_f==2){
                 Debug.Log("沒輸F");

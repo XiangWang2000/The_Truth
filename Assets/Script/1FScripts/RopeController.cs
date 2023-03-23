@@ -15,8 +15,7 @@ public class RopeController : MonoBehaviour
     bool touched=false;
     bool read=false;
     private bool move;
-
-    private int [] Propos;
+    private bool Rope;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +23,13 @@ public class RopeController : MonoBehaviour
         this.dialog_box.SetActive(false);
         this.draw.SetActive(false);
         move=GameDataManager.move;
-        Propos = GameDataManager.Propos;
+        Rope = GameDataManager.Rope;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("f") && touched==true){
+        if(Input.GetKeyDown("f") && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);
@@ -44,13 +43,16 @@ public class RopeController : MonoBehaviour
             GameDataManager.move=move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
-        }
-        if(read==false && take==true){
             if(count==0){
-                Propos[0] = 1;
                 dialog.text = "獲得道具「跳繩」：";
                 count++;
+                Rope=true;
+                GameDataManager.Rope=Rope;
+                Debug.Log("全域變數Rope值"+GameDataManager.Rope);
             }
+        }
+        if(read==false && take==true){
+            
             if(Input.GetKeyDown("space")){
                 if(count==1){
                     dialog.text = "「看起來只是一個普通的跳繩，不知道有什麼用途？」";
@@ -67,8 +69,6 @@ public class RopeController : MonoBehaviour
             count++;
             }
         }
-        GameDataManager.Propos = Propos;
-        //Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[0]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

@@ -15,8 +15,7 @@ public class AlbumController : MonoBehaviour
     bool touched=false;
     bool read=false;
     private bool move;
-
-    private int [] Propos;
+    private bool Album;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +23,13 @@ public class AlbumController : MonoBehaviour
         this.dialog_box.SetActive(false);
         this.draw.SetActive(false);
         move=GameDataManager.move;
-        Propos = GameDataManager.Propos;
+        Album = GameDataManager.Album;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("f") && touched==true){
+        if(Input.GetKeyDown("f") && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);
@@ -44,13 +43,14 @@ public class AlbumController : MonoBehaviour
             GameDataManager.move=move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            if(count==0){
+                dialog.text = "獲得道具「一箱相簿」：";
+                count++;
+                Album = true;
+                GameDataManager.Album=Album;
+            }
         }
         if(read==false && take==true){
-            if(count==0){
-                    Propos[1] = 1;
-                    dialog.text = "獲得道具「一箱相簿」：";
-                    count++;
-                }
             if(Input.GetKeyDown("space")){
                 if(count==1){
                     this.draw.SetActive(false);
@@ -71,8 +71,6 @@ public class AlbumController : MonoBehaviour
             count++;
             }
         }
-        GameDataManager.Propos = Propos;
-        //Debug.Log("GameDataManger.Propos = "+GameDataManager.Propos[1]);
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player" && take==false){

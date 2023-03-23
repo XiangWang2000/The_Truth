@@ -13,12 +13,12 @@ public class DadFight : MonoBehaviour
     int timer_i = 0;
     int timer_i_f = 0;
 
-    private int [] Propos;
+    private bool Rope;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
-        GameDataManager.Propos =  Propos;
+        Rope =  GameDataManager.Rope;
     }
 
     // Update is called once per frame
@@ -29,16 +29,19 @@ public class DadFight : MonoBehaviour
         }
         timer_f+=Time.deltaTime;
         timer_i = (int)timer_f;
-        Debug.Log(timer_i);
-        if(Input.GetKey(KeyCode.F) && touched==true){
+        // Debug.Log(timer_i);
+        if(Input.GetKeyDown(KeyCode.F) && touched==true){
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            if(Propos[0]==0){
+            Debug.Log("全域變數Rope值"+GameDataManager.Rope);
+            if(Rope==false){
                 Debug.Log("道具不夠");
                 StartCoroutine(ToDead());
                 Anim.Play("Dead");
+                touched=false;
             }else{
                 StartCoroutine(ToFight());
+                Debug.Log("進入戰鬥");
                 Anim.Play("SwitchFadeOut");
                 touched = false;
             }
@@ -65,10 +68,10 @@ public class DadFight : MonoBehaviour
     }
     IEnumerator ToFight(){
         yield return  new WaitForSeconds(2);
-        Application.LoadLevel("DadFightScene");
+        SceneManager.LoadScene("DadFightScene");
     }
     IEnumerator ToDead(){
         yield return  new WaitForSeconds(2);
-        Application.LoadLevel("FirstScene");
+        SceneManager.LoadScene("FirstScene");
     }
 }

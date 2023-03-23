@@ -12,9 +12,11 @@ public class LoadDadFight : MonoBehaviour
     public GameObject BtnCheck3;
     private int [] BtnArray = {1,0,0};
     private GameObject [] BtnCheckArray = new GameObject[3];
+    private AudioSource AudioSource;
     // Start is called before the first frame update
     void Start()
     {   
+        AudioSource =  GetComponent<AudioSource>();
         int[] X = new int[3];    
         int[] Y = new int[3];
             for (int i = 0; i < 3; i++)    
@@ -96,6 +98,7 @@ public class LoadDadFight : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.DownArrow)){
+            AudioSource.Play(0);
             if(BtnArray[0]==1){
                 BtnArray[2]=0;
                 BtnArray[0]=0;
@@ -117,6 +120,7 @@ public class LoadDadFight : MonoBehaviour
             }
         }
         if(Input.GetKeyDown(KeyCode.UpArrow)){
+            AudioSource.Play(0);
             if(BtnArray[0]==1){
                 BtnArray[1]=0;
                 BtnArray[0]=0;

@@ -24,16 +24,33 @@ public class LoadDadFight : MonoBehaviour
 
                 for (int j = 0; j < i; j++) 
                 {
-                    while (X[j] - X[i] <= 200)    
-                    {
-                        j = 0;  
-                        X[i] = Random.Range(-529,248);  
+                    if(X[j]>X[i]){
+                        while (X[j] - X[i] <= 100)    
+                        {
+                            j = 0;  
+                            X[i] = Random.Range(-529,248);  
+                        }
+                    }else{
+                        while (X[i] - X[j] <= 100)    
+                        {
+                            j = 0;  
+                            X[i] = Random.Range(-529,248);  
+                        }
                     }
-                    while (Y[j] - Y[i] <= 70)   
-                    {
-                        j = 0; 
-                        Y[i] = Random.Range(-355, 356);   
+                    if(Y[j]>Y[i]){
+                        while (Y[j] - Y[i] <= 50)   
+                        {
+                            j = 0; 
+                            Y[i] = Random.Range(-355, 356);   
+                        }
+                    }else{
+                        while (Y[i] - Y[j] <= 50)   
+                        {
+                            j = 0; 
+                            Y[i] = Random.Range(-355, 356);   
+                        }
                     }
+                    
                 }
             }
         int X1 = X[0];

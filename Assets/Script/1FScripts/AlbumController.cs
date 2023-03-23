@@ -14,6 +14,7 @@ public class AlbumController : MonoBehaviour
     bool take=false;
     bool touched=false;
     bool read=false;
+    private bool move;
 
     private int [] Propos;
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class AlbumController : MonoBehaviour
         this.trig.SetActive(false);
         this.dialog_box.SetActive(false);
         this.draw.SetActive(false);
-
+        move=GameDataManager.move;
         Propos = GameDataManager.Propos;
     }
 
@@ -39,6 +40,9 @@ public class AlbumController : MonoBehaviour
             this.draw.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y,draw.transform.position.z);
             take=true;
             touched=false;
+            move=false;
+            GameDataManager.move=move;
+            Debug.Log("停止人物移動");
             Debug.Log("開始對話");
         }
         if(read==false && take==true){
@@ -58,6 +62,9 @@ public class AlbumController : MonoBehaviour
                     dialog.text = "「或許房子的男主人與女主人感情不太好？」";
                 }else if(count==4){
                     dialog.text = "";
+                    move=true;
+                    GameDataManager.move=true;
+                    Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read=true;
                 }

@@ -13,11 +13,13 @@ public class BloodController : MonoBehaviour
     bool take=false;
     bool touched=false;
     bool read=false;
+    private bool move;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         this.dialog_box.SetActive(false);
+        move=GameDataManager.move;
     }
 
     // Update is called once per frame
@@ -31,6 +33,9 @@ public class BloodController : MonoBehaviour
             this.dialog_box.transform.position=new Vector3(camera.transform.position.x,camera.transform.position.y-3,dialog_box.transform.position.z);
             take=true;
             touched=false;
+            move=false;
+            GameDataManager.move=move;
+            Debug.Log("停止人物移動");
             Debug.Log("開始對話");
         }
         if(read==false && take==true){
@@ -44,6 +49,9 @@ public class BloodController : MonoBehaviour
                 }
                 else if(count==2){
                     dialog.text = "";
+                    move=true;
+                    GameDataManager.move=true;
+                    Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read=true;
                 }

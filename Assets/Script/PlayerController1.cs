@@ -11,43 +11,54 @@ public class PlayerController1 : MonoBehaviour
     public float runspeed;
     bool menuopened=false;
     int count=0;
+    private bool move;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         menu.SetActive(false);
+        move=GameDataManager.move;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
-            transform.Translate(-runspeed*Time.deltaTime,0,0);
-            if(transform.localScale.x>0){
-            transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
-        }
-        }else if((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
-            transform.Translate(runspeed*Time.deltaTime,0,0);
-            if(transform.localScale.x<0){
-            transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
-        }
-        }else if(Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")){
-            transform.Translate(speed*Time.deltaTime,0,0);
-            if(transform.localScale.x<0){
-            transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
-        }
-        }
-        else if(Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a")){
-            transform.Translate(-speed*Time.deltaTime,0,0);
-            if(transform.localScale.x>0){
-            transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
-        }
+        move=GameDataManager.move;
+        if(move){
+            if((Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
+                transform.Translate(-runspeed*Time.deltaTime,0,0);
+                if(transform.localScale.x>0){
+                    transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+                }
+            }else if((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift)|Input.GetKey(KeyCode.RightShift))){
+                transform.Translate(runspeed*Time.deltaTime,0,0);
+                if(transform.localScale.x<0){
+                    transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+                }
+            }else if(Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")){
+                transform.Translate(speed*Time.deltaTime,0,0);
+                if(transform.localScale.x<0){
+                    transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+                }
+            }
+            else if(Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a")){
+                transform.Translate(-speed*Time.deltaTime,0,0);
+                if(transform.localScale.x>0){
+                    transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+                }
+            }
         }
         if(Input.GetKeyDown(KeyCode.Escape) && menuopened==false){
             menuopened=true;
+            move=false;
+            GameDataManager.move=move;
+            Debug.Log("停止人物移動");
             menu.SetActive(true);
         }else if(Input.GetKeyDown(KeyCode.Escape) && menuopened==true){
             menuopened=false;
+            move=true;
+            GameDataManager.move=true;
+            Debug.Log("開始人物移動");
             menu.SetActive(false);
         }
         if(count<3 && (Input.GetKeyDown(KeyCode.DownArrow) | Input.GetKeyDown("s")) && menuopened==true){

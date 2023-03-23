@@ -92,9 +92,26 @@ public class PlayerController1 : MonoBehaviour
             menuopened=true;
             move=false;
             GameDataManager.move=move;
+            count=0;
+            basemap.transform.localPosition=new Vector3(basemap.transform.localPosition.x,204,basemap.transform.localPosition.z);
             Debug.Log("停止人物移動");
             menu.SetActive(true);
         }else if(Input.GetKeyDown(KeyCode.Escape) && menuopened==true){
+            menuopened=false;
+            move=true;
+            GameDataManager.move=true;
+            Debug.Log("開始人物移動");
+            menu.SetActive(false);
+        }
+        if(Input.GetKeyDown("b") && menuopened==false){
+            menuopened=true;
+            move=false;
+            count=1;
+            basemap.transform.localPosition=new Vector3(basemap.transform.localPosition.x,104,basemap.transform.localPosition.z);
+            GameDataManager.move=move;
+            Debug.Log("停止人物移動");
+            menu.SetActive(true);
+        }else if(Input.GetKeyDown("b") && menuopened==true){
             menuopened=false;
             move=true;
             GameDataManager.move=true;

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController1 : MonoBehaviour
 {
     private Rigidbody2D rb;
     public GameObject menu;
     public GameObject basemap;
+    public GameObject rightimage;
     public float speed;
     public float runspeed;
     bool menuopened=false;
@@ -70,6 +72,19 @@ public class PlayerController1 : MonoBehaviour
             Debug.Log("按了上");
             basemap.transform.localPosition=new Vector3(basemap.transform.localPosition.x,basemap.transform.localPosition.y+100,basemap.transform.localPosition.z);
             count--;
+        }
+        if(count>1){
+            rightimage.SetActive(false);
+        }else{
+            rightimage.SetActive(true);
+        }
+        if(count==2 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return))){
+            Debug.Log("回到標題");
+            SceneManager.LoadScene("MainScene");
+        }
+        if(count==3 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return))){
+            Debug.Log("結束遊戲");
+            Application.Quit();
         }
     }
 }

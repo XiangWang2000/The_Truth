@@ -369,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 273415360}
   basemap: {fileID: 214381252}
+  rightimage: {fileID: 139640382}
   speed: 5
   runspeed: 10
 --- !u!111 &46982072

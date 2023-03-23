@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadDadFight : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class LoadDadFight : MonoBehaviour
     private int[] BtnArray = { 1, 0, 0 };
     private GameObject[] BtnCheckArray = new GameObject[3];
     private AudioSource AudioSource;
+
+    private int answer = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,36 +81,42 @@ public class LoadDadFight : MonoBehaviour
             BtnCheckArray[0] = BtnCheck1;
             BtnCheckArray[1] = BtnCheck2;
             BtnCheckArray[2] = BtnCheck3;
+            answer = 2;
         }
         else if (Y1 >= Y2 && Y1 >= Y3 && Y3 >= Y2)
         {
             BtnCheckArray[0] = BtnCheck1;
             BtnCheckArray[1] = BtnCheck3;
             BtnCheckArray[2] = BtnCheck2;
+            answer = 1;
         }
         else if (Y2 >= Y1 && Y2 >= Y3 && Y1 >= Y3)
         {
             BtnCheckArray[0] = BtnCheck2;
             BtnCheckArray[1] = BtnCheck1;
             BtnCheckArray[2] = BtnCheck3;
+            answer = 2;
         }
         else if (Y2 >= Y1 && Y2 >= Y3 && Y3 >= Y1)
         {
             BtnCheckArray[0] = BtnCheck2;
             BtnCheckArray[1] = BtnCheck3;
             BtnCheckArray[2] = BtnCheck1;
+            answer = 1;
         }
         else if (Y3 >= Y2 && Y3 >= Y1 && Y2 >= Y1)
         {
             BtnCheckArray[0] = BtnCheck3;
             BtnCheckArray[1] = BtnCheck2;
             BtnCheckArray[2] = BtnCheck1;
+            answer = 0;
         }
         else if (Y3 >= Y2 && Y3 >= Y1 && Y1 >= Y2)
         {
             BtnCheckArray[0] = BtnCheck3;
             BtnCheckArray[1] = BtnCheck1;
             BtnCheckArray[2] = BtnCheck2;
+            answer = 0;
         }
     }
 
@@ -125,7 +134,7 @@ public class LoadDadFight : MonoBehaviour
                 BtnCheckArray[2].SetActive(false);
                 BtnCheckArray[0].SetActive(false);
                 BtnCheckArray[1].SetActive(true);
-                Debug.Log("現在選擇選項2");
+                Debug.Log("現在選擇的是選項2");
             }
             else if (BtnArray[1] == 1)
             {
@@ -135,7 +144,7 @@ public class LoadDadFight : MonoBehaviour
                 BtnCheckArray[0].SetActive(false);
                 BtnCheckArray[1].SetActive(false);
                 BtnCheckArray[2].SetActive(true);
-                Debug.Log("現在選擇選項3");
+                Debug.Log("現在選擇的是選項3");
             }
             else
             {
@@ -145,7 +154,7 @@ public class LoadDadFight : MonoBehaviour
                 BtnCheckArray[1].SetActive(false);
                 BtnCheckArray[2].SetActive(false);
                 BtnCheckArray[0].SetActive(true);
-                Debug.Log("現在選擇選項1");
+                Debug.Log("現在選擇的是選項1");
             }
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -156,37 +165,44 @@ public class LoadDadFight : MonoBehaviour
                 BtnArray[1] = 0;
                 BtnArray[0] = 0;
                 BtnArray[2] = 1;
-                BtnCheckArray[2].SetActive(false);
+                BtnCheckArray[0].SetActive(false);
                 BtnCheckArray[1].SetActive(false);
-                BtnCheckArray[0].SetActive(true);
-                Debug.Log("現在選擇選項3");
+                BtnCheckArray[2].SetActive(true);
+                Debug.Log("現在選擇的是選項3");
             }
             else if (BtnArray[1] == 1)
             {
                 BtnArray[2] = 0;
                 BtnArray[1] = 0;
                 BtnArray[0] = 1;
-                BtnCheckArray[0].SetActive(false);
+                BtnCheckArray[1].SetActive(false);
                 BtnCheckArray[2].SetActive(false);
-                BtnCheckArray[1].SetActive(true);
-                Debug.Log("現在選擇選項1");
+                BtnCheckArray[0].SetActive(true);
+                Debug.Log("現在選擇的是選項1");
             }
             else
             {
                 BtnArray[0] = 0;
                 BtnArray[2] = 0;
                 BtnArray[1] = 1;
-                BtnCheckArray[1].SetActive(false);
+                BtnCheckArray[2].SetActive(false);
                 BtnCheckArray[0].SetActive(false);
-                BtnCheckArray[2].SetActive(true);
-                Debug.Log("現在選擇選項2");
+                BtnCheckArray[1].SetActive(true);
+                Debug.Log("現在選擇的是選項2");
             }
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+          Debug.Log("BtnArray[0] = "+BtnArray[0]+"BtnArray[1] = "+BtnArray[1]+"BtnArray[2] = "+BtnArray[2]);
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            // if(BtnCheckArray[]==Btn1){
-
-            // }
+            if(BtnArray[answer]==1){
+                Debug.Log("答對了");
+                SceneManager.LoadScene("DadDeadScene");
+            }else{
+                Debug.Log("答錯了");
+            }
         }
     }
 }

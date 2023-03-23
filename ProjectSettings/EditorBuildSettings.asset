@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Toilet/DadFightScene.unity
     guid: 90a4fda3c9a89584bb55b44bdd13c141
+  - enabled: 1
+    path: Assets/Scenes/Toilet/DadDeadScene.unity
+    guid: 4fc1586103afffb4d96f21b27c84cdc9
   m_configObjects: {}

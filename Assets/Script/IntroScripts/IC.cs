@@ -7,9 +7,11 @@ public class IC : MonoBehaviour
 {      
     public Animation Anim;
     public Scene scene;
+    private AudioSource ButtonAudio;
     // Start is called before the first frame update
     void Start(){
         scene = SceneManager.GetActiveScene ();
+        ButtonAudio = GetComponent<AudioSource>();
     }
     void LoadMap(string map)
     {
@@ -20,6 +22,7 @@ public class IC : MonoBehaviour
     void Update()
     {      
         if(Input.GetKeyDown(KeyCode.Space)){
+            ButtonAudio.Play(0);
             Debug.Log(scene.name);
             switch(scene.name){
                 case "Intro1":Anim.Play("O1");break;

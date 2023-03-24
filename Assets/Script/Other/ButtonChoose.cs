@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class ButtonChoose : MonoBehaviour
 
     public Animation Anim;
     // Start is called before the first frame update
+
+    private int state = 1;
     void Start()
     {
         ButtonAudio = GetComponent<AudioSource>();
@@ -23,6 +26,7 @@ public class ButtonChoose : MonoBehaviour
         StartConfirm.SetActive(true);
         ResumeConfirm.SetActive(false);
         ExitConfirm.SetActive(false);
+        state = GameDataManager.state;
     }
 
     // Update is called once per frame
@@ -53,10 +57,11 @@ public class ButtonChoose : MonoBehaviour
             if (count == 0)
             {
                 Anim.Play("O0");
+                // GameDataManager.state = 1;
             }
             else if (count == 1)
             {
-
+                Anim.Play("ToCurrent");
             }
             else
             {
@@ -64,6 +69,7 @@ public class ButtonChoose : MonoBehaviour
                 // EditorApplication.isPlaying="false";
             }
         }
+
     }
     void ShowConfirm(int No1, int No2)
     {
@@ -71,10 +77,21 @@ public class ButtonChoose : MonoBehaviour
         ConfirmArray[No2].SetActive(true);
     }
     void LoadMap()
-    {
+    {   
+        // String NextScene = "Intro1";
+        // if(state == 1){
+        //     NextScene = "FirstScene";
+        //     Debug.Log("開始遊戲");
+        // }else if(state == 2){
+        //     NextScene = "SecondScene";
+        //     Debug.Log("進入已經進行的遊戲");
+        // }else{
+        //     NextScene = "";
+        // }
         switch (count)
         {
-            case 0: Application.LoadLevel("Intro1"); break;
+            case 0: SceneManager.LoadScene("Intro1"); break;
+            case 1: SceneManager.LoadScene("FirstScene"); break;
         }
     }
 }

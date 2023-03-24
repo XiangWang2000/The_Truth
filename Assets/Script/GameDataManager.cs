@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameDataManager
 {
-    public static int state = 1; // 第幾關
+    public static int state = 0; // 第幾關
     public static bool Rope = false;
     public static bool Album = false;
     public static bool Pot = false;

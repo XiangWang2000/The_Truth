@@ -723,6 +723,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: b7a5f850c6effc44f84f3aedcb214529, type: 2}
   - {fileID: 7400000, guid: 96b4195da6c5abe4982b4665c0e60118, type: 2}
+  - {fileID: 7400000, guid: 654b149929ff7464c9171d6834f1765d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -807,6 +808,7 @@ MonoBehaviour:
   StartConfirm: {fileID: 1316451731}
   ResumeConfirm: {fileID: 1607631263}
   ExitConfirm: {fileID: 519095393}
+  ButtonAudio: {fileID: 0}
   Anim: {fileID: 1031361761}
 --- !u!82 &1031361765
 AudioSource:

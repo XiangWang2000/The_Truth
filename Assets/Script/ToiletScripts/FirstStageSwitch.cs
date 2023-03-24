@@ -7,6 +7,7 @@ public class FirstStageSwitch : MonoBehaviour
 {
     public GameObject trig;
     bool touched = false;
+    private bool move;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,8 @@ public class FirstStageSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey("w") && touched == true)
+        move = GameDataManager.move;
+        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
         {
             this.trig.SetActive(false);
             Debug.Log("進入一樓場景");

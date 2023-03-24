@@ -10,6 +10,7 @@ public class ToiletSwitch : MonoBehaviour
     bool touched = false;
     private float posx;
     private bool toilet_entered;
+    private bool move;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class ToiletSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w") && touched == true)
+        move = GameDataManager.move;
+        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
         {
             this.trig.SetActive(false);
             Debug.Log("進入廁所場景");

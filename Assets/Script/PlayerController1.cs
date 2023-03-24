@@ -14,19 +14,25 @@ public class PlayerController1 : MonoBehaviour
     public GameObject item_album;
     public GameObject item_rope;
     public GameObject item_pot;
+    public GameObject zoomin;
+    public Sprite album;
+    public Sprite rope;
+    public Sprite pot;
     public Text item_description;
     public GameObject bag;
+    public GameObject item_check;
     public float speed;
     public float runspeed;
     bool menuopened = false;
     int count = 0;
+    int item_count = 0;
     private bool move;
     private bool Album;
     private bool Rope;
     private bool Pot;
     private float posx;
     private bool toilet_entered;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +41,8 @@ public class PlayerController1 : MonoBehaviour
         item_album.SetActive(false);
         item_rope.SetActive(false);
         item_pot.SetActive(false);
+        zoomin.SetActive(false);
+        item_check.SetActive(false);
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
@@ -42,9 +50,9 @@ public class PlayerController1 : MonoBehaviour
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
         Scene scene = SceneManager.GetActiveScene();
-        if (toilet_entered == true && scene.name=="FirstScene")
+        if (toilet_entered == true && scene.name == "FirstScene")
         {
-            transform.position = new Vector3(posx,transform.position.y,transform.position.z);
+            transform.position = new Vector3(posx, transform.position.y, transform.position.z);
             Debug.Log("從廁所回來");
             toilet_entered = false;
             GameDataManager.toilet_entered = toilet_entered;
@@ -61,7 +69,10 @@ public class PlayerController1 : MonoBehaviour
         }
         menu_display();
         menu_operate();
-        item_get();
+        if (count == 1 && menuopened)
+        {
+            bag_operate();
+        }
     }
     void Player_move()
     {
@@ -112,29 +123,29 @@ public class PlayerController1 : MonoBehaviour
             basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, basemap.transform.localPosition.y + 100, basemap.transform.localPosition.z);
             count--;
         }
-        if (count > 1)
-        {
-            instruction_rightimage.SetActive(false);
-            item_rightimage.SetActive(false);
-        }
-        else if (count == 0)
+        if (count == 0)
         {
             instruction_rightimage.SetActive(true);
-            item_rightimage.SetActive(false);
             bag.SetActive(false);
+        }
+        else if (count == 1)
+        {
+            instruction_rightimage.SetActive(false);
+            bag.SetActive(true);
+            item_get();
         }
         else
         {
-            item_rightimage.SetActive(true);
             instruction_rightimage.SetActive(false);
-            item_get();
+            bag.SetActive(false);
+            item_description.text = "";
         }
         if (count == 2 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("回到標題");
             SceneManager.LoadScene("MainScene");
         }
-        if (count == 3 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
+        else if (count == 3 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("結束遊戲");
             Application.Quit();
@@ -156,7 +167,8 @@ public class PlayerController1 : MonoBehaviour
         {
             menuopened = false;
             move = true;
-            GameDataManager.move = true;
+            GameDataManager.move = move;
+            item_count = 0;
             Debug.Log("開始人物移動");
             menu.SetActive(false);
         }
@@ -168,14 +180,17 @@ public class PlayerController1 : MonoBehaviour
             basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, 104, basemap.transform.localPosition.z);
             GameDataManager.move = move;
             item_get();
+            bag_operate();
             Debug.Log("停止人物移動");
             menu.SetActive(true);
+            bag.SetActive(true);
         }
         else if (Input.GetKeyDown("b") && menuopened == true)
         {
             menuopened = false;
             move = true;
             GameDataManager.move = true;
+            item_count = 0;
             Debug.Log("開始人物移動");
             menu.SetActive(false);
         }
@@ -189,13 +204,64 @@ public class PlayerController1 : MonoBehaviour
         {
             item_album.SetActive(true);
         }
-        else if (Rope == true)
+        if (Rope == true)
         {
             item_rope.SetActive(true);
         }
-        else if (Pot == true)
+        if (Pot == true)
         {
             item_pot.SetActive(true);
+        }
+    }
+    void bag_operate()
+    {
+        if (count == 1 && menuopened == true)
+        {
+            if (item_count == 0)
+            {
+                item_check.SetActive(false);
+                zoomin.SetActive(false);
+                item_description.text = "";
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 3)
+            {
+                if (item_count == 0)
+                {
+                    item_count++;
+                }
+                else
+                {
+                    item_count++;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a") && item_count > 1)
+            {
+                item_count--;
+            }
+            if (item_count == 1 && Album == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = album;
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_description.text = "這些相片為什麼會被收到這邊呢.....?";
+            }
+            else if (item_count == 2 && Rope == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = rope;
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-100, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_description.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
+            }
+            else if (item_count == 3 && Pot == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = pot;
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(80, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";
+            }
         }
     }
 }

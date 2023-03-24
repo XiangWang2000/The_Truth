@@ -7,7 +7,7 @@ public class BloodController : MonoBehaviour
 {
     public GameObject trig;
     public GameObject dialog_box;
-    public GameObject camera;
+    public GameObject camera_position;
     public Text dialog;
     int count = 0;
     bool take = false;
@@ -25,13 +25,13 @@ public class BloodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("f") && touched == true)
+        if (Input.GetKeyDown("f") && touched == true)
         {
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);
-            // Debug.Log(camera.transform.position.y);
-            this.dialog_box.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 3, dialog_box.transform.position.z);
+            // Debug.Log(camera_position.transform.position.y);
+            this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
             take = true;
             touched = false;
             move = false;

@@ -24,6 +24,8 @@ public class PlayerController1 : MonoBehaviour
     private bool Album;
     private bool Rope;
     private bool Pot;
+    private float posx;
+    private bool toilet_entered;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,14 @@ public class PlayerController1 : MonoBehaviour
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
         move = GameDataManager.move;
+        posx = GameDataManager.posx;
+        toilet_entered = GameDataManager.toilet_entered;
+        if (toilet_entered == true)
+        {
+            transform.position = new Vector3(posx,transform.position.y,transform.position.z);
+            toilet_entered = false;
+            GameDataManager.toilet_entered = toilet_entered;
+        }
     }
 
     // Update is called once per frame

@@ -6,20 +6,28 @@ using UnityEngine.SceneManagement;
 public class ToiletSwitch : MonoBehaviour
 {
     public GameObject trig;
+    public GameObject player;
     bool touched = false;
+    private float posx;
+    private bool toilet_entered;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
+        posx = GameDataManager.posx;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey("w") && touched == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w") && touched == true)
         {
             this.trig.SetActive(false);
             Debug.Log("進入廁所場景");
+            posx = player.transform.position.x;
+            GameDataManager.posx = posx;
+            toilet_entered = true;
+            GameDataManager.toilet_entered = toilet_entered;
             SceneManager.LoadScene("ToiletScene");
         }
     }

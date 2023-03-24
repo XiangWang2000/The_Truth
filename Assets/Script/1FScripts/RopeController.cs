@@ -7,7 +7,7 @@ public class RopeController : MonoBehaviour
 {
     public GameObject trig;
     public GameObject dialog_box;
-    public GameObject camera;
+    public GameObject camera_position;
     public GameObject draw;
     public Text dialog;
     int count = 0;
@@ -35,9 +35,9 @@ public class RopeController : MonoBehaviour
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);
             this.draw.SetActive(true);
-            // Debug.Log(camera.transform.position.y);
-            this.dialog_box.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - 3, dialog_box.transform.position.z);
-            this.draw.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, draw.transform.position.z);
+            // Debug.Log(camera_position.transform.position.y);
+            this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
+            this.draw.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y, draw.transform.position.z);
             take = true;
             touched = false;
             move = false;
@@ -78,7 +78,7 @@ public class RopeController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && take == false)
+        if (other.gameObject.tag == "Player" && take == false && Rope == false)
         {
             this.trig.SetActive(true);
             Debug.Log("碰到繩子了");

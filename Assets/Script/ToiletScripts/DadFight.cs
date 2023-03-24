@@ -39,7 +39,7 @@ public class DadFight : MonoBehaviour
             if (Rope == false)
             {
                 Debug.Log("道具不夠");
-                StartCoroutine(ToDead());
+                StartCoroutine(ToItemDead());
                 Anim.Play("Dead");
                 touched = false;
             }
@@ -85,6 +85,11 @@ public class DadFight : MonoBehaviour
     IEnumerator ToDead()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("FirstScene");
+        SceneManager.LoadScene("DeadScene");
+    }
+    IEnumerator ToItemDead()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("UnenoughItem");
     }
 }

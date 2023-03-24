@@ -201,10 +201,13 @@ public class LoadDadFight : MonoBehaviour
             {
                 Debug.Log("答對了");
                 SceneManager.LoadScene("DadDeadScene");
-            }
-            else
-            {
+            }else if (BtnArray[answer]==0){
                 Debug.Log("答錯了");
+                if(BtnCheckArray[answer] == BtnCheck1){
+                    SceneManager.LoadScene("Punched");
+                }else{
+                    SceneManager.LoadScene("RopeUsed");
+                }
             }
         }
     }

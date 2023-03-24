@@ -40,7 +40,7 @@ public class DadFight : MonoBehaviour
             {
                 Debug.Log("道具不夠");
                 StartCoroutine(ToItemDead());
-                Anim.Play("Dead");
+                Anim.Play("SwitchFadeOut");
                 touched = false;
             }
             else
@@ -58,7 +58,7 @@ public class DadFight : MonoBehaviour
                 Debug.Log("沒輸F");
                 this.trig.SetActive(false);
                 StartCoroutine(ToDead());
-                Anim.Play("Dead");
+                Anim.Play("SwitchFadeOut");
             }
         }
     }

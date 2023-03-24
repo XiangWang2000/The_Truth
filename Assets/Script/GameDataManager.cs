@@ -5,7 +5,6 @@ using UnityEngine;
 public static class GameDataManager
 {
     public static int state = 1; // 第幾關
-    public static int[] Propos = new int[3]; // 跳繩/相簿/鍋子
     public static bool Rope = false;
     public static bool Album = false;
     public static bool Pot = false;
@@ -19,4 +18,6 @@ public static class GameDataManager
     //6:安撫死亡
     //7:溝通死亡
     //8:未靠近樓梯死亡
+    public static float posx = 0f;
+    public static bool toilet_entered = false;
 }

@@ -10,13 +10,13 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(" "+transform.GetComponentInChildren<CinemachineFramingTransposer>());
+        Debug.Log(" " + transform.GetComponentInChildren<CinemachineFramingTransposer>());
         transform.GetComponentInChildren<CinemachineFramingTransposer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

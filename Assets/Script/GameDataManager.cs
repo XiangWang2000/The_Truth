@@ -5,12 +5,12 @@ using UnityEngine;
 public static class GameDataManager
 {
     public static int state = 1; // 第幾關
-    public static int [] Propos = new int[3]; // 跳繩/相簿/鍋子
-    public static bool Rope=false;
-    public static bool Album=false;
-    public static bool Pot=false;
-    public static bool move=true;
-    public static int dead=0;
+    public static int[] Propos = new int[3]; // 跳繩/相簿/鍋子
+    public static bool Rope = false;
+    public static bool Album = false;
+    public static bool Pot = false;
+    public static bool move = true;
+    public static int dead = 0;
     //1:位於時間內調查鬼
     //2:道具不夠
     //3:與鬼肉搏死亡

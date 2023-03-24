@@ -14,10 +14,12 @@ public class MirrorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag=="Player"){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
             this.trig.SetActive(true);
             Debug.Log("碰到窗戶");
         }

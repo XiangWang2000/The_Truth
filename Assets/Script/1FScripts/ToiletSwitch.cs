@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ToiletSwitch : MonoBehaviour
 {
     public GameObject trig;
-    bool touched=false;
+    bool touched = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,19 +16,22 @@ public class ToiletSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.UpArrow) | Input.GetKey("w") && touched==true){
+        if (Input.GetKey(KeyCode.UpArrow) | Input.GetKey("w") && touched == true)
+        {
             this.trig.SetActive(false);
             Debug.Log("進入廁所場景");
             SceneManager.LoadScene("ToiletScene");
         }
     }
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other)
+    {
         this.trig.SetActive(true);
         Debug.Log("碰到廁所門了");
-        touched=true;
+        touched = true;
     }
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerExit2D(Collider2D other)
+    {
         this.trig.SetActive(false);
-        touched=false;
+        touched = false;
     }
 }

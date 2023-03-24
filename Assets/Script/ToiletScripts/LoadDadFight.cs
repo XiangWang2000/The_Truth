@@ -193,14 +193,17 @@ public class LoadDadFight : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-          Debug.Log("BtnArray[0] = "+BtnArray[0]+"BtnArray[1] = "+BtnArray[1]+"BtnArray[2] = "+BtnArray[2]);
+            Debug.Log("BtnArray[0] = " + BtnArray[0] + "BtnArray[1] = " + BtnArray[1] + "BtnArray[2] = " + BtnArray[2]);
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if(BtnArray[answer]==1){
+            if (BtnArray[answer] == 1)
+            {
                 Debug.Log("答對了");
                 SceneManager.LoadScene("DadDeadScene");
-            }else{
+            }
+            else
+            {
                 Debug.Log("答錯了");
             }
         }

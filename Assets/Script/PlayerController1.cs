@@ -26,6 +26,7 @@ public class PlayerController1 : MonoBehaviour
     private bool Pot;
     private float posx;
     private bool toilet_entered;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,9 +41,11 @@ public class PlayerController1 : MonoBehaviour
         move = GameDataManager.move;
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
-        if (toilet_entered == true)
+        Scene scene = SceneManager.GetActiveScene();
+        if (toilet_entered == true && scene.name=="FirstScene")
         {
             transform.position = new Vector3(posx,transform.position.y,transform.position.z);
+            Debug.Log("從廁所回來");
             toilet_entered = false;
             GameDataManager.toilet_entered = toilet_entered;
         }

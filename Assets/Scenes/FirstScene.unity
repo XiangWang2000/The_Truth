@@ -2015,7 +2015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &756054132
 Animation:
   m_ObjectHideFlags: 0
@@ -3734,6 +3734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trig: {fileID: 2087869920}
+  player: {fileID: 46982066}
 --- !u!61 &1521012510
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SecondFloorSwitch : MonoBehaviour
+public class FirstFloorSwitch : MonoBehaviour
 {
     public GameObject trig;
-    public GameObject player;
     bool touched = false;
-    private float posx;
-    private bool second_floor_entered;
     private bool move;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
-        posx = GameDataManager.posx;
     }
 
     // Update is called once per frame
@@ -24,13 +20,9 @@ public class SecondFloorSwitch : MonoBehaviour
         move = GameDataManager.move;
         if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
         {
+            Debug.Log("進入一樓場景");
             this.trig.SetActive(false);
-            Debug.Log("進入二樓場景");
-            posx = player.transform.position.x;
-            GameDataManager.posx = posx;
-            second_floor_entered = true;
-            GameDataManager.second_floor_entered = second_floor_entered;
-            SceneManager.LoadScene("SecondScene");
+            SceneManager.LoadScene("FirstScene");
         }
     }
     void OnTriggerEnter2D(Collider2D other)

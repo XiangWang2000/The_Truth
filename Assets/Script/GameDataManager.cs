@@ -20,4 +20,5 @@ public static class GameDataManager
     //8:未靠近樓梯死亡
     public static float posx = 0f;
     public static bool toilet_entered = false;
+    public static bool second_floor_entered = false;
 }

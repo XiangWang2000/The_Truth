@@ -5,10 +5,11 @@ using UnityEngine;
 public class DrawController : MonoBehaviour
 {
     bool touched = false;
+    private Animation Anim;
     // Start is called before the first frame update
     void Start()
     {
-
+        Anim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class DrawController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && touched == false)
         {
-            transform.Rotate(0, 0, -8);
+            Anim.Play("DrawMove");
             Debug.Log("撞到畫了");
             touched = true;
         }

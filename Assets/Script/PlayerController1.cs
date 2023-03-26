@@ -14,10 +14,22 @@ public class PlayerController1 : MonoBehaviour
     public GameObject item_album;
     public GameObject item_rope;
     public GameObject item_pot;
+    public GameObject item_blood_tissue;
+    public GameObject item_tissue;
+    public GameObject item_invoice;
     public GameObject zoomin;
     public Sprite album;
     public Sprite rope;
     public Sprite pot;
+    public Sprite blood_tissue;
+    public Sprite tissue;
+    public Sprite invoice;
+    public Sprite album_shadow;
+    public Sprite rope_shadow;
+    public Sprite pot_shadow;
+    public Sprite blood_tissue_shadow;
+    public Sprite tissue_shadow;
+    public Sprite invoice_shadow;
     public Text item_description;
     public GameObject bag;
     public GameObject item_check;
@@ -30,6 +42,9 @@ public class PlayerController1 : MonoBehaviour
     private bool Album;
     private bool Rope;
     private bool Pot;
+    private bool Blood_Tissue;
+    private bool Invoice;
+    private bool Tissue;
     private float posx;
     private bool toilet_entered;
     private bool second_floor_entered;
@@ -39,14 +54,14 @@ public class PlayerController1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         menu.SetActive(false);
-        item_album.SetActive(false);
-        item_rope.SetActive(false);
-        item_pot.SetActive(false);
         zoomin.SetActive(false);
         item_check.SetActive(false);
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
+        Blood_Tissue = GameDataManager.Blood_Tissue;
+        Invoice = GameDataManager.Invoice;
+        Tissue = GameDataManager.Tissue;
         move = GameDataManager.move;
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
@@ -204,17 +219,56 @@ public class PlayerController1 : MonoBehaviour
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
+        Blood_Tissue = GameDataManager.Blood_Tissue;
+        Invoice = GameDataManager.Invoice;
+        Tissue = GameDataManager.Tissue;
         if (Album == true)
         {
-            item_album.SetActive(true);
+            item_album.GetComponent<Image>().sprite = album;
+        }
+        else
+        {
+            item_album.GetComponent<Image>().sprite = album_shadow;
         }
         if (Rope == true)
         {
-            item_rope.SetActive(true);
+            item_rope.GetComponent<Image>().sprite = rope;
+        }
+        else
+        {
+            item_rope.GetComponent<Image>().sprite = rope_shadow;
         }
         if (Pot == true)
         {
-            item_pot.SetActive(true);
+            item_pot.GetComponent<Image>().sprite = pot;
+        }
+        else
+        {
+            item_pot.GetComponent<Image>().sprite = pot_shadow;
+        }
+        if (Blood_Tissue == true)
+        {
+            item_blood_tissue.GetComponent<Image>().sprite = blood_tissue;
+        }
+        else
+        {
+            item_blood_tissue.GetComponent<Image>().sprite = blood_tissue_shadow;
+        }
+        if (Invoice == true)
+        {
+            item_invoice.GetComponent<Image>().sprite = invoice;
+        }
+        else
+        {
+            item_invoice.GetComponent<Image>().sprite = invoice_shadow;
+        }
+        if (Tissue == true)
+        {
+            item_tissue.GetComponent<Image>().sprite = tissue;
+        }
+        else
+        {
+            item_tissue.GetComponent<Image>().sprite = tissue_shadow;
         }
     }
     void bag_operate()

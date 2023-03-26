@@ -8,6 +8,9 @@ public static class GameDataManager
     public static bool Rope = false;
     public static bool Album = false;
     public static bool Pot = false;
+    public static bool Blood_Tissue = false;
+    public static bool Invoice = false;
+    public static bool Tissue = false;
     public static bool move = true;
     public static int dead = 0;
     //1:位於時間內調查鬼

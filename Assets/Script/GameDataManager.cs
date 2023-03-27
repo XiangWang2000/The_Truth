@@ -11,6 +11,7 @@ public static class GameDataManager
     public static bool Blood_Tissue = false;
     public static bool Invoice = false;
     public static bool Tissue = false;
+    public static bool Draw = false;
     public static bool move = true;
     public static int dead = 0;
     //1:位於時間內調查鬼
@@ -21,7 +22,9 @@ public static class GameDataManager
     //6:安撫死亡
     //7:溝通死亡
     //8:未靠近樓梯死亡
+    public static bool dad_dead = false;
     public static float posx = 0f;
     public static bool toilet_entered = false;
     public static bool second_floor_entered = false;
+    public static int window_count = 1;
 }

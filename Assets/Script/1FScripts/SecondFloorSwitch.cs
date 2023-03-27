@@ -11,18 +11,20 @@ public class SecondFloorSwitch : MonoBehaviour
     private float posx;
     private bool second_floor_entered;
     private bool move;
+    private bool dad_dead;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         posx = GameDataManager.posx;
+        dad_dead = GameDataManager.dad_dead;
     }
 
     // Update is called once per frame
     void Update()
     {
         move = GameDataManager.move;
-        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched && move && dad_dead)
         {
             this.trig.SetActive(false);
             Debug.Log("進入二樓場景");
@@ -35,9 +37,13 @@ public class SecondFloorSwitch : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        this.trig.SetActive(true);
-        Debug.Log("碰到階梯了");
-        touched = true;
+        if (dad_dead)
+        {
+            this.trig.SetActive(true);
+            Debug.Log("碰到階梯了");
+            touched = true;
+        }
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {

@@ -2145,7 +2145,7 @@ MonoBehaviour:
   trig: {fileID: 1424231358}
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
-  Player: {fileID: 46982066}
+  Player: {fileID: 2087986972}
   dialog: {fileID: 56152726}
 --- !u!1 &559052225
 GameObject:
@@ -3063,7 +3063,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 191560282}
-  Player: {fileID: 46982066}
+  Player: {fileID: 2087986972}
   dialog: {fileID: 56152726}
 --- !u!1 &1143660406
 GameObject:
@@ -4039,7 +4039,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 04eac657e94c73545965dcd04e48664d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4261,7 +4261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trig: {fileID: 559052225}
-  player: {fileID: 46982066}
+  player: {fileID: 2087986972}
 --- !u!61 &1484068076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4417,7 +4417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trig: {fileID: 2087869920}
-  player: {fileID: 46982066}
+  player: {fileID: 2087986972}
 --- !u!61 &1521012510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4602,7 +4602,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 1671708599}
-  Player: {fileID: 46982066}
+  Player: {fileID: 2087986972}
   dialog: {fileID: 56152726}
 --- !u!1 &1763288283
 GameObject:
@@ -5206,7 +5206,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 218640338}
-  Player: {fileID: 46982066}
+  Player: {fileID: 2087986972}
   dialog: {fileID: 56152726}
 --- !u!1 &1910102162
 GameObject:
@@ -5630,8 +5630,8 @@ MonoBehaviour:
   - {fileID: 1848640620}
   - {fileID: 1865710607}
   m_Bounds:
-    m_Center: {x: 0.021903038, y: 0.004207611, z: 0}
-    m_Extent: {x: 4.5163937, y: 13.147175, z: 0}
+    m_Center: {x: 0.02191782, y: 0.0042066574, z: 0}
+    m_Extent: {x: 4.5163937, y: 13.147176, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &2087986975
@@ -5694,7 +5694,7 @@ Transform:
   m_GameObject: {fileID: 2087986972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -49.9193, y: -1.2523, z: 0}
-  m_LocalScale: {x: 0.22130468, y: 0.21409504, z: 1}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_Children:
   - {fileID: 1009583247}
   m_Father: {fileID: 126796424}

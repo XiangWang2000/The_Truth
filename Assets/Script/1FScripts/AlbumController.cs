@@ -64,15 +64,15 @@ public class AlbumController : MonoBehaviour
                 if (count == 1)
                 {
                     this.draw.SetActive(false);
-                    dialog.text = "「在大酒櫃的最下層找到了放滿相簿的紙箱。」";
+                    dialog.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。";
                 }
                 else if (count == 2)
                 {
-                    dialog.text = "「裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯」";
+                    dialog.text = "裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
                 }
                 else if (count == 3)
                 {
-                    dialog.text = "「或許房子的男主人與女主人感情不太好？」";
+                    dialog.text = "或許房子的男主人與女主人感情不太好？";
                 }
                 else if (count == 4)
                 {

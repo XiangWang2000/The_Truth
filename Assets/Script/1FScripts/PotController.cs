@@ -68,7 +68,7 @@ public class PotController : MonoBehaviour
             {
                 if (count == 1)
                 {
-                    dialog.text = "「這會是什麼重要的線索嗎？」";
+                    dialog.text = "這會是什麼重要的線索嗎？";
                 }
                 else if (count == 2)
                 {

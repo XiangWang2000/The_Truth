@@ -55,7 +55,7 @@ public class RopeController : MonoBehaviour
                 count++;
                 Rope = true;
                 GameDataManager.Rope = Rope;
-                Debug.Log("全域變數Rope值" + GameDataManager.Rope);
+                // Debug.Log("全域變數Rope值" + GameDataManager.Rope);
             }
         }
         if (read == false && take == true)
@@ -65,7 +65,7 @@ public class RopeController : MonoBehaviour
             {
                 if (count == 1)
                 {
-                    dialog.text = "「看起來只是一個普通的跳繩，不知道有什麼用途？」";
+                    dialog.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
                 }
                 else if (count == 2)
                 {

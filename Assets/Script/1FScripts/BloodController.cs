@@ -48,14 +48,14 @@ public class BloodController : MonoBehaviour
         {
             if (count == 0)
             {
-                dialog.text = "「乾掉的血跡，令人發毛⋯⋯」";
+                dialog.text = "乾掉的血跡，令人發毛⋯⋯";
                 count++;
             }
             if (Input.GetKeyDown("space"))
             {
                 if (count == 1)
                 {
-                    dialog.text = "「是有人在這裡跌倒嗎？」";
+                    dialog.text = "是有人在這裡跌倒嗎？";
                 }
                 else if (count == 2)
                 {

@@ -14,11 +14,17 @@ public class DadFight : MonoBehaviour
     int timer_i_f = 0;
 
     private bool Rope;
+
+    private int state ;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
+        state = GameDataManager.state;
+        if(state == 2){
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

@@ -9,6 +9,7 @@ public class RopeController : MonoBehaviour
     public GameObject dialog_box;
     public GameObject camera_position;
     public GameObject draw;
+    public GameObject Player;
     public Text dialog;
     int count = 0;
     bool take = false;
@@ -29,6 +30,10 @@ public class RopeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (touched)
+        {
+            trig.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 3.5f, trig.transform.position.z);
+        }
         if (Input.GetKeyDown("f") && touched == true)
         {
             Debug.Log("輸入F了");

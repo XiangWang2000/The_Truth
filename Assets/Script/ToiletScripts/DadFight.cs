@@ -7,7 +7,7 @@ public class DadFight : MonoBehaviour
 {
     public GameObject trig;
     public Animation Anim;
-
+    public GameObject Player;
     bool touched = false;
     float timer_f = 0f;
     int timer_i = 0;
@@ -31,6 +31,10 @@ public class DadFight : MonoBehaviour
         timer_f += Time.deltaTime;
         timer_i = (int)timer_f;
         // Debug.Log(timer_i);
+        if (touched)
+        {
+            trig.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 3.5f, trig.transform.position.z);
+        }
         if (Input.GetKeyDown(KeyCode.F) && touched == true)
         {
             Debug.Log("輸入F了");

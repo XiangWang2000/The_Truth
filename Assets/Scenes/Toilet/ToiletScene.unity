@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trig: {fileID: 1098313048}
   Anim: {fileID: 1004240185}
+  Player: {fileID: 774489820}
 --- !u!61 &130011726
 BoxCollider2D:
   m_ObjectHideFlags: 0

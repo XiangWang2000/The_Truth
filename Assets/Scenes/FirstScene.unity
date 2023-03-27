@@ -1473,7 +1473,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1843907434}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.03885393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.925957}
 --- !u!114 &242331442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &273415361
 Transform:
   m_ObjectHideFlags: 0
@@ -2159,6 +2159,7 @@ MonoBehaviour:
   trig: {fileID: 1424231358}
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
+  Player: {fileID: 46982066}
   dialog: {fileID: 56152726}
 --- !u!1 &559052225
 GameObject:
@@ -3121,6 +3122,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 191560282}
+  Player: {fileID: 46982066}
   dialog: {fileID: 56152726}
 --- !u!1 &1143660406
 GameObject:
@@ -4526,7 +4528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671708599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.88, y: 14.19, z: 0}
+  m_LocalPosition: {x: 3.88, y: 13.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1745825725}
@@ -4659,6 +4661,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 1671708599}
+  Player: {fileID: 46982066}
   dialog: {fileID: 56152726}
 --- !u!1 &1763288283
 GameObject:
@@ -5262,6 +5265,7 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 218640338}
+  Player: {fileID: 46982066}
   dialog: {fileID: 56152726}
 --- !u!1 &1910102162
 GameObject:

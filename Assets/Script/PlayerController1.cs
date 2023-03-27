@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PlayerController1 : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class PlayerController1 : MonoBehaviour
     private float posx;
     private bool toilet_entered;
     private bool second_floor_entered;
+    public CinemachineVirtualCamera cinemachineVirtualCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +104,8 @@ public class PlayerController1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
+            CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
         }
         else if ((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift)))
         {
@@ -110,6 +114,8 @@ public class PlayerController1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
+            CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
         }
         else if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d"))
         {
@@ -118,6 +124,8 @@ public class PlayerController1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
+            CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
         }
         else if (Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a"))
         {
@@ -126,6 +134,8 @@ public class PlayerController1 : MonoBehaviour
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
+            CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
         }
     }
     void menu_operate()

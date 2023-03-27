@@ -27,4 +27,6 @@ public static class GameDataManager
     public static bool toilet_entered = false;
     public static bool second_floor_entered = false;
     public static int window_count = 1;
+
+    public static bool MirrorBlood = false;
 }

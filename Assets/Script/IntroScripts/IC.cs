@@ -24,7 +24,7 @@ public class IC : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ButtonAudio.Play(0);
+            // ButtonAudio.Play(0);
             Debug.Log(scene.name);
             switch (scene.name)
             {

@@ -25,6 +25,8 @@ public class HandController : MonoBehaviour
         {
             Anim.Play("Hand");
             touched = true;
+            window_count++;
+            GameDataManager.window_count = window_count;
         }
     }
 }

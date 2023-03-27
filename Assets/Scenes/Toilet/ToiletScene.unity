@@ -1165,6 +1165,8 @@ MonoBehaviour:
   item_check: {fileID: 1955556576}
   speed: 5
   runspeed: 10
+  cinemachineVirtualCamera: {fileID: 514902081}
+  Animator: {fileID: 0}
 --- !u!61 &774489824
 BoxCollider2D:
   m_ObjectHideFlags: 0

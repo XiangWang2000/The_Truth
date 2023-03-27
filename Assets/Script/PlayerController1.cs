@@ -51,9 +51,12 @@ public class PlayerController1 : MonoBehaviour
     private bool second_floor_entered;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
 
+    public Animator Animator;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        Animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         menu.SetActive(false);
         zoomin.SetActive(false);
@@ -78,6 +81,9 @@ public class PlayerController1 : MonoBehaviour
             GameDataManager.toilet_entered = toilet_entered;
             GameDataManager.second_floor_entered = second_floor_entered;
         }
+        Animator.SetBool("isRun",false);
+        Animator.SetBool("isWalk",false);
+        Animator.SetBool("isIdle",true);
     }
 
     // Update is called once per frame
@@ -106,6 +112,10 @@ public class PlayerController1 : MonoBehaviour
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
+            Animator.SetBool("isRun",true);
+            Animator.SetBool("isWalk",false);
+            Animator.SetBool("isIdle",false);
+            Debug.Log("現在狀態為跑步");
         }
         else if ((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift)))
         {
@@ -116,6 +126,10 @@ public class PlayerController1 : MonoBehaviour
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
+            Animator.SetBool("isRun",true);
+            Animator.SetBool("isWalk",false);
+            Animator.SetBool("isIdle",false);
+            Debug.Log("現在狀態為跑步");
         }
         else if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d"))
         {
@@ -126,6 +140,10 @@ public class PlayerController1 : MonoBehaviour
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
+            Animator.SetBool("isRun",false);
+            Animator.SetBool("isWalk",true);
+            Animator.SetBool("isIdle",false);
+            Debug.Log("現在狀態為走路");
         }
         else if (Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a"))
         {
@@ -136,6 +154,15 @@ public class PlayerController1 : MonoBehaviour
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
+            Animator.SetBool("isRun",false);
+            Animator.SetBool("isWalk",true);
+            Animator.SetBool("isIdle",false);
+            Debug.Log("現在狀態為走路");
+        }else{
+            Animator.SetBool("isRun",false);
+            Animator.SetBool("isWalk",false);
+            Animator.SetBool("isIdle",true);
+            Debug.Log("現在狀態為站立");
         }
     }
     void menu_operate()

@@ -339,7 +339,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.GetComponent<Image>().sprite = album;
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
-                item_description.text = "這些相片為什麼會被收到這邊呢.....?";
+                item_description.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
             }
             else if (item_count == 2 && Rope == true)
             {

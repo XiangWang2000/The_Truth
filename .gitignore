@@ -59,7 +59,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Fungus
-Assets/Fungus
-Assets/FungusExamples
-Assets/Fungus.meta
-Assets/FungusExamples.meta
+# Assets/Fungus
+# Assets/FungusExamples
+# Assets/Fungus.meta
+# Assets/FungusExamples.meta

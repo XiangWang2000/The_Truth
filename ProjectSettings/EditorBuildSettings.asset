@@ -62,4 +62,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AboutDead/UnenoughItem.unity
     guid: d450cf239273ae94fad14314ebc2d031
+  - enabled: 1
+    path: Assets/Scenes/Brother/BrotherRoom.unity
+    guid: c6a180e974e603741a4e66e39fcb4ad2
+  - enabled: 1
+    path: Assets/Scenes/Brother/BrotherFight.unity
+    guid: daf9489cac2d1fb4d8a75ec2a6b80a30
+  - enabled: 1
+    path: Assets/Scenes/Brother/BrotherDeadScene.unity
+    guid: ed0502ea5f35b134bb01ed9c140f424a
+  - enabled: 1
+    path: Assets/Scenes/AboutDead/Appease.unity
+    guid: 245d1b526117f0c40aa525c987192e9e
+  - enabled: 1
+    path: Assets/Scenes/AboutDead/PotUsed.unity
+    guid: 0673a7cfe2781d5498e10cb08b763239
   m_configObjects: {}

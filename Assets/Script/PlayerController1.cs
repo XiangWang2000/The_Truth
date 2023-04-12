@@ -49,6 +49,10 @@ public class PlayerController1 : MonoBehaviour
     private float posx;
     private bool toilet_entered;
     private bool second_floor_entered;
+
+    private bool brother_room_entered ;
+    private bool parent_room_entered ;
+    private bool  grandmom_room_entered ;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
 
     public Animator Animator;
@@ -71,6 +75,9 @@ public class PlayerController1 : MonoBehaviour
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
         second_floor_entered = GameDataManager.second_floor_entered;
+        brother_room_entered = GameDataManager.brother_room_entered;
+        parent_room_entered = GameDataManager.parent_room_entered;
+        grandmom_room_entered = GameDataManager.grandmom_room_entered;
         Scene scene = SceneManager.GetActiveScene();
         if ((toilet_entered == true || second_floor_entered == true) && scene.name == "FirstScene")
         {
@@ -80,6 +87,17 @@ public class PlayerController1 : MonoBehaviour
             second_floor_entered = false;
             GameDataManager.toilet_entered = toilet_entered;
             GameDataManager.second_floor_entered = second_floor_entered;
+        }
+        if ((brother_room_entered == true || parent_room_entered == true || grandmom_room_entered == true) && scene.name == "SecondScene")
+        {
+            transform.position = new Vector3(posx, transform.position.y, transform.position.z);
+            Debug.Log("從其他場景回來");
+            brother_room_entered = false;
+            parent_room_entered = false;
+            grandmom_room_entered = false;
+            GameDataManager.brother_room_entered = brother_room_entered;
+            GameDataManager.parent_room_entered = parent_room_entered;
+            GameDataManager.grandmom_room_entered = grandmom_room_entered;
         }
         Animator.SetBool("isRun",false);
         Animator.SetBool("isWalk",false);

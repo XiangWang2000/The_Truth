@@ -16,6 +16,8 @@ public class LoadDadFight : MonoBehaviour
     private AudioSource AudioSource;
 
     private int answer = 0;
+
+    private bool dad_dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class LoadDadFight : MonoBehaviour
         BtnCheck1.SetActive(true);
         BtnCheck2.SetActive(false);
         BtnCheck3.SetActive(false);
+        dad_dead = GameDataManager.dad_dead;
     }
 
     // Update is called once per frame
@@ -91,6 +94,8 @@ public class LoadDadFight : MonoBehaviour
             if (answer == 2){
                 Debug.Log("答對了");
                 SceneManager.LoadScene("DadDeadScene");
+                dad_dead = true;
+                GameDataManager.dad_dead = dad_dead;
             }else if (answer==0){
                 Debug.Log("答錯了");
                 SceneManager.LoadScene("Punched");

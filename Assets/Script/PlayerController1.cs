@@ -18,19 +18,8 @@ public class PlayerController1 : MonoBehaviour
     public GameObject item_blood_tissue;
     public GameObject item_tissue;
     public GameObject item_invoice;
+    public GameObject item_key;
     public GameObject zoomin;
-    public Sprite album;
-    public Sprite rope;
-    public Sprite pot;
-    public Sprite blood_tissue;
-    public Sprite tissue;
-    public Sprite invoice;
-    public Sprite album_shadow;
-    public Sprite rope_shadow;
-    public Sprite pot_shadow;
-    public Sprite blood_tissue_shadow;
-    public Sprite tissue_shadow;
-    public Sprite invoice_shadow;
     public Text item_description;
     public GameObject bag;
     public GameObject item_check;
@@ -46,20 +35,20 @@ public class PlayerController1 : MonoBehaviour
     private bool Blood_Tissue;
     private bool Invoice;
     private bool Tissue;
+    private bool Key;
     private float posx;
     private bool toilet_entered;
     private bool second_floor_entered;
-
-    private bool brother_room_entered ;
-    private bool parent_room_entered ;
-    private bool  grandmom_room_entered ;
+    private bool brother_room_entered;
+    private bool parent_room_entered;
+    private bool grandmom_room_entered;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
 
     public Animator Animator;
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         Animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         menu.SetActive(false);
@@ -71,6 +60,7 @@ public class PlayerController1 : MonoBehaviour
         Blood_Tissue = GameDataManager.Blood_Tissue;
         Invoice = GameDataManager.Invoice;
         Tissue = GameDataManager.Tissue;
+        Key = GameDataManager.Key;
         move = GameDataManager.move;
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
@@ -99,9 +89,9 @@ public class PlayerController1 : MonoBehaviour
             GameDataManager.parent_room_entered = parent_room_entered;
             GameDataManager.grandmom_room_entered = grandmom_room_entered;
         }
-        Animator.SetBool("isRun",false);
-        Animator.SetBool("isWalk",false);
-        Animator.SetBool("isIdle",true);
+        Animator.SetBool("isRun", false);
+        Animator.SetBool("isWalk", false);
+        Animator.SetBool("isIdle", true);
     }
 
     // Update is called once per frame
@@ -129,11 +119,11 @@ public class PlayerController1 : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-            transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
-            Animator.SetBool("isRun",true);
-            Animator.SetBool("isWalk",false);
-            Animator.SetBool("isIdle",false);
-            Debug.Log("現在狀態為跑步");
+            transposer.m_TrackedObjectOffset = new Vector3(-5f, 1.1f, 0f);
+            Animator.SetBool("isRun", true);
+            Animator.SetBool("isWalk", false);
+            Animator.SetBool("isIdle", false);
+            // Debug.Log("現在狀態為跑步");
         }
         else if ((Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d")) & (Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift)))
         {
@@ -143,11 +133,11 @@ public class PlayerController1 : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-            transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
-            Animator.SetBool("isRun",true);
-            Animator.SetBool("isWalk",false);
-            Animator.SetBool("isIdle",false);
-            Debug.Log("現在狀態為跑步");
+            transposer.m_TrackedObjectOffset = new Vector3(5f, 1.1f, 0f);
+            Animator.SetBool("isRun", true);
+            Animator.SetBool("isWalk", false);
+            Animator.SetBool("isIdle", false);
+            // Debug.Log("現在狀態為跑步");
         }
         else if (Input.GetKey(KeyCode.RightArrow) | Input.GetKey("d"))
         {
@@ -157,11 +147,11 @@ public class PlayerController1 : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-            transposer.m_TrackedObjectOffset=new Vector3(5f,1.1f,0f);
-            Animator.SetBool("isRun",false);
-            Animator.SetBool("isWalk",true);
-            Animator.SetBool("isIdle",false);
-            Debug.Log("現在狀態為走路");
+            transposer.m_TrackedObjectOffset = new Vector3(5f, 1.1f, 0f);
+            Animator.SetBool("isRun", false);
+            Animator.SetBool("isWalk", true);
+            Animator.SetBool("isIdle", false);
+            // Debug.Log("現在狀態為走路");
         }
         else if (Input.GetKey(KeyCode.LeftArrow) | Input.GetKey("a"))
         {
@@ -171,16 +161,18 @@ public class PlayerController1 : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             }
             CinemachineFramingTransposer transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-            transposer.m_TrackedObjectOffset=new Vector3(-5f,1.1f,0f);
-            Animator.SetBool("isRun",false);
-            Animator.SetBool("isWalk",true);
-            Animator.SetBool("isIdle",false);
-            Debug.Log("現在狀態為走路");
-        }else{
-            Animator.SetBool("isRun",false);
-            Animator.SetBool("isWalk",false);
-            Animator.SetBool("isIdle",true);
-            Debug.Log("現在狀態為站立");
+            transposer.m_TrackedObjectOffset = new Vector3(-5f, 1.1f, 0f);
+            Animator.SetBool("isRun", false);
+            Animator.SetBool("isWalk", true);
+            Animator.SetBool("isIdle", false);
+            // Debug.Log("現在狀態為走路");
+        }
+        else
+        {
+            Animator.SetBool("isRun", false);
+            Animator.SetBool("isWalk", false);
+            Animator.SetBool("isIdle", true);
+            // Debug.Log("現在狀態為站立");
         }
     }
     void menu_operate()
@@ -242,6 +234,7 @@ public class PlayerController1 : MonoBehaviour
             menuopened = false;
             move = true;
             GameDataManager.move = move;
+            count = 0;
             item_count = 0;
             Debug.Log("開始人物移動");
             menu.SetActive(false);
@@ -263,6 +256,7 @@ public class PlayerController1 : MonoBehaviour
         {
             menuopened = false;
             move = true;
+            count = 0;
             GameDataManager.move = true;
             item_count = 0;
             Debug.Log("開始人物移動");
@@ -277,53 +271,65 @@ public class PlayerController1 : MonoBehaviour
         Blood_Tissue = GameDataManager.Blood_Tissue;
         Invoice = GameDataManager.Invoice;
         Tissue = GameDataManager.Tissue;
-        if (Album == true)
+        Key = GameDataManager.Key;
+        if (count == 1)
         {
-            item_album.GetComponent<Image>().sprite = album;
-        }
-        else
-        {
-            item_album.GetComponent<Image>().sprite = album_shadow;
-        }
-        if (Rope == true)
-        {
-            item_rope.GetComponent<Image>().sprite = rope;
-        }
-        else
-        {
-            item_rope.GetComponent<Image>().sprite = rope_shadow;
-        }
-        if (Pot == true)
-        {
-            item_pot.GetComponent<Image>().sprite = pot;
-        }
-        else
-        {
-            item_pot.GetComponent<Image>().sprite = pot_shadow;
-        }
-        if (Blood_Tissue == true)
-        {
-            item_blood_tissue.GetComponent<Image>().sprite = blood_tissue;
-        }
-        else
-        {
-            item_blood_tissue.GetComponent<Image>().sprite = blood_tissue_shadow;
-        }
-        if (Invoice == true)
-        {
-            item_invoice.GetComponent<Image>().sprite = invoice;
-        }
-        else
-        {
-            item_invoice.GetComponent<Image>().sprite = invoice_shadow;
-        }
-        if (Tissue == true)
-        {
-            item_tissue.GetComponent<Image>().sprite = tissue;
-        }
-        else
-        {
-            item_tissue.GetComponent<Image>().sprite = tissue_shadow;
+            if (Album == true)
+            {
+                item_album.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
+            }
+            else
+            {
+                item_album.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_塵封相簿");
+            }
+            if (Rope == true)
+            {
+                item_rope.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
+            }
+            else
+            {
+                item_rope.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_跳繩");
+            }
+            if (Pot == true)
+            {
+                item_pot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
+            }
+            else
+            {
+                item_pot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_燒焦鍋子");
+            }
+            if (Blood_Tissue == true)
+            {
+                item_blood_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/染血衛生紙");
+            }
+            else
+            {
+                item_blood_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_染血衛生紙");
+            }
+            if (Invoice == true)
+            {
+                item_invoice.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/旅館發票");
+            }
+            else
+            {
+                item_invoice.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_旅館發票");
+            }
+            if (Tissue == true)
+            {
+                item_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/衛生紙");
+            }
+            else
+            {
+                item_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_衛生紙");
+            }
+            if (Key == true)
+            {
+                item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/鑰匙");
+            }
+            else
+            {
+                item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("BAG/剪影_鑰匙");
+            }
         }
     }
     void bag_operate()
@@ -354,7 +360,7 @@ public class PlayerController1 : MonoBehaviour
             if (item_count == 1 && Album == true)
             {
                 zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = album;
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
                 item_description.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
@@ -362,7 +368,7 @@ public class PlayerController1 : MonoBehaviour
             else if (item_count == 2 && Rope == true)
             {
                 zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = rope;
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-100, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
                 item_description.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
@@ -370,7 +376,7 @@ public class PlayerController1 : MonoBehaviour
             else if (item_count == 3 && Pot == true)
             {
                 zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = pot;
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(80, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
                 item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";

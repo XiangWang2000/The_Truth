@@ -12,6 +12,7 @@ public static class GameDataManager
     public static bool Invoice = false;
     public static bool Tissue = false;
     public static bool Draw = false;
+    public static bool Key = false;
     public static bool move = true;
     public static int dead = 0;
     //1:位於時間內調查鬼
@@ -31,6 +32,5 @@ public static class GameDataManager
     public static bool parent_room_entered = false;
     public static bool grandmom_room_entered = false;
     public static int window_count = 1;
-
     public static bool MirrorBlood = false;
 }

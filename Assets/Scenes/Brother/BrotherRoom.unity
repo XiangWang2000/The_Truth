@@ -205,8 +205,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70381469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.96, y: -0.386, z: 0.5101791}
-  m_LocalScale: {x: 1.4073659, y: 0.9676, z: 1}
+  m_LocalPosition: {x: 11.0784, y: -0.588, z: 0.5102}
+  m_LocalScale: {x: 1.4390512, y: 1.0102502, z: 1.0318}
   m_Children: []
   m_Father: {fileID: 1247061852}
   m_RootOrder: 0
@@ -583,19 +583,8 @@ MonoBehaviour:
   item_blood_tissue: {fileID: 1749763202}
   item_tissue: {fileID: 82286231}
   item_invoice: {fileID: 1189509188}
+  item_key: {fileID: 0}
   zoomin: {fileID: 1832865229}
-  album: {fileID: 21300000, guid: 5c4337584b179ff48a01bcf0803778af, type: 3}
-  rope: {fileID: 21300000, guid: 9246fbf11dd5c4941bb3f5f285d0dd98, type: 3}
-  pot: {fileID: 21300000, guid: 3d541735edf143545951588cbae0892e, type: 3}
-  blood_tissue: {fileID: 21300000, guid: 7c7ec1ae406281046841e4b20b34b3e2, type: 3}
-  tissue: {fileID: 21300000, guid: cc6a81c3611ccd240ad58ceb72d0d88a, type: 3}
-  invoice: {fileID: 21300000, guid: 09f2ad48f204524489458375d82b738e, type: 3}
-  album_shadow: {fileID: 21300000, guid: 75ae3441170cc984f85ad5e5f423c6c1, type: 3}
-  rope_shadow: {fileID: 21300000, guid: c6c79737918b9a048bb0f45f6900e8c5, type: 3}
-  pot_shadow: {fileID: 21300000, guid: c8c2ccd7a9e4d7d4583ac53b11706ee9, type: 3}
-  blood_tissue_shadow: {fileID: 21300000, guid: cc3e92b424523524a86257f8312b6f6e, type: 3}
-  tissue_shadow: {fileID: 21300000, guid: 03a0e6f46471c9e4e8fdc7cc8b95db59, type: 3}
-  invoice_shadow: {fileID: 21300000, guid: 2fcde496fb037904d8522d7cdd3a2c17, type: 3}
   item_description: {fileID: 914383967}
   bag: {fileID: 1332042417}
   item_check: {fileID: 1436232910}
@@ -2039,7 +2028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978631918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.51, y: -0.5606551, z: 0.5101791}
+  m_LocalPosition: {x: 11.11, y: -0.56, z: 0.5101791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1247061852}
@@ -3786,7 +3775,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1720918777}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1

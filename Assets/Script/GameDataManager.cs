@@ -27,7 +27,6 @@ public static class GameDataManager
     public static float posx = 0f;
     public static bool toilet_entered = false;
     public static bool second_floor_entered = false;
-
     public static bool brother_room_entered = false;
     public static bool parent_room_entered = false;
     public static bool grandmom_room_entered = false;

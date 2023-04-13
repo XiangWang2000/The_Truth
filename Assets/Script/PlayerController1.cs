@@ -193,6 +193,7 @@ public class PlayerController1 : MonoBehaviour
         {
             instruction_rightimage.SetActive(true);
             bag.SetActive(false);
+            item_count = 0;
         }
         else if (count == 1)
         {
@@ -204,6 +205,7 @@ public class PlayerController1 : MonoBehaviour
         {
             instruction_rightimage.SetActive(false);
             bag.SetActive(false);
+            item_count = 0;
             item_description.text = "";
         }
         if (count == 2 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))

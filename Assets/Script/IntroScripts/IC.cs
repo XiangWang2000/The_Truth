@@ -16,7 +16,7 @@ public class IC : MonoBehaviour
     }
     void LoadMap(string map)
     {
-        Application.LoadLevel(map);
+        SceneManager.LoadScene(map);
     }
 
     // Update is called once per frame

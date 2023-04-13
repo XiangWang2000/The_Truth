@@ -418,20 +418,6 @@ MonoBehaviour:
   item_invoice: {fileID: 0}
   item_key: {fileID: 0}
   zoomin: {fileID: 0}
-  album: {fileID: 21300000, guid: 5c4337584b179ff48a01bcf0803778af, type: 3}
-  rope: {fileID: 21300000, guid: 9246fbf11dd5c4941bb3f5f285d0dd98, type: 3}
-  pot: {fileID: 21300000, guid: 3d541735edf143545951588cbae0892e, type: 3}
-  blood_tissue: {fileID: 21300000, guid: 7c7ec1ae406281046841e4b20b34b3e2, type: 3}
-  tissue: {fileID: 21300000, guid: cc6a81c3611ccd240ad58ceb72d0d88a, type: 3}
-  invoice: {fileID: 21300000, guid: 09f2ad48f204524489458375d82b738e, type: 3}
-  key: {fileID: 0}
-  album_shadow: {fileID: 21300000, guid: 75ae3441170cc984f85ad5e5f423c6c1, type: 3}
-  rope_shadow: {fileID: 21300000, guid: c6c79737918b9a048bb0f45f6900e8c5, type: 3}
-  pot_shadow: {fileID: 21300000, guid: c8c2ccd7a9e4d7d4583ac53b11706ee9, type: 3}
-  blood_tissue_shadow: {fileID: 21300000, guid: cc3e92b424523524a86257f8312b6f6e, type: 3}
-  tissue_shadow: {fileID: 21300000, guid: 03a0e6f46471c9e4e8fdc7cc8b95db59, type: 3}
-  invoice_shadow: {fileID: 21300000, guid: 2fcde496fb037904d8522d7cdd3a2c17, type: 3}
-  key_shadow: {fileID: 0}
   item_description: {fileID: 0}
   bag: {fileID: 0}
   item_check: {fileID: 0}
@@ -1548,20 +1534,6 @@ MonoBehaviour:
   item_invoice: {fileID: 1979824402}
   item_key: {fileID: 636613367}
   zoomin: {fileID: 1037586544}
-  album: {fileID: 21300000, guid: 5c4337584b179ff48a01bcf0803778af, type: 3}
-  rope: {fileID: 21300000, guid: 9246fbf11dd5c4941bb3f5f285d0dd98, type: 3}
-  pot: {fileID: 21300000, guid: 3d541735edf143545951588cbae0892e, type: 3}
-  blood_tissue: {fileID: 21300000, guid: 7c7ec1ae406281046841e4b20b34b3e2, type: 3}
-  tissue: {fileID: 21300000, guid: cc6a81c3611ccd240ad58ceb72d0d88a, type: 3}
-  invoice: {fileID: 21300000, guid: 09f2ad48f204524489458375d82b738e, type: 3}
-  key: {fileID: 21300000, guid: d7353bd93b583a746abe3a7b29d38752, type: 3}
-  album_shadow: {fileID: 21300000, guid: 75ae3441170cc984f85ad5e5f423c6c1, type: 3}
-  rope_shadow: {fileID: 21300000, guid: c6c79737918b9a048bb0f45f6900e8c5, type: 3}
-  pot_shadow: {fileID: 21300000, guid: c8c2ccd7a9e4d7d4583ac53b11706ee9, type: 3}
-  blood_tissue_shadow: {fileID: 21300000, guid: cc3e92b424523524a86257f8312b6f6e, type: 3}
-  tissue_shadow: {fileID: 21300000, guid: 03a0e6f46471c9e4e8fdc7cc8b95db59, type: 3}
-  invoice_shadow: {fileID: 21300000, guid: 2fcde496fb037904d8522d7cdd3a2c17, type: 3}
-  key_shadow: {fileID: 21300000, guid: 8599a533fedecfc4e844ae8ab0e074aa, type: 3}
   item_description: {fileID: 385212326}
   bag: {fileID: 294157310}
   item_check: {fileID: 937742447}
@@ -4438,7 +4410,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 65167580}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1

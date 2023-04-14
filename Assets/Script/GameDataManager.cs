@@ -13,6 +13,7 @@ public static class GameDataManager
     public static bool Tissue = false;
     public static bool Draw = false;
     public static bool Key = false;
+    public static bool Note = false;
     public static bool move = true;
     public static int dead = 0;
     //1:位於時間內調查鬼

@@ -38,7 +38,7 @@ public class SecondFloorFromSeondSwitch : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {   
             this.trig.SetActive(true);
-            Debug.Log("碰到階梯了");
+            Debug.Log("碰到門了");
             touched = true;
     }
     private void OnTriggerExit2D(Collider2D other)

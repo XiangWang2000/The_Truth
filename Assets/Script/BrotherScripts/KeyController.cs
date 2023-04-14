@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteController : MonoBehaviour
+public class KeyController : MonoBehaviour
 {
-    private bool Note;
+    private bool Key;
     private bool touched = false;
     private bool move;
     private GameObject trig;
@@ -12,7 +12,7 @@ public class NoteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Note = GameDataManager.Note;
+        Key = GameDataManager.Key;
         move = GameDataManager.move;
         trig = GameObject.FindGameObjectWithTag("Trig");
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -34,8 +34,8 @@ public class NoteController : MonoBehaviour
             move = false;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
-            Note = true;
-            GameDataManager.Note = Note;
+            Key = true;
+            GameDataManager.Key = Key;
         }
     }
     void OnTriggerEnter2D(Collider2D other)

@@ -94,6 +94,7 @@ public class LoadDadFight : MonoBehaviour
             if (answer == 2){
                 Debug.Log("答對了");
                 SceneManager.LoadScene("DadDeadScene");
+                GameDataManager.state = 2;
                 dad_dead = true;
                 GameDataManager.dad_dead = dad_dead;
             }else if (answer==0){

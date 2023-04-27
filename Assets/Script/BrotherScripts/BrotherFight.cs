@@ -46,7 +46,7 @@ public class BrotherFight : MonoBehaviour
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             Debug.Log("全域變數Pot值" + GameDataManager.Pot);
-            if (Rope == false)
+            if (GameDataManager.Pot == false)
             {
                 Debug.Log("道具不夠");
                 StartCoroutine(ToItemDead());
@@ -90,7 +90,7 @@ public class BrotherFight : MonoBehaviour
     IEnumerator ToFight()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("BrotherFightScene");
+        SceneManager.LoadScene("BrotherFight");
     }
     IEnumerator ToDead()
     {

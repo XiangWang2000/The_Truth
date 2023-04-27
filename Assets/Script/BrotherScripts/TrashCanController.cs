@@ -14,7 +14,7 @@ public class TrashCanController : MonoBehaviour
         move = GameDataManager.move;
         trig = GameObject.FindGameObjectWithTag("Trig");
         Player = GameObject.FindGameObjectWithTag("Player");
-        trig.SetActive(false);
+        // trig.SetActive(false);
     }
 
     // Update is called once per frame

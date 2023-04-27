@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AboutDead/PotUsed.unity
     guid: 0673a7cfe2781d5498e10cb08b763239
+  - enabled: 1
+    path: Assets/Scenes/Album.unity
+    guid: 03bec5b5349ddd04392c182125b7485c
   m_configObjects: {}

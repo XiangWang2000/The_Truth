@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AlbumController : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class AlbumController : MonoBehaviour
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read = true;
+                    SceneManager.LoadScene("Album");
                 }
                 count++;
             }

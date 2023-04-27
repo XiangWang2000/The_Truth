@@ -4985,7 +4985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.05, y: 1.39}
   m_SizeDelta: {x: 976, y: 341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1785068850
@@ -5204,7 +5204,6 @@ MonoBehaviour:
   dialog_box: {fileID: 1785068848}
   camera_position: {fileID: 65167578}
   draw: {fileID: 218640338}
-  Player: {fileID: 375850233}
   dialog: {fileID: 56152726}
 --- !u!1 &1910102162
 GameObject:

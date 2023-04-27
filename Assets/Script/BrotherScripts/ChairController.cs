@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChairController : MonoBehaviour
 {
     private bool touched = false;
     private bool move;
+    private bool read = false;
     private GameObject trig;
     private GameObject Player;
+    private GameObject dialog_box;
+    private Text dialog;
+    private GameObject camera_position;
     // Start is called before the first frame update
     void Start()
     {
         move = GameDataManager.move;
         trig = GameObject.FindGameObjectWithTag("Trig");
         Player = GameObject.FindGameObjectWithTag("Player");
+        dialog_box = GameObject.FindGameObjectWithTag("Dialog_box");
+        dialog = GameObject.FindGameObjectWithTag("Dialog").GetComponent<Text>();
+        camera_position = GameObject.FindGameObjectWithTag("MainCamera");
         // trig.SetActive(false);
     }
 
@@ -32,6 +40,22 @@ public class ChairController : MonoBehaviour
             move = false;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
+            Debug.Log("開始對話");
+            dialog_box.SetActive(true);
+            dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
+            dialog.text = "這椅子倒在這邊也太奇怪了吧...";
+            read = true;
+        }
+        if (read)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                dialog.text = "";
+                GameDataManager.move = true;
+                Debug.Log("開始人物移動");
+                dialog_box.SetActive(false);
+                read = false;
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other)

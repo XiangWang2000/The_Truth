@@ -9,6 +9,9 @@ TagManager:
   - Sound1
   - Sound2
   - Trig
+  - Dialog
+  - Dialog_box
+  - Center_Image
   layers:
   - Default
   - TransparentFX

@@ -42,6 +42,7 @@ public class PlayerController1 : MonoBehaviour
     private bool brother_room_entered;
     private bool parent_room_entered;
     private bool grandmom_room_entered;
+    private bool drama_played;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
 
     public Animator Animator;
@@ -68,15 +69,18 @@ public class PlayerController1 : MonoBehaviour
         brother_room_entered = GameDataManager.brother_room_entered;
         parent_room_entered = GameDataManager.parent_room_entered;
         grandmom_room_entered = GameDataManager.grandmom_room_entered;
+        drama_played = GameDataManager.drama_played;
         Scene scene = SceneManager.GetActiveScene();
-        if ((toilet_entered == true || second_floor_entered == true) && scene.name == "FirstScene")
+        if ((toilet_entered || second_floor_entered || drama_played) && scene.name == "FirstScene")
         {
             transform.position = new Vector3(posx, transform.position.y, transform.position.z);
             Debug.Log("從其他場景回來");
             toilet_entered = false;
             second_floor_entered = false;
+            drama_played = false;
             GameDataManager.toilet_entered = toilet_entered;
             GameDataManager.second_floor_entered = second_floor_entered;
+            GameDataManager.drama_played = drama_played;
         }
         if ((brother_room_entered == true || parent_room_entered == true || grandmom_room_entered == true) && scene.name == "SecondScene")
         {

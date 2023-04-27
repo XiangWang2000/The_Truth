@@ -10,7 +10,8 @@ public class AlbumController : MonoBehaviour
     public GameObject dialog_box;
     public GameObject camera_position;
     public GameObject draw;
-    public GameObject Player;
+    private GameObject Player;
+    private float posx;
     public Text dialog;
     int count = 0;
     bool take = false;
@@ -18,6 +19,7 @@ public class AlbumController : MonoBehaviour
     bool read = false;
     private bool move;
     private bool Album;
+    private bool drama_played;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,9 @@ public class AlbumController : MonoBehaviour
         this.draw.SetActive(false);
         move = GameDataManager.move;
         Album = GameDataManager.Album;
+        posx = GameDataManager.posx;
+        Player = GameObject.FindGameObjectWithTag("Player");
+        drama_played = GameDataManager.drama_played;
     }
 
     // Update is called once per frame
@@ -80,6 +85,10 @@ public class AlbumController : MonoBehaviour
                     dialog.text = "";
                     move = true;
                     GameDataManager.move = true;
+                    posx = Player.transform.position.x;
+                    GameDataManager.posx = posx;
+                    drama_played = true;
+                    GameDataManager.drama_played = drama_played;
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read = true;

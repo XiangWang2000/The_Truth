@@ -47,7 +47,6 @@ public class NoteController : MonoBehaviour
             Debug.Log("開始對話");
             center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_1");
             count++;
-            GameDataManager.Blood_Tissue = true;
             read = true;
         }
         if (read)

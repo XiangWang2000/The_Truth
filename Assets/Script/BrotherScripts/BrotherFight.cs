@@ -22,7 +22,7 @@ public class BrotherFight : MonoBehaviour
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state == 3){
+        if(state > 2){
             Destroy(this.gameObject);
         }
     }

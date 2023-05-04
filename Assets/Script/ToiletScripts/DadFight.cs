@@ -22,7 +22,7 @@ public class DadFight : MonoBehaviour
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state == 2){
+        if(state > 1){
             Destroy(this.gameObject);
         }
     }

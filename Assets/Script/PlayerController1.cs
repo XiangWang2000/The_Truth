@@ -30,7 +30,7 @@ public class PlayerController1 : MonoBehaviour
     bool menuopened = false;
     int count = 0;
     int item_count = 0;
-    private int note_page = 1;
+    private int note_page;
     private bool move;
     private bool Album;
     private bool Rope;
@@ -188,17 +188,20 @@ public class PlayerController1 : MonoBehaviour
     }
     void menu_operate()
     {
-        if (count < 3 && (Input.GetKeyDown(KeyCode.DownArrow) | Input.GetKeyDown("s")) && menuopened == true)
+        if (!note_show)
         {
-            Debug.Log("按了下");
-            basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, basemap.transform.localPosition.y - 100, basemap.transform.localPosition.z);
-            count++;
-        }
-        if (count > 0 && (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && menuopened == true)
-        {
-            Debug.Log("按了上");
-            basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, basemap.transform.localPosition.y + 100, basemap.transform.localPosition.z);
-            count--;
+            if (count < 3 && (Input.GetKeyDown(KeyCode.DownArrow) | Input.GetKeyDown("s")) && menuopened == true)
+            {
+                Debug.Log("按了下");
+                basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, basemap.transform.localPosition.y - 100, basemap.transform.localPosition.z);
+                count++;
+            }
+            if (count > 0 && (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && menuopened == true)
+            {
+                Debug.Log("按了上");
+                basemap.transform.localPosition = new Vector3(basemap.transform.localPosition.x, basemap.transform.localPosition.y + 100, basemap.transform.localPosition.z);
+                count--;
+            }
         }
         if (count == 0)
         {
@@ -342,7 +345,7 @@ public class PlayerController1 : MonoBehaviour
             }
             else
             {
-                item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("BAG/剪影_鑰匙");
+                item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_鑰匙");
             }
             // if (Note)
             // {
@@ -364,18 +367,11 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(false);
                 item_description.text = "";
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 8)
+            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 8 && !note_show)
             {
-                if (item_count == 0)
-                {
-                    item_count++;
-                }
-                else
-                {
-                    item_count++;
-                }
+                item_count++;
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a") && item_count > 1)
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a") && item_count > 1 && !note_show)
             {
                 item_count--;
             }
@@ -410,27 +406,39 @@ public class PlayerController1 : MonoBehaviour
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y - 143, item_check.transform.localPosition.z);
                 item_description.text = "這本日記裡面好像有寫些東西";
-                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)) && !note_show)
+                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
                 {
-                    center_image.color = new Color(1f, 1f, 1f, 1f);
-                    center_image.rectTransform.sizeDelta = new Vector2(1920f, 1080f);
-                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
-                    note_show = true;
+                    if (note_show)
+                    {
+                        center_image.color = new Color(1f, 1f, 1f, 0f);
+                        Debug.Log("關閉筆記本檢視");
+                        note_show = false;
+                    }
+                    else
+                    {
+                        center_image.color = new Color(1f, 1f, 1f, 1f);
+                        center_image.rectTransform.sizeDelta = new Vector2(1920f, 1080f);
+                        note_page = 1;
+                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                        Debug.Log("開啟筆記本檢視");
+                        Debug.Log("筆記本" + note_page);
+                        note_show = true;
+                    }
                 }
-                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)) && note_show)
+                if (note_show)
                 {
-                    center_image.color = new Color(1f, 1f, 1f, 0f);
-                    note_show = false;
-                }
-                if ((Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d")) && note_show && note_page < 4)
-                {
-                    note_page++;
-                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
-                }
-                if ((Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a")) && note_show && note_page > 1)
-                {
-                    note_page--;
-                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                    if ((Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d")) && (note_page < 4))
+                    {
+                        note_page++;
+                        Debug.Log("按下右 " + "筆記本" + note_page);
+                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a")) && (note_page > 1))
+                    {
+                        note_page--;
+                        Debug.Log("按下左 " + "筆記本" + note_page);
+                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                    }
                 }
             }
         }

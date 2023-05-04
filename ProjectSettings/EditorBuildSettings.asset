@@ -80,4 +80,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Album.unity
     guid: 03bec5b5349ddd04392c182125b7485c
+  - enabled: 1
+    path: Assets/Scenes/Parent/ParentRoom.unity
+    guid: 3a18a91915a5f00488fb740069d0bdd0
   m_configObjects: {}

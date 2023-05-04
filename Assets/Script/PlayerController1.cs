@@ -59,8 +59,15 @@ public class PlayerController1 : MonoBehaviour
         menu.SetActive(false);
         zoomin.SetActive(false);
         item_check.SetActive(false);
-        center_image = GameObject.FindGameObjectWithTag("Center_Image").GetComponent<Image>();
-        center_image.color = new Color(1f, 1f, 1f, 0f);
+        try
+        {
+            center_image = GameObject.FindGameObjectWithTag("Center_Image").GetComponent<Image>();
+            center_image.color = new Color(1f, 1f, 1f, 0f);
+        }
+        catch
+        {
+
+        }
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
@@ -89,7 +96,7 @@ public class PlayerController1 : MonoBehaviour
             GameDataManager.second_floor_entered = second_floor_entered;
             GameDataManager.drama_played = drama_played;
         }
-        if ((brother_room_entered == true || parent_room_entered == true || grandmom_room_entered == true) && scene.name == "SecondScene")
+        if ((brother_room_entered || parent_room_entered || grandmom_room_entered) && scene.name == "SecondScene")
         {
             transform.position = new Vector3(posx, transform.position.y, transform.position.z);
             Debug.Log("從其他場景回來");

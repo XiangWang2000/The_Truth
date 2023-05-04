@@ -2797,7 +2797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &1228187086
 Animation:
   m_ObjectHideFlags: 0
@@ -3319,7 +3319,7 @@ GameObject:
   - component: {fileID: 1475460624}
   - component: {fileID: 1475460623}
   m_Layer: 0
-  m_Name: "\u5F1F\u623F\u9593"
+  m_Name: "\u7236\u6BCD\u623F\u9593"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

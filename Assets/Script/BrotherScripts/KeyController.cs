@@ -50,7 +50,7 @@ public class KeyController : MonoBehaviour
             Debug.Log("開始對話");
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "這裡面衛生紙怎麼那麼多血";
+            dialog.text = "這裡怎麼會有鑰匙？哪裡的鑰匙？";
             center_image.color = new Color(1f, 1f, 1f, 1f);
             center_image.rectTransform.sizeDelta = new Vector2(300f, 300f);
             center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/鑰匙");

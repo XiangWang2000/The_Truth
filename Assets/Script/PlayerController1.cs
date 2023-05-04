@@ -19,15 +19,18 @@ public class PlayerController1 : MonoBehaviour
     public GameObject item_tissue;
     public GameObject item_invoice;
     public GameObject item_key;
+    public GameObject item_note;
     public GameObject zoomin;
     public Text item_description;
     public GameObject bag;
     public GameObject item_check;
+    private Image center_image;
     public float speed;
     public float runspeed;
     bool menuopened = false;
     int count = 0;
     int item_count = 0;
+    private int note_page = 1;
     private bool move;
     private bool Album;
     private bool Rope;
@@ -36,6 +39,8 @@ public class PlayerController1 : MonoBehaviour
     private bool Invoice;
     private bool Tissue;
     private bool Key;
+    private bool Note;
+    private bool note_show = false;
     private float posx;
     private bool toilet_entered;
     private bool second_floor_entered;
@@ -44,7 +49,6 @@ public class PlayerController1 : MonoBehaviour
     private bool grandmom_room_entered;
     private bool drama_played;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
-
     public Animator Animator;
 
     // Start is called before the first frame update
@@ -55,6 +59,8 @@ public class PlayerController1 : MonoBehaviour
         menu.SetActive(false);
         zoomin.SetActive(false);
         item_check.SetActive(false);
+        center_image = GameObject.FindGameObjectWithTag("Center_Image").GetComponent<Image>();
+        center_image.color = new Color(1f, 1f, 1f, 0f);
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
@@ -62,6 +68,7 @@ public class PlayerController1 : MonoBehaviour
         Invoice = GameDataManager.Invoice;
         Tissue = GameDataManager.Tissue;
         Key = GameDataManager.Key;
+        Note = GameDataManager.Note;
         move = GameDataManager.move;
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
@@ -278,9 +285,10 @@ public class PlayerController1 : MonoBehaviour
         Invoice = GameDataManager.Invoice;
         Tissue = GameDataManager.Tissue;
         Key = GameDataManager.Key;
+        Note = GameDataManager.Note;
         if (count == 1)
         {
-            if (Album == true)
+            if (Album)
             {
                 item_album.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
             }
@@ -288,7 +296,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_album.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_塵封相簿");
             }
-            if (Rope == true)
+            if (Rope)
             {
                 item_rope.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
             }
@@ -296,7 +304,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_rope.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_跳繩");
             }
-            if (Pot == true)
+            if (Pot)
             {
                 item_pot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
             }
@@ -304,7 +312,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_pot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_燒焦鍋子");
             }
-            if (Blood_Tissue == true)
+            if (Blood_Tissue)
             {
                 item_blood_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/染血衛生紙");
             }
@@ -312,7 +320,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_blood_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_染血衛生紙");
             }
-            if (Invoice == true)
+            if (Invoice)
             {
                 item_invoice.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/旅館發票");
             }
@@ -320,7 +328,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_invoice.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_旅館發票");
             }
-            if (Tissue == true)
+            if (Tissue)
             {
                 item_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/衛生紙");
             }
@@ -328,7 +336,7 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_tissue.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_衛生紙");
             }
-            if (Key == true)
+            if (Key)
             {
                 item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/鑰匙");
             }
@@ -336,6 +344,14 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("BAG/剪影_鑰匙");
             }
+            // if (Note)
+            // {
+            //     item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/筆記本");
+            // }
+            // else
+            // {
+            //     item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_筆記本");
+            // }
         }
     }
     void bag_operate()
@@ -348,7 +364,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(false);
                 item_description.text = "";
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 3)
+            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 8)
             {
                 if (item_count == 0)
                 {
@@ -386,6 +402,36 @@ public class PlayerController1 : MonoBehaviour
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(80, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
                 item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";
+            }
+            else if (item_count == 4 && Note == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/筆記本");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y - 143, item_check.transform.localPosition.z);
+                item_description.text = "這本日記裡面好像有寫些東西";
+                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)) && !note_show)
+                {
+                    center_image.color = new Color(1f, 1f, 1f, 1f);
+                    center_image.rectTransform.sizeDelta = new Vector2(1920f, 1080f);
+                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                    note_show = true;
+                }
+                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)) && note_show)
+                {
+                    center_image.color = new Color(1f, 1f, 1f, 0f);
+                    note_show = false;
+                }
+                if ((Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d")) && note_show && note_page < 4)
+                {
+                    note_page++;
+                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                }
+                if ((Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a")) && note_show && note_page > 1)
+                {
+                    note_page--;
+                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
+                }
             }
         }
     }

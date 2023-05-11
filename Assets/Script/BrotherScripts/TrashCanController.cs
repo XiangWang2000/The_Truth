@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TrashCanController : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class TrashCanController : MonoBehaviour
                 center_image.color = new Color(1f, 1f, 1f, 0f);
                 dialog_box.SetActive(false);
                 read = false;
+                SceneManager.LoadScene("Bloody_Tissue");
             }
         }
     }

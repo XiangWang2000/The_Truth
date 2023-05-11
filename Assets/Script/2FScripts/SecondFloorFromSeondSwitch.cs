@@ -4,20 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SecondFloorFromSeondSwitch : MonoBehaviour
-{   
-    public GameObject trig;
-    public GameObject player;
+{
+    private GameObject enter_hint;
     bool touched = false;
-    private float posx;
-    private bool second_floor_entered;
     private bool move;
 
-    public int RoomCode =  1;//1為弟弟房間,2為父母房間,3為奶奶房間
+    public int RoomCode = 1;//1為弟弟房間,2為父母房間,3為奶奶房間
     // Start is called before the first frame update
     void Start()
     {
-        this.trig.SetActive(false);
-        posx = GameDataManager.posx;
+        enter_hint = GameObject.FindGameObjectWithTag("Enter_Hint");
+        enter_hint.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,24 +23,20 @@ public class SecondFloorFromSeondSwitch : MonoBehaviour
         move = GameDataManager.move;
         if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched && move)
         {
-            this.trig.SetActive(false);
+            enter_hint.SetActive(false);
             Debug.Log("進入二樓場景");
-            // posx = player.transform.position.x;
-            // GameDataManager.posx = posx;
-            // second_floor_entered = true;
-            // GameDataManager.second_floor_entered = second_floor_entered;
             SceneManager.LoadScene("SecondScene");
         }
     }
     void OnTriggerEnter2D(Collider2D other)
-    {   
-            this.trig.SetActive(true);
-            Debug.Log("碰到門了");
-            touched = true;
+    {
+        enter_hint.SetActive(true);
+        Debug.Log("碰到門了");
+        touched = true;
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        this.trig.SetActive(false);
+        enter_hint.SetActive(false);
         touched = false;
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Dialog
   - Dialog_box
   - Center_Image
+  - Enter_Hint
   layers:
   - Default
   - TransparentFX

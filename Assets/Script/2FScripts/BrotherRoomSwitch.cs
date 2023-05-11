@@ -10,6 +10,7 @@ public class BrotherRoomSwitch : MonoBehaviour
     private float posx;
     private bool brother_room_entered;
     public GameObject player;
+    public AudioSource intotheroom;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,8 @@ public class BrotherRoomSwitch : MonoBehaviour
     {
         move = GameDataManager.move;
         if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
-        {
+        {   
+            intotheroom.Play(0);
             Debug.Log("進入弟弟房間");
             posx = player.transform.position.x;
             brother_room_entered = true;

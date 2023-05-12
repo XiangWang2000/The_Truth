@@ -84,7 +84,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Parent/ParentRoom.unity
     guid: 3a18a91915a5f00488fb740069d0bdd0
   - enabled: 1
-    path: Assets/Scenes/GrandMaRoom.unity
+    path: Assets/Scenes/GrandMa/GrandMaRoom.unity
     guid: c3098f82b6d4ff148adf5e1ed42f6c52
   - enabled: 1
     path: Assets/Scenes/Bloody_Tissue.unity

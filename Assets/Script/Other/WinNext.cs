@@ -15,6 +15,8 @@ public class WinNext : MonoBehaviour
             StartCoroutine(AfterDadDead());
         }else if (GameDataManager.state == 3){
              StartCoroutine(AfterBrotherDead());
+        }else if (GameDataManager.state == 4){
+             StartCoroutine(AfterBrotherDead());
         }
         
     }
@@ -33,5 +35,9 @@ public class WinNext : MonoBehaviour
     IEnumerator AfterBrotherDead(){
         yield return new WaitForSeconds(3);
         Anim.Play("AfterBrotherDead");
+    }
+    IEnumerator AfterGrandMaDead(){
+        yield return new WaitForSeconds(3);
+        Anim.Play("AfterGrandMaDead");
     }
 }

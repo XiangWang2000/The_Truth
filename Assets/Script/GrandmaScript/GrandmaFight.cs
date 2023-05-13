@@ -45,21 +45,10 @@ public class GrandmaFight : MonoBehaviour
         {
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            Debug.Log("全域變數Pot值" + GameDataManager.Pot);
-            if (GameDataManager.Pot == false)
-            {
-                Debug.Log("道具不夠");
-                StartCoroutine(ToItemDead());
-                Anim.Play("SwitchFadeOut");
-                touched = false;
-            }
-            else
-            {
-                StartCoroutine(ToFight());
-                Debug.Log("進入戰鬥");
-                Anim.Play("SwitchFadeOut");
-                touched = false;
-            }
+            StartCoroutine(ToFight());
+            Debug.Log("進入戰鬥");
+            Anim.Play("SwitchFadeOut");
+            touched = false;
         }
         else if (touched == true)
         {
@@ -90,16 +79,16 @@ public class GrandmaFight : MonoBehaviour
     IEnumerator ToFight()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("BrotherFight");
+        SceneManager.LoadScene("GrandMaFightIN  ");
     }
     IEnumerator ToDead()
-    {
+    {   
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("DeadScene");
     }
-    IEnumerator ToItemDead()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("UnenoughItem");
-    }
+    // IEnumerator ToItemDead()
+    // {
+    //     yield return new WaitForSeconds(2);
+    //     SceneManager.LoadScene("UnenoughItem");
+    // }
 }

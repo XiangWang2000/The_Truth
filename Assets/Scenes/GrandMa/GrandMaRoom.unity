@@ -3175,8 +3175,8 @@ GameObject:
   - component: {fileID: 1634975832}
   - component: {fileID: 1634975833}
   - component: {fileID: 1634975834}
-  - component: {fileID: 1634975835}
   - component: {fileID: 1634975836}
+  - component: {fileID: 1634975835}
   m_Layer: 0
   m_Name: "\u5976\u5976"
   m_TagString: Untagged
@@ -3191,8 +3191,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634975830}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.2014, y: -1.03, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.2014, y: -1.4, z: 0}
   m_LocalScale: {x: 0.47619167, y: 0.49063757, z: 1}
   m_Children: []
   m_Father: {fileID: 1743814599}
@@ -3259,7 +3259,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3288,7 +3288,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0479ccb1a0bae0d418229132bde29a12, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3303,12 +3303,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634975830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e22a135131aef488c28a14265c2634, type: 3}
+  m_Script: {fileID: 11500000, guid: e71218d90f1c0364389aa9c70092ef94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trig: {fileID: 0}
-  Anim: {fileID: 0}
-  Player: {fileID: 0}
+  trig: {fileID: 492512028}
+  Anim: {fileID: 2091008108}
+  Player: {fileID: 509684902}
 --- !u!114 &1634975836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3321,7 +3321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27715e3d33aa6e041806e38a3f3ddcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 2
 --- !u!1 &1671725648
 GameObject:
   m_ObjectHideFlags: 0

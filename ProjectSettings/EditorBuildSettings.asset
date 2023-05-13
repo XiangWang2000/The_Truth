@@ -89,4 +89,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bloody_Tissue.unity
     guid: 042ddaeb2df2342df91fa9459b6fdd5d
+  - enabled: 1
+    path: Assets/Scenes/GrandMa/GrandMaFightIN.unity
+    guid: 74e3fa629b54dd349bd72ccaa0a09183
+  - enabled: 1
+    path: Assets/Scenes/GrandMa/GrandMaDeadScene.unity
+    guid: b12f369f4eabd4b4c91e16a5c22b7edc
   m_configObjects: {}

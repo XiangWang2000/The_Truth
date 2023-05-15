@@ -13,6 +13,8 @@ TagManager:
   - Dialog_box
   - Center_Image
   - Enter_Hint
+  - GrandmaRoom_Item
+  - GrandmaRoom_Item1
   layers:
   - Default
   - TransparentFX

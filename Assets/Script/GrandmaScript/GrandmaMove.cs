@@ -5,6 +5,8 @@ using UnityEngine;
 public class GrandmaMove : MonoBehaviour
 {
     private GameObject Player;
+    private GameObject item1;
+    private GameObject item2;
     private bool isStartMove;
     public float Speed=1;
     private SpriteRenderer sr;
@@ -13,6 +15,8 @@ public class GrandmaMove : MonoBehaviour
     {   
         sr = GetComponent<SpriteRenderer>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        item1=GameObject.FindGameObjectWithTag("GrandmaRoom_Item");
+        item2=GameObject.FindGameObjectWithTag("GrandmaRoom_Item1");
         isStartMove = false;
     }
     void Update()
@@ -24,6 +28,8 @@ public class GrandmaMove : MonoBehaviour
         }
         //Debug.Log(this.gameObject.transform.position.x-Player.transform.position.x);
         if((this.gameObject.transform.position.x-Player.transform.position.x)<15.0f){
+            item1.SetActive(false);
+            item2.SetActive(false);
             isStartMove = true;
             Debug.Log("奶奶攻擊!");
         }

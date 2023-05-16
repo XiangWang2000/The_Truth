@@ -79,7 +79,7 @@ public class GrandmaFight : MonoBehaviour
     IEnumerator ToFight()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("GrandMaFightIN  ");
+        SceneManager.LoadScene("GrandMaFightIN");
     }
     IEnumerator ToDead()
     {   

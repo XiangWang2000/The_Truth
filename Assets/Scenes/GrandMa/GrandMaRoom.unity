@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 253898647}
   m_Layer: 0
   m_Name: "\u6AC3\u5B50"
-  m_TagString: Untagged
+  m_TagString: GrandmaRoom_Item1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2506,7 +2506,7 @@ GameObject:
   - component: {fileID: 1306428973}
   m_Layer: 0
   m_Name: "\u8863\u6AC3"
-  m_TagString: Untagged
+  m_TagString: GrandmaRoom_Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

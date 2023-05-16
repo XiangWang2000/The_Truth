@@ -966,7 +966,6 @@ MonoBehaviour:
   menu: {fileID: 1551938958}
   basemap: {fileID: 867809730}
   instruction_rightimage: {fileID: 1594505388}
-  item_rightimage: {fileID: 1590082273}
   item_album: {fileID: 849916896}
   item_rope: {fileID: 844387652}
   item_pot: {fileID: 1518736328}
@@ -982,7 +981,6 @@ MonoBehaviour:
   speed: 4
   runspeed: 6
   cinemachineVirtualCamera: {fileID: 1328015188}
-  Animator: {fileID: 0}
 --- !u!61 &481662113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4813,9 +4811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea419431ffd0cc94b82b1346c39abe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trig: {fileID: 1281700172}
-  player: {fileID: 481662109}
-  RoomCode: 1
 --- !u!61 &2068211950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5098,7 +5093,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 66f8d3b026cd8f44aaee49ce1ba1abc4, type: 3}
+    m_Font: {fileID: 12800000, guid: 2399cf34092c74bb991e26ed8ad050de, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0

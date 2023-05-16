@@ -887,7 +887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea419431ffd0cc94b82b1346c39abe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomCode: 3
 --- !u!61 &426205306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1191,7 +1190,6 @@ MonoBehaviour:
   menu: {fileID: 1799317944}
   basemap: {fileID: 556459369}
   instruction_rightimage: {fileID: 399029699}
-  item_rightimage: {fileID: 929007844}
   item_album: {fileID: 170342576}
   item_rope: {fileID: 1080546216}
   item_pot: {fileID: 515671201}
@@ -1207,7 +1205,6 @@ MonoBehaviour:
   speed: 4
   runspeed: 6
   cinemachineVirtualCamera: {fileID: 277842313}
-  Animator: {fileID: 0}
 --- !u!61 &509684905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1710,7 +1707,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 66f8d3b026cd8f44aaee49ce1ba1abc4, type: 3}
+    m_Font: {fileID: 12800000, guid: 2399cf34092c74bb991e26ed8ad050de, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -3238,7 +3235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f3a4572acc9cd8c449309112c7b89a78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f11e55a34abb3794283616611e267b64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3285,7 +3282,7 @@ Animator:
   m_GameObject: {fileID: 1634975830}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0479ccb1a0bae0d418229132bde29a12, type: 2}
+  m_Controller: {fileID: 9100000, guid: c02558b5f37806c41a19f90dcd280fb2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3309,6 +3306,8 @@ MonoBehaviour:
   trig: {fileID: 492512028}
   Anim: {fileID: 2091008108}
   Player: {fileID: 509684902}
+  A: {fileID: 0}
+  B: {fileID: 0}
 --- !u!114 &1634975836
 MonoBehaviour:
   m_ObjectHideFlags: 0

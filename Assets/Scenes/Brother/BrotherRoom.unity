@@ -341,7 +341,6 @@ MonoBehaviour:
   menu: {fileID: 2016743364}
   basemap: {fileID: 1079466566}
   instruction_rightimage: {fileID: 769560414}
-  item_rightimage: {fileID: 346619575}
   item_album: {fileID: 11352763}
   item_rope: {fileID: 534215201}
   item_pot: {fileID: 487884809}
@@ -357,7 +356,6 @@ MonoBehaviour:
   speed: 4
   runspeed: 6
   cinemachineVirtualCamera: {fileID: 1019802403}
-  Animator: {fileID: 0}
 --- !u!61 &28518982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2853,7 +2851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea419431ffd0cc94b82b1346c39abe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomCode: 1
 --- !u!1 &978631918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,7 +3336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 66f8d3b026cd8f44aaee49ce1ba1abc4, type: 3}
+    m_Font: {fileID: 12800000, guid: 2399cf34092c74bb991e26ed8ad050de, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0

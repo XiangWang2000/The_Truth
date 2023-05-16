@@ -16,7 +16,7 @@ public class WinNext : MonoBehaviour
         }else if (GameDataManager.state == 3){
              StartCoroutine(AfterBrotherDead());
         }else if (GameDataManager.state == 4){
-             StartCoroutine(AfterBrotherDead());
+             StartCoroutine(AfterGrandMaDead());
         }
         
     }

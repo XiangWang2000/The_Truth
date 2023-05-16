@@ -11,10 +11,13 @@ public class BrotherRoomSwitch : MonoBehaviour
     private bool brother_room_entered;
     public GameObject player;
     public AudioSource intotheroom;
+    private bool isinGranadmaPart;
+
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
+        this.isinGranadmaPart = GameDataManager.isinGranadmaPart;
         posx = GameDataManager.posx;
         brother_room_entered = GameDataManager.brother_room_entered;
     }
@@ -24,7 +27,7 @@ public class BrotherRoomSwitch : MonoBehaviour
     void Update()
     {
         move = GameDataManager.move;
-        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && !isinGranadmaPart)
         {   
             intotheroom.Play(0);
             Debug.Log("進入弟弟房間");
@@ -38,9 +41,14 @@ public class BrotherRoomSwitch : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        this.trig.SetActive(true);
-        Debug.Log("碰到門了");
-        touched = true;
+        if(isinGranadmaPart){
+            this.trig.SetActive(false);
+            Debug.Log("碰到弟弟房間門了，但是奶奶在追你，所以你逃不掉哈哈");
+        }else{
+            this.trig.SetActive(true);
+            Debug.Log("碰到弟弟房間門了");
+            touched = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {

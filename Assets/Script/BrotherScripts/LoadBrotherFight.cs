@@ -91,7 +91,7 @@ public class LoadBrotherFight : MonoBehaviour
             if (answer == 2){
                 Debug.Log("答對了");
                 GameDataManager.state = 3;
-                SceneManager.LoadScene("BrotherDeadScene");
+                SceneManager.LoadScene("Boy_Death");
             }else if (answer==0){
                 Debug.Log("答錯了");
                 SceneManager.LoadScene("Appease");

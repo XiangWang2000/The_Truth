@@ -35,6 +35,7 @@ public class GrandmaMove : MonoBehaviour
         }
         if(isStartMove){
             Debug.Log("奶奶開跑!");
+            GameDataManager.isinGranadmaPart = true;
             this.gameObject.transform.position = Vector3.MoveTowards
             (this.gameObject.transform.position,Player.transform.position, Speed*Time.deltaTime);
         }

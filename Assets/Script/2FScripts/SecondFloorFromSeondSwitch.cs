@@ -8,11 +8,9 @@ public class SecondFloorFromSeondSwitch : MonoBehaviour
     private GameObject enter_hint;
     bool touched = false;
     private bool move;
-
-    public int RoomCode = 1;//1為弟弟房間,2為父母房間,3為奶奶房間
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         enter_hint = GameObject.FindGameObjectWithTag("Enter_Hint");
         enter_hint.SetActive(false);
     }

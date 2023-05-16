@@ -34,4 +34,6 @@ public static class GameDataManager
     public static bool drama_played = false;
     public static int window_count = 1;
     public static bool MirrorBlood = false;
+    public static bool isinGranadmaPart = false;
+    public static bool GrandMaCanDie = false;
 }

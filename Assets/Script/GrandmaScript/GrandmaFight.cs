@@ -12,13 +12,15 @@ public class GrandmaFight : MonoBehaviour
     float timer_f = 0f;
     int timer_i = 0;
     int timer_i_f = 0;
-
     private bool Rope;
-
-    private int state ;
+    private int state;
+    private Scene scene;
+    public GameObject A;
+    public GameObject B;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        scene = SceneManager.GetActiveScene ();
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
@@ -45,10 +47,22 @@ public class GrandmaFight : MonoBehaviour
         {
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            StartCoroutine(ToFight());
-            Debug.Log("進入戰鬥");
-            Anim.Play("SwitchFadeOut");
-            touched = false;
+            if(scene.name!="SecondScene"){
+                StartCoroutine(ToFightLose());
+                Debug.Log("這是一場註定失敗的戰鬥");
+                Anim.Play("SwitchFadeOut");
+                touched = false;
+            }else{
+                StartCoroutine(ToFightWin());
+                Debug.Log("這是一場有機會勝利的戰鬥");
+                Anim.Play("SwitchFadeOut");
+                touched = false;
+            }
+            if(Player.transform.position.x>A.transform.position.x&&
+                Player.transform.position.x<B.transform.position.x){
+                GameDataManager.GrandMaCanDie = true;
+            }
+           
         }
         else if (touched == true)
         {
@@ -57,6 +71,7 @@ public class GrandmaFight : MonoBehaviour
                 Debug.Log("沒輸F");
                 this.trig.SetActive(false);
                 StartCoroutine(ToDead());
+                GameDataManager.state = 3;
                 Anim.Play("SwitchFadeOut");
             }
         }
@@ -76,19 +91,19 @@ public class GrandmaFight : MonoBehaviour
         this.trig.SetActive(false);
         touched = false;
     }
-    IEnumerator ToFight()
+    IEnumerator ToFightLose()
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("GrandMaFightIN");
+    }
+    IEnumerator ToFightWin()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GrandMaFightOUT");
     }
     IEnumerator ToDead()
     {   
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("DeadScene");
     }
-    // IEnumerator ToItemDead()
-    // {
-    //     yield return new WaitForSeconds(2);
-    //     SceneManager.LoadScene("UnenoughItem");
-    // }
 }

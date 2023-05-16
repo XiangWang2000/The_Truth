@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2399cf34092c74bb991e26ed8ad050de
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - LXGW WenKai
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7010c153a1bcf43719a0dd1b3db4e5e6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

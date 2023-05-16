@@ -95,4 +95,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GrandMa/GrandMaDeadScene.unity
     guid: b12f369f4eabd4b4c91e16a5c22b7edc
+  - enabled: 1
+    path: Assets/Scenes/AboutDead/NoStair.unity
+    guid: 8c6ea541235145f42a9e892e82772e42
+  - enabled: 1
+    path: Assets/Scenes/GrandMa/GrandMaFightOUT.unity
+    guid: 7c28d3fb08071c8448cd6b35d3b3e1bc
+  - enabled: 1
+    path: Assets/Death/Boy_Death.unity
+    guid: f996900cf857a41c1809d85bca4edf6e
+  - enabled: 1
+    path: Assets/Death/Dad_Death.unity
+    guid: e803cb5c30729419ca78e07b355e3b45
+  - enabled: 1
+    path: Assets/Death/GM_Death.unity
+    guid: a78b09b143bbe4b0bb6924b2c2e5eaa3
   m_configObjects: {}

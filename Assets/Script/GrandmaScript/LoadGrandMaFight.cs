@@ -14,11 +14,12 @@ public class LoadGrandMaFight : MonoBehaviour
     private int[] BtnArray = { 1, 0, 0 };
     private GameObject[] BtnCheckArray = new GameObject[3];
     private AudioSource AudioSource;
-
     private int answer = 0;
+    private Scene scene ;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        scene = SceneManager.GetActiveScene ();
         AudioSource = GetComponent<AudioSource>();
         BtnCheck1.SetActive(true);
         BtnCheck2.SetActive(false);
@@ -89,10 +90,17 @@ public class LoadGrandMaFight : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (answer == 2){
-                ////////////////////先當是對的
-                Debug.Log("答錯了");
-                GameDataManager.state = 4;
-                SceneManager.LoadScene("GrandMaDeadScene");
+                Debug.Log(scene.name);
+                if(!GameDataManager.GrandMaCanDie){
+                    Debug.Log("答錯了");
+                    SceneManager.LoadScene("NoStair");
+                }else{
+                    Debug.Log("答對了");
+                    GameDataManager.isinGranadmaPart = false;
+                    GameDataManager.state = 4;
+                    SceneManager.LoadScene("GM_Death");
+                }
+                
             }else if (answer==0){
                 Debug.Log("答錯了");
                 SceneManager.LoadScene("Appease");

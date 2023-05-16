@@ -409,7 +409,6 @@ MonoBehaviour:
   menu: {fileID: 0}
   basemap: {fileID: 0}
   instruction_rightimage: {fileID: 0}
-  item_rightimage: {fileID: 0}
   item_album: {fileID: 0}
   item_rope: {fileID: 0}
   item_pot: {fileID: 0}
@@ -425,7 +424,6 @@ MonoBehaviour:
   speed: 5
   runspeed: 10
   cinemachineVirtualCamera: {fileID: 1296885221}
-  Animator: {fileID: 0}
 --- !u!1 &56152724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1526,6 @@ MonoBehaviour:
   menu: {fileID: 453711175}
   basemap: {fileID: 1684798248}
   instruction_rightimage: {fileID: 1013195858}
-  item_rightimage: {fileID: 304002135}
   item_album: {fileID: 1236601511}
   item_rope: {fileID: 1994982426}
   item_pot: {fileID: 1374351750}
@@ -1544,7 +1541,6 @@ MonoBehaviour:
   speed: 4
   runspeed: 6
   cinemachineVirtualCamera: {fileID: 1296885221}
-  Animator: {fileID: 0}
 --- !u!61 &375850237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2887,7 +2883,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6547,7 +6543,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 35.520634, y: -2.608427}

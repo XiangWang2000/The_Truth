@@ -11,7 +11,6 @@ public class PlayerController1 : MonoBehaviour
     public GameObject menu;
     public GameObject basemap;
     public GameObject instruction_rightimage;
-    public GameObject item_rightimage;
     public GameObject item_album;
     public GameObject item_rope;
     public GameObject item_pot;
@@ -49,7 +48,7 @@ public class PlayerController1 : MonoBehaviour
     private bool grandmom_room_entered;
     private bool drama_played;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
-    public Animator Animator;
+    private Animator Animator;
 
     // Start is called before the first frame update
     void Start()

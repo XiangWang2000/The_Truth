@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
+using System;
 
 public class PlayerController1 : MonoBehaviour
 {
@@ -231,13 +232,46 @@ public class PlayerController1 : MonoBehaviour
         if (count == 2 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("回到標題");
+            datasave();
             SceneManager.LoadScene("MainScene");
         }
         else if (count == 3 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("結束遊戲");
+            datasave();
             Application.Quit();
         }
+    }
+    void datasave()
+    {
+        PlayerPrefs.SetInt("state", GameDataManager.state);
+        PlayerPrefs.SetInt("Rope", convert(GameDataManager.Rope));
+        PlayerPrefs.SetInt("Album", convert(GameDataManager.Album));
+        PlayerPrefs.SetInt("Pot", convert(GameDataManager.Pot));
+        PlayerPrefs.SetInt("Blood_Tissue", convert(GameDataManager.Blood_Tissue));
+        PlayerPrefs.SetInt("Invoice", convert(GameDataManager.Invoice));
+        PlayerPrefs.SetInt("Tissue", convert(GameDataManager.Tissue));
+        PlayerPrefs.SetInt("Draw", convert(GameDataManager.Draw));
+        PlayerPrefs.SetInt("Key", convert(GameDataManager.Key));
+        PlayerPrefs.SetInt("Note", convert(GameDataManager.Note));
+        PlayerPrefs.SetInt("move", convert(GameDataManager.move));
+        PlayerPrefs.SetInt("dad_dead", convert(GameDataManager.dad_dead));
+        PlayerPrefs.SetFloat("posx", GameDataManager.posx);
+        PlayerPrefs.SetInt("toilet_entered", convert(GameDataManager.toilet_entered));
+        PlayerPrefs.SetInt("second_floor_entered", convert(GameDataManager.second_floor_entered));
+        PlayerPrefs.SetInt("brother_room_entered", convert(GameDataManager.brother_room_entered));
+        PlayerPrefs.SetInt("parent_room_entered", convert(GameDataManager.parent_room_entered));
+        PlayerPrefs.SetInt("grandmom_room_entered", convert(GameDataManager.grandmom_room_entered));
+        PlayerPrefs.SetInt("drama_played", convert(GameDataManager.drama_played));
+        PlayerPrefs.SetInt("window_count", GameDataManager.window_count);
+        PlayerPrefs.SetInt("MirrorBlood", convert(GameDataManager.MirrorBlood));
+        PlayerPrefs.SetInt("isinGranadmaPart", convert(GameDataManager.isinGranadmaPart));
+        PlayerPrefs.SetInt("GrandMaCanDie", convert(GameDataManager.GrandMaCanDie));
+        PlayerPrefs.SetInt("FirstTimeGetinGrandMaRoom", convert(GameDataManager.FirstTimeGetinGrandMaRoom));
+    }
+    int convert(bool param)
+    {
+        return Convert.ToInt32(param);
     }
     void menu_display()
     {

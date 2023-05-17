@@ -62,6 +62,10 @@ public class ButtonChoose : MonoBehaviour
             else if (count == 1)
             {
                 Anim.Play("ToCurrent");
+                if (PlayerPrefs.HasKey("state"))
+                {
+                    dataload();
+                }
             }
             else
             {
@@ -69,7 +73,38 @@ public class ButtonChoose : MonoBehaviour
                 // EditorApplication.isPlaying="false";
             }
         }
-
+    }
+    void dataload()
+    {
+        GameDataManager.state = PlayerPrefs.GetInt("state");
+        GameDataManager.Rope = convert(PlayerPrefs.GetInt("Rope"));
+        GameDataManager.Album = convert(PlayerPrefs.GetInt("Album"));
+        GameDataManager.Pot = convert(PlayerPrefs.GetInt("Pot"));
+        GameDataManager.Blood_Tissue = convert(PlayerPrefs.GetInt("Blood_Tissue"));
+        GameDataManager.Invoice = convert(PlayerPrefs.GetInt("Invoice"));
+        GameDataManager.Tissue = convert(PlayerPrefs.GetInt("Tissue"));
+        GameDataManager.Draw = convert(PlayerPrefs.GetInt("Draw"));
+        GameDataManager.Key = convert(PlayerPrefs.GetInt("Key"));
+        GameDataManager.Note = convert(PlayerPrefs.GetInt("Note"));
+        GameDataManager.move = convert(PlayerPrefs.GetInt("move"));
+        GameDataManager.dad_dead = convert(PlayerPrefs.GetInt("dad_dead"));
+        GameDataManager.posx = PlayerPrefs.GetFloat("posx");
+        GameDataManager.toilet_entered = convert(PlayerPrefs.GetInt("toilet_entered"));
+        GameDataManager.second_floor_entered = convert(PlayerPrefs.GetInt("second_floor_entered"));
+        GameDataManager.brother_room_entered = convert(PlayerPrefs.GetInt("brother_room_entered"));
+        GameDataManager.parent_room_entered = convert(PlayerPrefs.GetInt("parent_room_entered"));
+        GameDataManager.grandmom_room_entered = convert(PlayerPrefs.GetInt("grandmom_room_entered"));
+        GameDataManager.drama_played = convert(PlayerPrefs.GetInt("drama_played"));
+        GameDataManager.window_count = PlayerPrefs.GetInt("window_count");
+        GameDataManager.MirrorBlood = convert(PlayerPrefs.GetInt("MirrorBlood"));
+        GameDataManager.isinGranadmaPart = convert(PlayerPrefs.GetInt("isinGranadmaPart"));
+        GameDataManager.GrandMaCanDie = convert(PlayerPrefs.GetInt("GrandMaCanDie"));
+        GameDataManager.FirstTimeGetinGrandMaRoom = convert(PlayerPrefs.GetInt("FirstTimeGetinGrandMaRoom"));
+        PlayerPrefs.DeleteAll();
+    }
+    bool convert(int tf)
+    {
+        return tf == 1;
     }
     void ShowConfirm(int No1, int No2)
     {
@@ -77,7 +112,7 @@ public class ButtonChoose : MonoBehaviour
         ConfirmArray[No2].SetActive(true);
     }
     void LoadMap()
-    {   
+    {
         // String NextScene = "Intro1";
         // if(state == 1){
         //     NextScene = "FirstScene";

@@ -244,6 +244,7 @@ public class PlayerController1 : MonoBehaviour
     }
     void datasave()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("state", GameDataManager.state);
         PlayerPrefs.SetInt("Rope", convert(GameDataManager.Rope));
         PlayerPrefs.SetInt("Album", convert(GameDataManager.Album));
@@ -268,6 +269,7 @@ public class PlayerController1 : MonoBehaviour
         PlayerPrefs.SetInt("isinGranadmaPart", convert(GameDataManager.isinGranadmaPart));
         PlayerPrefs.SetInt("GrandMaCanDie", convert(GameDataManager.GrandMaCanDie));
         PlayerPrefs.SetInt("FirstTimeGetinGrandMaRoom", convert(GameDataManager.FirstTimeGetinGrandMaRoom));
+        PlayerPrefs.SetString("SceneName", GameDataManager.SceneName);
     }
     int convert(bool param)
     {

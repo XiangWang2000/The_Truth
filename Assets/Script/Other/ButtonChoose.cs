@@ -56,6 +56,7 @@ public class ButtonChoose : MonoBehaviour
             ButtonAudio.Play(0);
             if (count == 0)
             {
+                resetdata();
                 Anim.Play("O0");
                 // GameDataManager.state = 1;
             }
@@ -66,6 +67,7 @@ public class ButtonChoose : MonoBehaviour
                 {
                     dataload();
                 }
+                SceneManager.LoadScene(GameDataManager.SceneName);
             }
             else
             {
@@ -73,6 +75,36 @@ public class ButtonChoose : MonoBehaviour
                 // EditorApplication.isPlaying="false";
             }
         }
+    }
+    void resetdata()
+    {
+        GameDataManager.state = 1; // 第幾關
+        GameDataManager.Rope = false;
+        GameDataManager.Album = false;
+        GameDataManager.Pot = false;
+        GameDataManager.Blood_Tissue = false;
+        GameDataManager.Invoice = false;
+        GameDataManager.Tissue = false;
+        GameDataManager.Draw = false;
+        GameDataManager.Key = false;
+        GameDataManager.Note = false;
+        GameDataManager.move = true;
+        GameDataManager.dead = 0;
+        GameDataManager.dad_dead = false;
+        GameDataManager.posx = 0f;
+        GameDataManager.toilet_entered = false;
+        GameDataManager.second_floor_entered = false;
+        GameDataManager.brother_room_entered = false;
+        GameDataManager.parent_room_entered = false;
+        GameDataManager.grandmom_room_entered = false;
+        GameDataManager.drama_played = false;
+        GameDataManager.window_count = 1;
+        GameDataManager.MirrorBlood = false;
+        GameDataManager.isinGranadmaPart = false;
+        GameDataManager.GrandMaCanDie = false;
+        GameDataManager.FirstTimeGetinGrandMaRoom = true;
+        GameDataManager.isFirstToSecond = true;
+        GameDataManager.SceneName = "FirstScene";
     }
     void dataload()
     {
@@ -100,6 +132,7 @@ public class ButtonChoose : MonoBehaviour
         GameDataManager.isinGranadmaPart = convert(PlayerPrefs.GetInt("isinGranadmaPart"));
         GameDataManager.GrandMaCanDie = convert(PlayerPrefs.GetInt("GrandMaCanDie"));
         GameDataManager.FirstTimeGetinGrandMaRoom = convert(PlayerPrefs.GetInt("FirstTimeGetinGrandMaRoom"));
+        GameDataManager.SceneName = PlayerPrefs.GetString("SceneName");
         PlayerPrefs.DeleteAll();
     }
     bool convert(int tf)

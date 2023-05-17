@@ -30,4 +30,5 @@ public static class GameDataManager
     public static bool GrandMaCanDie = false;
     public static bool FirstTimeGetinGrandMaRoom = true;
     public static bool isFirstToSecond = true;
+    public static string SceneName = "FirstScene";
 }

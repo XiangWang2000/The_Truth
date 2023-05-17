@@ -2017,6 +2017,9 @@ GameObject:
   - component: {fileID: 2084247344}
   - component: {fileID: 2084247343}
   - component: {fileID: 2084247335}
+  - component: {fileID: 2084247346}
+  - component: {fileID: 2084247347}
+  - component: {fileID: 2084247345}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -2037,11 +2040,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 37.21622, y: -29.121851}
+  scrollPos: {x: 39.989655, y: -152.26593}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 621
-  zoom: 0.9756902
+  blockViewHeight: 568
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2049,8 +2052,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2084247125}
-  selectedCommands: []
+  - {fileID: 2084247230}
+  selectedCommands:
+  - {fileID: 2084247345}
   variables: []
   description: 
   stepPause: 0
@@ -2102,7 +2106,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 72.13637
     y: 94.97868
-    width: 80.74747
+    width: 80
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3065,7 +3069,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 71.66127
     y: 142.33151
-    width: 80.74747
+    width: 81
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3596,7 +3600,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 71.884575
     y: 194.10756
-    width: 80.74747
+    width: 80
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4801,7 +4805,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 71.79928
     y: 343.31198
-    width: 80.74747
+    width: 82
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4878,6 +4882,7 @@ MonoBehaviour:
   - {fileID: 2084247329}
   - {fileID: 2084247182}
   - {fileID: 2084247343}
+  - {fileID: 2084247345}
   suppressAllAutoSelections: 0
 --- !u!114 &2084247231
 MonoBehaviour:
@@ -5465,7 +5470,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 75.690605
     y: 293.33417
-    width: 73.57306
+    width: 74
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6124,7 +6129,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 72.32971
     y: 243.01926
-    width: 80.74747
+    width: 81
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7749,6 +7754,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 394
   indentLevel: 0
+--- !u!114 &2084247345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084247122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 398
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2084247346}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
+--- !u!114 &2084247346
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084247122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 64.25042
+    y: 405.26593
+    width: 98
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 396
+  blockName: "\u5F1F\u5F1F\u623F\u9593"
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 2084247347}
+  suppressAllAutoSelections: 0
+--- !u!114 &2084247347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084247122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 397
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: BrotherRoom
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!1 &2145050277
 GameObject:
   m_ObjectHideFlags: 0

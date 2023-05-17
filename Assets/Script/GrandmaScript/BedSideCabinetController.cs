@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class BedSideCabinetController : MonoBehaviour
@@ -10,6 +11,7 @@ public class BedSideCabinetController : MonoBehaviour
     private bool touched = false;
     private bool move;
     private bool read = false;
+    private bool FirstTimeGetinGrandMaRoom;
     private GameObject trig;
     private GameObject Player;
     private GameObject dialog_box;
@@ -18,6 +20,13 @@ public class BedSideCabinetController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FirstTimeGetinGrandMaRoom = GameDataManager.FirstTimeGetinGrandMaRoom;
+        if (FirstTimeGetinGrandMaRoom)
+        {
+            SceneManager.LoadScene("GM_room");
+            FirstTimeGetinGrandMaRoom = false;
+            GameDataManager.FirstTimeGetinGrandMaRoom = FirstTimeGetinGrandMaRoom;
+        }
         move = GameDataManager.move;
         trig = GameObject.FindGameObjectWithTag("Trig");
         Player = GameObject.FindGameObjectWithTag("Player");

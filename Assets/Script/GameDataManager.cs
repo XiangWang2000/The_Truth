@@ -36,4 +36,5 @@ public static class GameDataManager
     public static bool MirrorBlood = false;
     public static bool isinGranadmaPart = false;
     public static bool GrandMaCanDie = false;
+    public static bool FirstTimeGetinGrandMaRoom = true;
 }

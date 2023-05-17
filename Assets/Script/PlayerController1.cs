@@ -353,14 +353,14 @@ public class PlayerController1 : MonoBehaviour
             {
                 item_key.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_鑰匙");
             }
-            // if (Note)
-            // {
-            //     item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/筆記本");
-            // }
-            // else
-            // {
-            //     item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_筆記本");
-            // }
+            if (Note)
+            {
+                item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
+            }
+            else
+            {
+                item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_日記");
+            }
         }
     }
     void bag_operate()
@@ -408,7 +408,7 @@ public class PlayerController1 : MonoBehaviour
             else if (item_count == 4 && Note == true)
             {
                 zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/筆記本");
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
                 item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y - 143, item_check.transform.localPosition.z);
                 item_description.text = "這本日記裡面好像有寫些東西";

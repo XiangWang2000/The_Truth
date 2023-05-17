@@ -2740,6 +2740,7 @@ MonoBehaviour:
   trig: {fileID: 367653390}
   player: {fileID: 286728899}
   intotheroom: {fileID: 1586951447}
+  Anim: {fileID: 204094082}
 --- !u!61 &1388430261
 BoxCollider2D:
   m_ObjectHideFlags: 0

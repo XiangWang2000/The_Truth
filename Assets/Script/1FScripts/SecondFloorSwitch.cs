@@ -12,9 +12,11 @@ public class SecondFloorSwitch : MonoBehaviour
     private bool second_floor_entered;
     private bool move;
     private bool dad_dead;
+    public Animation Anim;
+    public AudioSource Audio;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         this.trig.SetActive(false);
         posx = GameDataManager.posx;
         dad_dead = GameDataManager.dad_dead;
@@ -32,7 +34,14 @@ public class SecondFloorSwitch : MonoBehaviour
             GameDataManager.posx = posx;
             second_floor_entered = true;
             GameDataManager.second_floor_entered = second_floor_entered;
-            SceneManager.LoadScene("SecondScene");
+            if(GameDataManager.isFirstToSecond){
+                Debug.Log("第一次上二樓");
+                GameDataManager.isFirstToSecond = false;
+                StartCoroutine(FirstToSecond());
+            }else{
+                SceneManager.LoadScene("SecondScene");
+            }
+            
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -49,5 +58,11 @@ public class SecondFloorSwitch : MonoBehaviour
     {
         this.trig.SetActive(false);
         touched = false;
+    }
+    IEnumerator FirstToSecond(){
+        Audio.Play(0);
+        Anim.Play("SwitchFadeOut");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("SecondScene");
     }
 }

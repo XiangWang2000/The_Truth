@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrotherMusic : MonoBehaviour
+public class GrandMaMusic : MonoBehaviour
 {   
-    public AudioSource BrotherRoom;
-    public AudioSource Brother ;
+    public AudioSource GrandMaRoom;
+    public AudioSource GrandMa ;
     // Start is called before the first frame update
-    void Start()
-    {   
+    void Start(){
         Debug.Log("現在的階段是:"+GameDataManager.state);
-        if(GameDataManager.state == 2){
+        if(GameDataManager.state == 3){
             Debug.Log("現在的音效是:鬼場景");
-            Brother.Play(0);
+            GrandMa.Play(0);
         }else{
             Debug.Log("現在的音效是:二樓");
-            BrotherRoom.Play(0);
+            GrandMaRoom.Play(0);
         }
     }
 
@@ -25,3 +24,4 @@ public class BrotherMusic : MonoBehaviour
         
     }
 }
+

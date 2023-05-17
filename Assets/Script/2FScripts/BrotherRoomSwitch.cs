@@ -12,10 +12,11 @@ public class BrotherRoomSwitch : MonoBehaviour
     public GameObject player;
     public AudioSource intotheroom;
     private bool isinGranadmaPart;
+    public Animation Anim;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         this.trig.SetActive(false);
         this.isinGranadmaPart = GameDataManager.isinGranadmaPart;
         posx = GameDataManager.posx;
@@ -29,14 +30,14 @@ public class BrotherRoomSwitch : MonoBehaviour
         move = GameDataManager.move;
         if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && !isinGranadmaPart)
         {   
-            intotheroom.Play(0);
+            
             Debug.Log("進入弟弟房間");
             posx = player.transform.position.x;
             brother_room_entered = true;
             GameDataManager.posx = posx;
             GameDataManager.brother_room_entered = brother_room_entered;
             this.trig.SetActive(false);
-            SceneManager.LoadScene("BrotherRoom");
+            StartCoroutine(EnterBrotherRoom());
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -54,5 +55,11 @@ public class BrotherRoomSwitch : MonoBehaviour
     {
         this.trig.SetActive(false);
         touched = false;
+    }
+    IEnumerator EnterBrotherRoom(){
+        intotheroom.Play(0);
+        Anim.Play("SwitchFadeOut");
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("BrotherRoom");
     }
 }

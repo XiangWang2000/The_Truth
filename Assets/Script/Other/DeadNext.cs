@@ -23,5 +23,8 @@ public class DeadNext : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Space)&&GameDataManager.state==2){
             SceneManager.LoadScene("SecondScene");
         }
+        else if(Input.GetKeyDown(KeyCode.Space)&&GameDataManager.state==3){
+            SceneManager.LoadScene("SecondScene");
+        }
     }
 }

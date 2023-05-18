@@ -16,7 +16,11 @@ public class MainFadeout : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Anim.Play("MenuFadeout");
+            if (ButtonChoose.count != 1 || (PlayerPrefs.HasKey("state")))
+            {
+                Anim.Play("MenuFadeout");
+            }
+
         }
     }
 }

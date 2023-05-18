@@ -11,7 +11,7 @@ public class ButtonChoose : MonoBehaviour
     public GameObject ExitConfirm;
     [SerializeField] private AudioSource ButtonAudio;
     GameObject[] ConfirmArray = new GameObject[3];
-    int count = 0;
+    public static int count = 0;
 
     public Animation Anim;
     // Start is called before the first frame update
@@ -40,6 +40,7 @@ public class ButtonChoose : MonoBehaviour
                 count += 1;
                 ShowConfirm(count - 1, count);
             }
+            Debug.Log(count);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -49,8 +50,9 @@ public class ButtonChoose : MonoBehaviour
                 count -= 1;
                 ShowConfirm(count + 1, count);
             }
+            Debug.Log(count);
         }
-        Debug.Log(count);
+        
         if (Input.GetKeyDown(KeyCode.Return))
         {
             ButtonAudio.Play(0);
@@ -62,12 +64,17 @@ public class ButtonChoose : MonoBehaviour
             }
             else if (count == 1)
             {
-                Anim.Play("ToCurrent");
                 if (PlayerPrefs.HasKey("state"))
                 {
+                    Debug.Log("有紀錄");
+                    Anim.Play("ToCurrent");
                     dataload();
+                    SceneManager.LoadScene(GameDataManager.SceneName);
                 }
-                SceneManager.LoadScene(GameDataManager.SceneName);
+                else
+                {
+                    Debug.Log("未有紀錄");
+                }
             }
             else
             {
@@ -143,23 +150,5 @@ public class ButtonChoose : MonoBehaviour
     {
         ConfirmArray[No1].SetActive(false);
         ConfirmArray[No2].SetActive(true);
-    }
-    void LoadMap()
-    {
-        // String NextScene = "Intro1";
-        // if(state == 1){
-        //     NextScene = "FirstScene";
-        //     Debug.Log("開始遊戲");
-        // }else if(state == 2){
-        //     NextScene = "SecondScene";
-        //     Debug.Log("進入已經進行的遊戲");
-        // }else{
-        //     NextScene = "";
-        // }
-        switch (count)
-        {
-            case 0: SceneManager.LoadScene("Intro1"); break;
-            case 1: SceneManager.LoadScene("FirstScene"); break;
-        }
     }
 }

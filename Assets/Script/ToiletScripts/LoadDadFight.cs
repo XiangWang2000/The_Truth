@@ -30,82 +30,97 @@ public class LoadDadFight : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow) | Input.GetKeyDown("s"))
         {
             AudioSource.Play(0);
-            if(BtnArray[0]==1){
+            if (BtnArray[0] == 1)
+            {
                 BtnCheck1.SetActive(false);
                 BtnCheck2.SetActive(true);
                 BtnCheck3.SetActive(false);
-                BtnArray[0]=0;
-                BtnArray[1]=1;
-                BtnArray[2]=0;
+                BtnArray[0] = 0;
+                BtnArray[1] = 1;
+                BtnArray[2] = 0;
                 answer = 1;
-            }else if (BtnArray[1]==1){
+            }
+            else if (BtnArray[1] == 1)
+            {
                 BtnCheck1.SetActive(false);
                 BtnCheck2.SetActive(false);
                 BtnCheck3.SetActive(true);
-                BtnArray[0]=0;
-                BtnArray[1]=0;
-                BtnArray[2]=1;
+                BtnArray[0] = 0;
+                BtnArray[1] = 0;
+                BtnArray[2] = 1;
                 answer = 2;
-            }else{
+            }
+            else
+            {
                 BtnCheck1.SetActive(true);
                 BtnCheck2.SetActive(false);
                 BtnCheck3.SetActive(false);
-                BtnArray[0]=1;
-                BtnArray[1]=0;
-                BtnArray[2]=0;
+                BtnArray[0] = 1;
+                BtnArray[1] = 0;
+                BtnArray[2] = 0;
                 answer = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w"))
         {
             AudioSource.Play(0);
-            if(BtnArray[0]==1){
+            if (BtnArray[0] == 1)
+            {
                 BtnCheck1.SetActive(false);
                 BtnCheck2.SetActive(false);
                 BtnCheck3.SetActive(true);
-                BtnArray[0]=0;
-                BtnArray[1]=0;
-                BtnArray[2]=1;
+                BtnArray[0] = 0;
+                BtnArray[1] = 0;
+                BtnArray[2] = 1;
                 answer = 2;
-            }else if (BtnArray[1]==1){
+            }
+            else if (BtnArray[1] == 1)
+            {
                 BtnCheck1.SetActive(true);
                 BtnCheck2.SetActive(false);
                 BtnCheck3.SetActive(false);
-                BtnArray[0]=1;
-                BtnArray[1]=0;
-                BtnArray[2]=0;
+                BtnArray[0] = 1;
+                BtnArray[1] = 0;
+                BtnArray[2] = 0;
                 answer = 0;
-            }else{
+            }
+            else
+            {
                 BtnCheck1.SetActive(false);
                 BtnCheck2.SetActive(true);
                 BtnCheck3.SetActive(false);
-                BtnArray[0]=0;
-                BtnArray[1]=1;
-                BtnArray[2]=0;
+                BtnArray[0] = 0;
+                BtnArray[1] = 1;
+                BtnArray[2] = 0;
                 answer = 1;
             }
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (answer == 2){
+            if (answer == 2)
+            {
                 Debug.Log("答對了");
                 SceneManager.LoadScene("Dad_Death");
                 GameDataManager.state = 2;
                 dad_dead = true;
                 GameDataManager.dad_dead = dad_dead;
-            }else if (answer==0){
+            }
+            else if (answer == 0)
+            {
                 Debug.Log("答錯了");
                 SceneManager.LoadScene("Punched");
-            }else{
+            }
+            else
+            {
                 Debug.Log("答錯了");
                 SceneManager.LoadScene("RopeUsed");
             }
         }
     }
 }
-  
+
 

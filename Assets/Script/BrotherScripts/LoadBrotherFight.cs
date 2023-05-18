@@ -28,7 +28,7 @@ public class LoadBrotherFight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow)|Input.GetKeyDown("s"))
         {
             AudioSource.Play(0);
             if(BtnArray[0]==1){
@@ -57,7 +57,7 @@ public class LoadBrotherFight : MonoBehaviour
                 answer = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)|Input.GetKeyDown("w"))
         {
             AudioSource.Play(0);
             if(BtnArray[0]==1){

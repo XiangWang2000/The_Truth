@@ -671,8 +671,8 @@ MonoBehaviour:
   item_description: {fileID: 1695887728}
   bag: {fileID: 1246855092}
   item_check: {fileID: 1355690875}
-  speed: 4
-  runspeed: 6
+  speed: 3
+  runspeed: 9
   cinemachineVirtualCamera: {fileID: 671540188}
 --- !u!61 &286728903
 BoxCollider2D:
@@ -1649,7 +1649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518844019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.584972, y: -0.34999967, z: -10}
+  m_LocalPosition: {x: -18.580631, y: -0.34999967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

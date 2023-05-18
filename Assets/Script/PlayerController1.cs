@@ -323,7 +323,7 @@ public class PlayerController1 : MonoBehaviour
             menu.SetActive(true);
             bag.SetActive(true);
         }
-        else if (Input.GetKeyDown("b") && menuopened == true)
+        else if (Input.GetKeyDown("b") && menuopened == true && item_count != 4)
         {
             menuopened = false;
             move = true;
@@ -491,7 +491,7 @@ public class PlayerController1 : MonoBehaviour
                 {
                     zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
                     item_description.text = "這本日記裡面好像有寫些東西";
-                    if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
+                    if (Input.GetKeyDown("b"))
                     {
                         if (note_show)
                         {

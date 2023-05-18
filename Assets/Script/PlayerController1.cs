@@ -110,6 +110,11 @@ public class PlayerController1 : MonoBehaviour
             GameDataManager.parent_room_entered = parent_room_entered;
             GameDataManager.grandmom_room_entered = grandmom_room_entered;
         }
+        if (GameDataManager.Bloody_Tissue_drama_played && scene.name == "BrotherRoom")
+        {
+            transform.position = new Vector3(GameDataManager.Broposx, transform.position.y, transform.position.z);
+            GameDataManager.Bloody_Tissue_drama_played = false;
+        }
         if ((second_floor_entered) && scene.name == "FirstScene")
         {
             transform.position = new Vector3(Exposx, transform.position.y, transform.position.z);

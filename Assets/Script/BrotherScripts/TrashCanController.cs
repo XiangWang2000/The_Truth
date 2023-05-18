@@ -9,6 +9,7 @@ public class TrashCanController : MonoBehaviour
     private bool touched = false;
     private bool move;
     private bool read = false;
+    private float Broposx;
     private GameObject trig;
     private GameObject Player;
     private GameObject dialog_box;
@@ -63,6 +64,9 @@ public class TrashCanController : MonoBehaviour
                 center_image.color = new Color(1f, 1f, 1f, 0f);
                 dialog_box.SetActive(false);
                 read = false;
+                Broposx = Player.transform.position.x;
+                GameDataManager.Broposx = Broposx;
+                GameDataManager.Bloody_Tissue_drama_played = true;
                 SceneManager.LoadScene("Bloody_Tissue");
             }
         }

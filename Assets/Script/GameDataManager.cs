@@ -20,12 +20,14 @@ public static class GameDataManager
     public static bool dad_dead = false;
     public static float posx = 0f;
     public static float Exposx = 0f;
+    public static float Broposx = 0f;
     public static bool toilet_entered = false;
     public static bool second_floor_entered = false;
     public static bool brother_room_entered = false;
     public static bool parent_room_entered = false;
     public static bool grandmom_room_entered = false;
     public static bool drama_played = false;
+    public static bool Bloody_Tissue_drama_played = false;
     public static int window_count = 1;
     public static bool MirrorBlood = false;
     public static bool isinGranadmaPart = false;

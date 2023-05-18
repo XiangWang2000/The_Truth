@@ -7,7 +7,7 @@ public class BacktoBrotherRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameDataManager.backfromabloodytissue = true;
+        GameDataManager.backfrombloodytissue = true;
     }
 
     // Update is called once per frame

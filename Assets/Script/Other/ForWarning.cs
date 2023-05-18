@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ForWarning : MonoBehaviour
+{   
+    public Animator WarnAnimator;
+    public GameObject camera;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void change(){
+        WarnAnimator.SetBool("isWarn",false);
+        this.transform.position = new Vector3(camera.transform.position.x,camera.transform.position.y+20,
+        camera.transform.position.z); // 總之先移出畫面
+    }
+}

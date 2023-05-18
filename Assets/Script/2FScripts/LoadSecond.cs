@@ -23,6 +23,7 @@ public class LoadSecond : MonoBehaviour
     void Update()
     {
         if(isinGranadmaPart && isStartMove){
+             Debug.Log("奶奶現身");
             GrandMa.SetActive(true);
         }
         if(Player.transform.position.x > Dot1.transform.position.x ||Player.transform.position.x < Dot2.transform.position.x ){

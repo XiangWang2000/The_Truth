@@ -10,6 +10,8 @@ public class TrashCanController : MonoBehaviour
     private bool move;
     private bool read = false;
     private float Broposx;
+    private float timer = 0;
+    private int count = 0;
     private GameObject trig;
     private GameObject Player;
     private GameObject dialog_box;
@@ -68,6 +70,59 @@ public class TrashCanController : MonoBehaviour
                 GameDataManager.Broposx = Broposx;
                 GameDataManager.Bloody_Tissue_drama_played = true;
                 SceneManager.LoadScene("Bloody_Tissue");
+            }
+        }
+        if (timer < 2)
+        {
+            timer += Time.deltaTime;
+        }
+        if (GameDataManager.backfromabloodytissue && timer > 2)
+        {
+            if (count == 0)
+            {
+                dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
+                move = false;
+                GameDataManager.move = move;
+                Debug.Log("停止人物移動");
+                dialog.text = "⋯⋯⋯⋯";
+            }
+            if (Input.GetKeyDown("space"))
+            {
+                count++;
+                if (count == 1)
+                {
+                    dialog.text = "現在大概能確定了。";
+                }
+                else if (count == 2)
+                {
+                    dialog.text = "看來我看到的是這個家曾經發生的事？";
+                }
+                else if (count == 3)
+                {
+                    dialog.text = "⋯那代表第一次看到的是這個家夫妻的回憶嗎？";
+                }
+                else if (count == 4)
+                {
+                    dialog.text = "不會吧⋯所以廁所裡的是男主人嗎⋯⋯";
+                }
+                else if (count == 5)
+                {
+                    dialog.text = "⋯⋯";
+                }
+                else if (count == 6)
+                {
+                    dialog.text = "冷靜點。繼續調查吧。";
+                }
+                else if (count == 7)
+                {
+                    dialog.text = "";
+                    move = true;
+                    GameDataManager.move = move;
+                    GameDataManager.backfromalbum = false;
+                    GameDataManager.Bloody_Tissue_drama_played = false;
+                    Debug.Log("開始人物移動");
+                    dialog_box.SetActive(false);
+                }
             }
         }
     }

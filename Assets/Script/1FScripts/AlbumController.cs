@@ -12,6 +12,7 @@ public class AlbumController : MonoBehaviour
     public GameObject draw;
     private GameObject Player;
     private float posx;
+    private float timer = 0;
     public Text dialog;
     private int count = 0;
     private bool take = false;
@@ -91,7 +92,11 @@ public class AlbumController : MonoBehaviour
                 }
             }
         }
-        if (GameDataManager.backfromalbum)
+        if (timer < 2)
+        {
+            timer += Time.deltaTime;
+        }
+        if (GameDataManager.backfromalbum && timer > 2)
         {
             if (count == 0)
             {

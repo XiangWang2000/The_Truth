@@ -29,6 +29,7 @@ public static class GameDataManager
     public static bool drama_played = false;
     public static bool backfromalbum = false;
     public static bool Bloody_Tissue_drama_played = false;
+    public static bool backfromabloodytissue = false;
     public static int window_count = 1;
     public static bool MirrorBlood = false;
     public static bool isinGranadmaPart = false;

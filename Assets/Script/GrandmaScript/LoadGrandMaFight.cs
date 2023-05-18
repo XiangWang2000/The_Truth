@@ -92,6 +92,7 @@ public class LoadGrandMaFight : MonoBehaviour
             if (answer == 2){
                 Debug.Log(scene.name);
                 if(!GameDataManager.GrandMaCanDie){
+                    GameDataManager.isinGranadmaPart = false;
                     Debug.Log("答錯了");
                     SceneManager.LoadScene("NoStair");
                 }else{
@@ -103,9 +104,11 @@ public class LoadGrandMaFight : MonoBehaviour
                 
             }else if (answer==0){
                 Debug.Log("答錯了");
+                GameDataManager.isinGranadmaPart = false;
                 SceneManager.LoadScene("Appease");
             }else{
                 Debug.Log("答錯了");
+                GameDataManager.isinGranadmaPart = false;
                 SceneManager.LoadScene("PotUsed");
             }
         }

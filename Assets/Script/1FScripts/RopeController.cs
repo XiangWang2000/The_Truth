@@ -49,14 +49,9 @@ public class RopeController : MonoBehaviour
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
-            if (count == 0)
-            {
-                dialog.text = "獲得道具「跳繩」：";
-                count++;
-                Rope = true;
-                GameDataManager.Rope = Rope;
-                // Debug.Log("全域變數Rope值" + GameDataManager.Rope);
-            }
+            count++;
+            Rope = true;
+            GameDataManager.Rope = Rope;
         }
         if (read == false && take == true)
         {

@@ -55,13 +55,9 @@ public class AlbumController : MonoBehaviour
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
-            if (count == 0)
-            {
-                dialog.text = "獲得道具「一箱相簿」：";
-                count++;
-                Album = true;
-                GameDataManager.Album = Album;
-            }
+            count++;
+            Album = true;
+            GameDataManager.Album = Album;
         }
         if (read == false && take == true)
         {
@@ -69,7 +65,6 @@ public class AlbumController : MonoBehaviour
             {
                 if (count == 1)
                 {
-                    this.draw.SetActive(false);
                     dialog.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。";
                 }
                 else if (count == 2)

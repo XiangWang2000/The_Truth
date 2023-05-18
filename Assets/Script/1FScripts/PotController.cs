@@ -54,16 +54,12 @@ public class PotController : MonoBehaviour
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            Pot = true;
+            GameDataManager.Pot = Pot;
+            count++;
         }
         if (read == false && take == true)
         {
-            if (count == 0)
-            {
-                Pot = true;
-                GameDataManager.Pot = Pot;
-                dialog.text = "獲得道具「燒焦的鍋子」：";
-                count++;
-            }
             if (Input.GetKeyDown("space"))
             {
                 if (count == 1)

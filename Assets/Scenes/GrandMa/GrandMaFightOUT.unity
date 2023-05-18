@@ -1106,8 +1106,8 @@ MonoBehaviour:
   item_description: {fileID: 0}
   bag: {fileID: 0}
   item_check: {fileID: 0}
-  speed: 4
-  runspeed: 6
+  speed: 3
+  runspeed: 9
   cinemachineVirtualCamera: {fileID: 0}
 --- !u!61 &847681830
 BoxCollider2D:

@@ -13,6 +13,7 @@ public class NoteController : MonoBehaviour
     private GameObject trig;
     private GameObject Player;
     private Image center_image;
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,15 +56,17 @@ public class NoteController : MonoBehaviour
             {
                 count++;
                 if (count == 2)
-                {
+                {   
+                    audio.Play(0);
                     center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_2");
                 }
                 else if (count == 3)
-                {
-                    center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_3");
+                {   
+                    audio.Play(0);
+                    center_image.sprite =   Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_3");
                 }
                 else if (count == 4)
-                {
+                {   
                     center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_4");
                     GameDataManager.move = true;
                     center_image.color = new Color(1f, 1f, 1f, 0f);

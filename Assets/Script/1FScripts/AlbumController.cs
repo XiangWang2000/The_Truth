@@ -61,7 +61,7 @@ public class AlbumController : MonoBehaviour
             Album = true;
             GameDataManager.Album = Album;
         }
-        if (read && take == true)
+        if (read && take)
         {
             if (Input.GetKeyDown("space"))
             {
@@ -87,10 +87,50 @@ public class AlbumController : MonoBehaviour
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read = false;
-                    SceneManager.LoadScene("Album");
+                    StartCoroutine(DelayFunc());
                 }
             }
         }
+        if (drama_played)
+        {
+            this.dialog_box.SetActive(true);
+            this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
+            move = false;
+            GameDataManager.move = move;
+            Debug.Log("停止人物移動");
+            dialog.text = "⋯⋯";
+            if (Input.GetKeyDown("space"))
+            {
+                count++;
+                if (count == 5)
+                {
+                    dialog.text = "？？？";
+                }
+                else if (count == 6)
+                {
+                    dialog.text = "什麼鬼⋯⋯";
+                }
+                else if (count == 7)
+                {
+                    dialog.text = "剛剛是什麼畫面？是誰的記憶？？";
+                }
+                else if (count == 8)
+                {
+                    dialog.text = "";
+                    move = true;
+                    GameDataManager.move = move;
+                    drama_played = false;
+                    GameDataManager.drama_played = drama_played;
+                    Debug.Log("開始人物移動");
+                    this.dialog_box.SetActive(false);
+                }
+            }
+        }
+    }
+    IEnumerator DelayFunc()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Album");
     }
     void OnTriggerEnter2D(Collider2D other)
     {

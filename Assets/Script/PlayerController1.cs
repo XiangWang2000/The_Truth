@@ -44,6 +44,7 @@ public class PlayerController1 : MonoBehaviour
     private bool Insurance;
     private bool note_show = false;
     private float posx;
+    private float Exposx;
     private bool toilet_entered;
     private bool second_floor_entered;
     private bool brother_room_entered;
@@ -81,6 +82,7 @@ public class PlayerController1 : MonoBehaviour
         Insurance = GameDataManager.Insurance;
         move = GameDataManager.move;
         posx = GameDataManager.posx;
+        Exposx = GameDataManager.Exposx;
         toilet_entered = GameDataManager.toilet_entered;
         second_floor_entered = GameDataManager.second_floor_entered;
         brother_room_entered = GameDataManager.brother_room_entered;
@@ -88,27 +90,32 @@ public class PlayerController1 : MonoBehaviour
         grandmom_room_entered = GameDataManager.grandmom_room_entered;
         drama_played = GameDataManager.drama_played;
         Scene scene = SceneManager.GetActiveScene();
-        if ((toilet_entered || second_floor_entered || drama_played) && scene.name == "FirstScene")
+        if ((toilet_entered || drama_played) && scene.name == "FirstScene")
         {
             transform.position = new Vector3(posx, transform.position.y, transform.position.z);
-            Debug.Log("從其他場景回來");
+            Debug.Log("從其他場景回來(同樓層)");
             toilet_entered = false;
-            second_floor_entered = false;
             drama_played = false;
             GameDataManager.toilet_entered = toilet_entered;
-            GameDataManager.second_floor_entered = second_floor_entered;
             GameDataManager.drama_played = drama_played;
         }
         if ((brother_room_entered || parent_room_entered || grandmom_room_entered) && scene.name == "SecondScene")
         {
             transform.position = new Vector3(posx, transform.position.y, transform.position.z);
-            Debug.Log("從其他場景回來");
+            Debug.Log("從其他場景回來(同樓層)");
             brother_room_entered = false;
             parent_room_entered = false;
             grandmom_room_entered = false;
             GameDataManager.brother_room_entered = brother_room_entered;
             GameDataManager.parent_room_entered = parent_room_entered;
             GameDataManager.grandmom_room_entered = grandmom_room_entered;
+        }
+        if ((second_floor_entered ) && scene.name == "FirstScene")
+        {
+            transform.position = new Vector3(Exposx, transform.position.y, transform.position.z);
+            Debug.Log("從二樓回一樓");
+            second_floor_entered = false;
+            GameDataManager.second_floor_entered = second_floor_entered;
         }
         Animator.SetBool("isRun", false);
         Animator.SetBool("isWalk", false);

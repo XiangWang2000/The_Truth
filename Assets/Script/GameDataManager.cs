@@ -19,6 +19,7 @@ public static class GameDataManager
     public static int dead = 0;
     public static bool dad_dead = false;
     public static float posx = 0f;
+    public static float Exposx = 0f;
     public static bool toilet_entered = false;
     public static bool second_floor_entered = false;
     public static bool brother_room_entered = false;

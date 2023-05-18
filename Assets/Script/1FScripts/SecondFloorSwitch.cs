@@ -8,7 +8,7 @@ public class SecondFloorSwitch : MonoBehaviour
     public GameObject trig;
     public GameObject player;
     bool touched = false;
-    private float posx;
+    private float Exposx;
     private bool second_floor_entered;
     private bool move;
     private bool dad_dead;
@@ -18,7 +18,7 @@ public class SecondFloorSwitch : MonoBehaviour
     void Start()
     {   
         this.trig.SetActive(false);
-        posx = GameDataManager.posx;
+        Exposx = GameDataManager.Exposx;
         dad_dead = GameDataManager.dad_dead;
     }
 
@@ -30,8 +30,8 @@ public class SecondFloorSwitch : MonoBehaviour
         {
             this.trig.SetActive(false);
             Debug.Log("進入二樓場景");
-            posx = player.transform.position.x;
-            GameDataManager.posx = posx;
+            Exposx = player.transform.position.x;
+            GameDataManager.Exposx = Exposx;
             second_floor_entered = true;
             GameDataManager.second_floor_entered = second_floor_entered;
             if(GameDataManager.isFirstToSecond){

@@ -61,7 +61,8 @@ public class TissueController : MonoBehaviour
         if (read)
         {
             if (Input.GetKeyDown("space"))
-            {
+            {   
+                audio.Pause();
                 dialog.text = "";
                 GameDataManager.move = true;
                 Debug.Log("開始人物移動");

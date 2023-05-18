@@ -27,6 +27,7 @@ public static class GameDataManager
     public static bool parent_room_entered = false;
     public static bool grandmom_room_entered = false;
     public static bool drama_played = false;
+    public static bool backfromalbum = false;
     public static bool Bloody_Tissue_drama_played = false;
     public static int window_count = 1;
     public static bool MirrorBlood = false;

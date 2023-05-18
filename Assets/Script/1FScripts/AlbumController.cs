@@ -87,50 +87,49 @@ public class AlbumController : MonoBehaviour
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                     read = false;
-                    StartCoroutine(DelayFunc());
+                    SceneManager.LoadScene("Album");
                 }
             }
         }
-        if (drama_played)
+        if (GameDataManager.backfromalbum)
         {
-            this.dialog_box.SetActive(true);
-            this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            move = false;
-            GameDataManager.move = move;
-            Debug.Log("停止人物移動");
-            dialog.text = "⋯⋯";
+            if (count == 0)
+            {
+                this.dialog_box.SetActive(true);
+                this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
+                move = false;
+                GameDataManager.move = move;
+                Debug.Log("停止人物移動");
+                dialog.text = "⋯⋯";
+            }
             if (Input.GetKeyDown("space"))
             {
                 count++;
-                if (count == 5)
+                if (count == 1)
                 {
                     dialog.text = "？？？";
                 }
-                else if (count == 6)
+                else if (count == 2)
                 {
                     dialog.text = "什麼鬼⋯⋯";
                 }
-                else if (count == 7)
+                else if (count == 3)
                 {
                     dialog.text = "剛剛是什麼畫面？是誰的記憶？？";
                 }
-                else if (count == 8)
+                else if (count == 4)
                 {
                     dialog.text = "";
                     move = true;
                     GameDataManager.move = move;
                     drama_played = false;
+                    GameDataManager.backfromalbum = false;
                     GameDataManager.drama_played = drama_played;
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
                 }
             }
         }
-    }
-    IEnumerator DelayFunc()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Album");
     }
     void OnTriggerEnter2D(Collider2D other)
     {

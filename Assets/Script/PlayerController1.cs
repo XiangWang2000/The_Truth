@@ -235,12 +235,14 @@ public class PlayerController1 : MonoBehaviour
         if (count == 2 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("回到標題");
+            GameDataManager.move = true;
             datasave();
             SceneManager.LoadScene("MainScene");
         }
         else if (count == 3 && (Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
         {
             Debug.Log("結束遊戲");
+            GameDataManager.move = true;
             datasave();
             Application.Quit();
         }

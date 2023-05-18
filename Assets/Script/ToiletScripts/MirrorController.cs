@@ -19,7 +19,7 @@ public class MirrorController : MonoBehaviour
         {   
             Debug.Log("設定初始位置");
             Debug.Log(Blood.transform.position);
-            Blood.transform.position = new Vector3(-2.57f,1.6f,0);
+            Blood.transform.position = new Vector3(-3.57f,1.6f,0);
             // transform.rotation = Quaternion.Euler(0, 0, -21.428f);
         }
     }

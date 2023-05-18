@@ -13,9 +13,10 @@ public class DrawController : MonoBehaviour
         Anim = GetComponent<Animation>();
         Draw = GameDataManager.Draw;
         if (Draw)
-        {
-            transform.position = new Vector3(-19.83f, 2.9f, 0);
+        {   
+            transform.position = new Vector3(-20.97f, 2.9f, 0);
             transform.rotation = Quaternion.Euler(0, 0, -21.428f);
+            
         }
     }
 

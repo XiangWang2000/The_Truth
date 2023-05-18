@@ -21,7 +21,7 @@ public class GrandmaFight : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        trig = GameObject.FindGameObjectWithTag("Trig");
+        trig = GameObject.FindGameObjectWithTag("Attack");
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
         if (state != 3)

@@ -15,6 +15,7 @@ TagManager:
   - Enter_Hint
   - GrandmaRoom_Item
   - GrandmaRoom_Item1
+  - Attack
   layers:
   - Default
   - TransparentFX

@@ -51,22 +51,20 @@ public class PotController : MonoBehaviour
             take = true;
             touched = false;
             move = false;
+            read = true;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            dialog.text = "這會是什麼重要的線索嗎？";
             Pot = true;
             GameDataManager.Pot = Pot;
             count++;
         }
-        if (read == false && take == true)
+        if (read && take == true)
         {
             if (Input.GetKeyDown("space"))
             {
-                if (count == 1)
-                {
-                    dialog.text = "這會是什麼重要的線索嗎？";
-                }
-                else if (count == 2)
+                if (count == 2)
                 {
                     dialog.text = "";
                     this.draw.SetActive(false);
@@ -75,7 +73,7 @@ public class PotController : MonoBehaviour
                     move = true;
                     GameDataManager.move = true;
                     Debug.Log("開始人物移動");
-                    read = true;
+                    read = false;
                 }
                 count++;
             }

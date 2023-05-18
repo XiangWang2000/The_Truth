@@ -437,7 +437,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(true);
                 zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
                 item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_check.transform.localPosition = new Vector3(-280, 127, item_check.transform.localPosition.z);
                 item_description.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
             }
             else if (item_count == 2 && Rope == true)
@@ -445,7 +445,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(true);
                 zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
                 item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(-100, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_check.transform.localPosition = new Vector3(-100, 127, item_check.transform.localPosition.z);
                 item_description.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
             }
             else if (item_count == 3 && Pot == true)
@@ -453,7 +453,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(true);
                 zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
                 item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(80, item_check.transform.localPosition.y, item_check.transform.localPosition.z);
+                item_check.transform.localPosition = new Vector3(80, 127, item_check.transform.localPosition.z);
                 item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";
             }
             else if (item_count == 4 && Note == true)
@@ -461,7 +461,7 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(true);
                 zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
                 item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(-280, item_check.transform.localPosition.y - 143, item_check.transform.localPosition.z);
+                item_check.transform.localPosition = new Vector3(-280, -16, item_check.transform.localPosition.z);
                 item_description.text = "這本日記裡面好像有寫些東西";
                 if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
                 {
@@ -497,6 +497,46 @@ public class PlayerController1 : MonoBehaviour
                         center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
                     }
                 }
+            }
+            else if (item_count == 5 && Key == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/鑰匙");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-100, -16, item_check.transform.localPosition.z);
+                item_description.text = "這裡怎麼會有鑰匙？哪裡的鑰匙？";
+            }
+            else if (item_count == 6 && Blood_Tissue == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/染血衛生紙");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(80, -16, item_check.transform.localPosition.z);
+                item_description.text = "在弟弟房間看到的。\n是血跡嗎？";
+            }
+            else if (item_count == 7 && Invoice == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/旅館發票");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-280, -154, item_check.transform.localPosition.z);
+                item_description.text = "究竟去那麼多次旅館是跟誰一起呢...？";
+            }
+            else if (item_count == 8 && Insurance == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/保單");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(-100, -154, item_check.transform.localPosition.z);
+                item_description.text = "這幾張的保險金受益人看起來都是男生的名字。\n是不想讓女生拿錢的那種戲碼嗎？";
+            }
+            else if (item_count == 9 && Tissue == true)
+            {
+                zoomin.SetActive(true);
+                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/衛生紙");
+                item_check.SetActive(true);
+                item_check.transform.localPosition = new Vector3(80, -154, item_check.transform.localPosition.z);
+                item_description.text = "拿起來的時候聽到了哭聲......";
             }
         }
     }

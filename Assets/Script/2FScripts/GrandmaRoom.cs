@@ -31,7 +31,7 @@ public class GrandmaRoom : MonoBehaviour
     void Update()
     {
         move = GameDataManager.move;
-        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && !isinGranadmaPart)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && !isinGranadmaPart && GameDataManager.Key)
         {
             Debug.Log("進入奶奶房間");
             posx = player.transform.position.x;
@@ -41,21 +41,34 @@ public class GrandmaRoom : MonoBehaviour
             this.trig.SetActive(false);
             Anim.Play("SwitchFadeOut");
             SceneManager.LoadScene("GrandMaRoom");
-        }else if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && isinGranadmaPart){
-            Debug.Log("相機X:"+camera.transform.position.x);
-            Debug.Log("相機Y:"+camera.transform.position.y);
-            Debug.Log("相機Z:"+camera.transform.position.z);
-            Warn.transform.position = new Vector3(camera.transform.position.x+12,camera.transform.position.y+5.5f,camera.transform.position.z+11);
-            WarnAnimator.SetBool("isWarn",true);
+        }
+        else if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && isinGranadmaPart)
+        {
+            Debug.Log("相機X:" + camera.transform.position.x);
+            Debug.Log("相機Y:" + camera.transform.position.y);
+            Debug.Log("相機Z:" + camera.transform.position.z);
+            Warn.transform.position = new Vector3(camera.transform.position.x + 12, camera.transform.position.y + 5.5f, camera.transform.position.z + 11);
+            WarnAnimator.SetBool("isWarn", true);
+        }
+        else if ((Input.GetKeyDown(KeyCode.UpArrow) | Input.GetKeyDown("w")) && touched == true && move == true && !isinGranadmaPart && !GameDataManager.Key)
+        {
+            Debug.Log("相機X:" + camera.transform.position.x);
+            Debug.Log("相機Y:" + camera.transform.position.y);
+            Debug.Log("相機Z:" + camera.transform.position.z);
+            Warn.transform.position = new Vector3(camera.transform.position.x + 12, camera.transform.position.y + 5.5f, camera.transform.position.z + 11);
+            WarnAnimator.SetBool("isWarn", true);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(isinGranadmaPart){
+        if (isinGranadmaPart)
+        {
             this.trig.SetActive(true);
             Debug.Log("碰到奶奶房間門了，但是奶奶在追你，所以你逃不掉哈哈");
             touched = true;
-        }else{
+        }
+        else
+        {
             this.trig.SetActive(true);
             Debug.Log("碰到奶奶房間門了");
             touched = true;

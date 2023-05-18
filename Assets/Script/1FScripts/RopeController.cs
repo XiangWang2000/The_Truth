@@ -46,23 +46,21 @@ public class RopeController : MonoBehaviour
             take = true;
             touched = false;
             move = false;
+            read = true;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            dialog.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
             count++;
             Rope = true;
             GameDataManager.Rope = Rope;
         }
-        if (read == false && take == true)
+        if (read && take == true)
         {
 
             if (Input.GetKeyDown("space"))
             {
                 if (count == 1)
-                {
-                    dialog.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
-                }
-                else if (count == 2)
                 {
                     dialog.text = "";
                     move = true;
@@ -70,7 +68,7 @@ public class RopeController : MonoBehaviour
                     Debug.Log("開始人物移動");
                     this.draw.SetActive(false);
                     this.dialog_box.SetActive(false);
-                    read = true;
+                    read = false;
                 }
                 count++;
             }

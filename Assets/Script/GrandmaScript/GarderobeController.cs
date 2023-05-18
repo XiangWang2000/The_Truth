@@ -45,7 +45,7 @@ public class GarderobeController : MonoBehaviour
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 4, dialog_box.transform.position.z);
             dialog.text = "沒什麼特別的。";
-            count++;
+            count = 1;
             read = true;
         }
         if (read)

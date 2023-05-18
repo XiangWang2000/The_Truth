@@ -37,20 +37,17 @@ public class TableController : MonoBehaviour
             // Debug.Log(camera_position.transform.position.y);
             this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
             touched = false;
-            read = false;
+            read = true;
             move = false;
             count = 0;
+            dialog.text = "上面佈滿了灰塵。";
+            count++;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
         }
-        if (read == false)
+        if (read)
         {
-            if (count == 0)
-            {
-                dialog.text = "上面佈滿了灰塵。";
-                count++;
-            }
             if (Input.GetKeyDown("space"))
             {
                 if (count == 1)
@@ -60,7 +57,7 @@ public class TableController : MonoBehaviour
                     GameDataManager.move = true;
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
-                    read = true;
+                    read = false;
                 }
             }
         }

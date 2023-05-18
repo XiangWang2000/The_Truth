@@ -37,35 +37,31 @@ public class BloodController : MonoBehaviour
             // Debug.Log(camera_position.transform.position.y);
             this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
             touched = false;
-            read = false;
+            read = true;
             move = false;
             count = 0;
-            count++;
-            if (count == 1)
-            {
-                dialog.text = "乾掉的血跡，令人發毛⋯⋯";
-            }
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            dialog.text = "乾掉的血跡，令人發毛⋯⋯";
         }
-        if (read == false)
+        if (read)
         {
             if (Input.GetKeyDown("space"))
             {
                 count++;
-                if (count == 2)
+                if (count == 1)
                 {
                     dialog.text = "是有人在這裡跌倒嗎？";
                 }
-                else if (count == 3)
+                else if (count == 2)
                 {
                     dialog.text = "";
                     move = true;
                     GameDataManager.move = true;
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
-                    read = true;
+                    read = false;
                 }
             }
         }

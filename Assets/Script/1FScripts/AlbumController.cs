@@ -52,18 +52,16 @@ public class AlbumController : MonoBehaviour
             take = true;
             touched = false;
             move = false;
+            read = true;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
+            dialog.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。";
             count++;
-            if (count == 1)
-            {
-                dialog.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。";
-            }
             Album = true;
             GameDataManager.Album = Album;
         }
-        if (read == false && take == true)
+        if (read && take == true)
         {
             if (Input.GetKeyDown("space"))
             {
@@ -88,7 +86,7 @@ public class AlbumController : MonoBehaviour
                     GameDataManager.drama_played = drama_played;
                     Debug.Log("開始人物移動");
                     this.dialog_box.SetActive(false);
-                    read = true;
+                    read = false;
                     SceneManager.LoadScene("Album");
                 }
             }

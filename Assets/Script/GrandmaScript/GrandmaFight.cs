@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GrandmaFight : MonoBehaviour
 {
-    public GameObject trig;
+    private GameObject trig;
     public Animation Anim;
     public GameObject Player;
     bool touched = false;
@@ -21,7 +21,7 @@ public class GrandmaFight : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        this.trig.SetActive(false);
+        trig = GameObject.FindGameObjectWithTag("Trig");
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
         if (state != 3)

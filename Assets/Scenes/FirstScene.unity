@@ -417,6 +417,7 @@ MonoBehaviour:
   item_invoice: {fileID: 0}
   item_key: {fileID: 0}
   item_note: {fileID: 0}
+  item_insurance: {fileID: 0}
   zoomin: {fileID: 0}
   item_description: {fileID: 0}
   bag: {fileID: 0}
@@ -596,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65167578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.41247, y: -0.30000007, z: -5}
+  m_LocalPosition: {x: -46.925697, y: -0.30000007, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1417,6 +1418,7 @@ MonoBehaviour:
   item_invoice: {fileID: 1979824402}
   item_key: {fileID: 636613367}
   item_note: {fileID: 437543117}
+  item_insurance: {fileID: 256018882017713848}
   zoomin: {fileID: 1037586544}
   item_description: {fileID: 385212326}
   bag: {fileID: 294157310}
@@ -5099,3 +5101,8 @@ PrefabInstance:
       objectReference: {fileID: 65167580}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
+--- !u!1 &256018882017713848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2309450774092610379, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
+  m_PrefabInstance: {fileID: 256018882017713847}
+  m_PrefabAsset: {fileID: 0}

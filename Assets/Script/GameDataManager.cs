@@ -14,6 +14,7 @@ public static class GameDataManager
     public static bool Draw = false;
     public static bool Key = false;
     public static bool Note = false;
+    public static bool Insurance = false;
     public static bool move = true;
     public static int dead = 0;
     public static bool dad_dead = false;

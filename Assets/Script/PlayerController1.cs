@@ -20,6 +20,7 @@ public class PlayerController1 : MonoBehaviour
     public GameObject item_invoice;
     public GameObject item_key;
     public GameObject item_note;
+    public GameObject item_insurance;
     public GameObject zoomin;
     public Text item_description;
     public GameObject bag;
@@ -40,6 +41,7 @@ public class PlayerController1 : MonoBehaviour
     private bool Tissue;
     private bool Key;
     private bool Note;
+    private bool Insurance;
     private bool note_show = false;
     private float posx;
     private bool toilet_entered;
@@ -76,6 +78,7 @@ public class PlayerController1 : MonoBehaviour
         Tissue = GameDataManager.Tissue;
         Key = GameDataManager.Key;
         Note = GameDataManager.Note;
+        Insurance = GameDataManager.Insurance;
         move = GameDataManager.move;
         posx = GameDataManager.posx;
         toilet_entered = GameDataManager.toilet_entered;
@@ -255,6 +258,7 @@ public class PlayerController1 : MonoBehaviour
         PlayerPrefs.SetInt("Draw", convert(GameDataManager.Draw));
         PlayerPrefs.SetInt("Key", convert(GameDataManager.Key));
         PlayerPrefs.SetInt("Note", convert(GameDataManager.Note));
+        PlayerPrefs.SetInt("Insurance", convert(GameDataManager.Insurance));
         PlayerPrefs.SetInt("move", convert(GameDataManager.move));
         PlayerPrefs.SetInt("dad_dead", convert(GameDataManager.dad_dead));
         PlayerPrefs.SetFloat("posx", GameDataManager.posx);
@@ -331,6 +335,7 @@ public class PlayerController1 : MonoBehaviour
         Tissue = GameDataManager.Tissue;
         Key = GameDataManager.Key;
         Note = GameDataManager.Note;
+        Insurance = GameDataManager.Insurance;
         if (count == 1)
         {
             if (Album)
@@ -396,6 +401,14 @@ public class PlayerController1 : MonoBehaviour
             else
             {
                 item_note.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_日記");
+            }
+            if (Insurance)
+            {
+                item_insurance.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/保單");
+            }
+            else
+            {
+                item_insurance.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_保單");
             }
         }
     }

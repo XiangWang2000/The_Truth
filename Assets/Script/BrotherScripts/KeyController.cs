@@ -54,7 +54,7 @@ public class KeyController : MonoBehaviour
             center_image.color = new Color(1f, 1f, 1f, 1f);
             center_image.rectTransform.sizeDelta = new Vector2(300f, 300f);
             center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/鑰匙");
-            GameDataManager.Blood_Tissue = true;
+            GameDataManager.Key = true;
             read = true;
         }
         if (read)

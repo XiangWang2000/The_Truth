@@ -3522,7 +3522,7 @@ MonoBehaviour:
   scrollPos: {x: 87.57207, y: -53.072063}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 621
+  blockViewHeight: 520
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -3530,8 +3530,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 2084247246}
+  selectedCommands:
+  - {fileID: 2084247252}
   variables: []
   description: 
   stepPause: 0
@@ -7113,7 +7115,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: 
+    stringVal: MainScene
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &2084247253

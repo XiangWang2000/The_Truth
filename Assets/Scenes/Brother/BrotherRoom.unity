@@ -2760,8 +2760,8 @@ MonoBehaviour:
   item_description: {fileID: 1503357059}
   bag: {fileID: 1503357064}
   item_check: {fileID: 1503357058}
-  speed: 4
-  runspeed: 6
+  speed: 3
+  runspeed: 9
   cinemachineVirtualCamera: {fileID: 1019802403}
 --- !u!61 &1393445087
 BoxCollider2D:

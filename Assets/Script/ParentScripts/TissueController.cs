@@ -14,6 +14,7 @@ public class TissueController : MonoBehaviour
     private Text dialog;
     private GameObject camera_position;
     private Image center_image;
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class TissueController : MonoBehaviour
         if (Input.GetKeyDown("f") && touched == true)
         {
             Debug.Log("輸入F了");
+            audio.Play(0);
             center_image.color = new Color(1f, 1f, 1f, 1f);
             center_image.rectTransform.sizeDelta = new Vector2(300f, 300f);
             this.trig.SetActive(false);
@@ -50,7 +52,7 @@ public class TissueController : MonoBehaviour
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "我是舒潔衛生紙";
+            dialog.text = "什⋯什麼聲音？";
             dialog_box.SetActive(true);
             center_image.sprite = Resources.Load<Sprite>("Bag/衛生紙");
             GameDataManager.Tissue = true;

@@ -24,7 +24,7 @@ public class GrandmaFight : MonoBehaviour
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state > 3){
+        if(state != 3){
             Destroy(this.gameObject);
         }
     }

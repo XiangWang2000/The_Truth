@@ -19,7 +19,6 @@ public class ForWarning : MonoBehaviour
     }
     public void change(){
         WarnAnimator.SetBool("isWarn",false);
-        this.transform.position = new Vector3(camera.transform.position.x,camera.transform.position.y+20,
-        camera.transform.position.z); // 總之先移出畫面
+        
     }
 }

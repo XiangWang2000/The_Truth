@@ -76,7 +76,7 @@ public class TrashCanController : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        if (GameDataManager.backfromabloodytissue && timer > 2)
+        if (GameDataManager.backfrombloodytissue && timer > 2)
         {
             if (count == 0)
             {
@@ -118,7 +118,7 @@ public class TrashCanController : MonoBehaviour
                     dialog.text = "";
                     move = true;
                     GameDataManager.move = move;
-                    GameDataManager.backfromalbum = false;
+                    GameDataManager.backfrombloodytissue = false;
                     GameDataManager.Bloody_Tissue_drama_played = false;
                     Debug.Log("開始人物移動");
                     dialog_box.SetActive(false);

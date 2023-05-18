@@ -59,9 +59,6 @@ public class PlayerController1 : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        menu.SetActive(false);
-        zoomin.SetActive(false);
-        item_check.SetActive(false);
         try
         {
             center_image = GameObject.FindGameObjectWithTag("Center_Image").GetComponent<Image>();
@@ -69,8 +66,11 @@ public class PlayerController1 : MonoBehaviour
         }
         catch
         {
-
+            Debug.Log("未抓到中間圖片");
         }
+        menu.SetActive(false);
+        zoomin.SetActive(false);
+        item_check.SetActive(false);
         Album = GameDataManager.Album;
         Rope = GameDataManager.Rope;
         Pot = GameDataManager.Pot;
@@ -110,7 +110,7 @@ public class PlayerController1 : MonoBehaviour
             GameDataManager.parent_room_entered = parent_room_entered;
             GameDataManager.grandmom_room_entered = grandmom_room_entered;
         }
-        if ((second_floor_entered ) && scene.name == "FirstScene")
+        if ((second_floor_entered) && scene.name == "FirstScene")
         {
             transform.position = new Vector3(Exposx, transform.position.y, transform.position.z);
             Debug.Log("從二樓回一樓");
@@ -431,119 +431,183 @@ public class PlayerController1 : MonoBehaviour
                 zoomin.SetActive(false);
                 item_description.text = "";
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 8 && !note_show)
+            if (Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d") && item_count < 9 && !note_show)
             {
+                zoomin.SetActive(true);
+                item_check.SetActive(true);
                 item_count++;
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a") && item_count > 1 && !note_show)
             {
                 item_count--;
             }
-            if (item_count == 1 && Album == true)
+            if (item_count == 1)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
-                item_check.SetActive(true);
                 item_check.transform.localPosition = new Vector3(-280, 127, item_check.transform.localPosition.z);
-                item_description.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
-            }
-            else if (item_count == 2 && Rope == true)
-            {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
-                item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(-100, 127, item_check.transform.localPosition.z);
-                item_description.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
-            }
-            else if (item_count == 3 && Pot == true)
-            {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
-                item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(80, 127, item_check.transform.localPosition.z);
-                item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";
-            }
-            else if (item_count == 4 && Note == true)
-            {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
-                item_check.SetActive(true);
-                item_check.transform.localPosition = new Vector3(-280, -16, item_check.transform.localPosition.z);
-                item_description.text = "這本日記裡面好像有寫些東西";
-                if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
+                if (Album)
                 {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/塵封相簿");
+                    item_description.text = "在大酒櫃的最下層找到了放滿相簿的紙箱。裡面幾乎都是一對情侶的照片，甚至還有婚紗照⋯⋯";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_塵封相簿");
+                    item_description.text = "未收集";
+                }
+            }
+            else if (item_count == 2)
+            {
+                if (Rope)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/跳繩");
+                    item_description.text = "看起來只是一個普通的跳繩，不知道有什麼用途？";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_跳繩");
+                    item_description.text = "未收集";
+                }
+                item_check.transform.localPosition = new Vector3(-100, 127, item_check.transform.localPosition.z);
+
+            }
+            else if (item_count == 3)
+            {
+                if (Pot)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/燒焦鍋子");
+                    item_description.text = "一個燒焦的鍋子。\n這會是什麼重要的線索嗎？";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_燒焦鍋子");
+                    item_description.text = "未收集";
+                }
+                item_check.transform.localPosition = new Vector3(80, 127, item_check.transform.localPosition.z);
+
+            }
+            else if (item_count == 4)
+            {
+                if (Note)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/日記");
+                    item_description.text = "這本日記裡面好像有寫些東西";
+                    if ((Input.GetKeyDown(KeyCode.KeypadEnter) | Input.GetKeyDown(KeyCode.Return)))
+                    {
+                        if (note_show)
+                        {
+                            center_image.color = new Color(1f, 1f, 1f, 0f);
+                            Debug.Log("關閉筆記本檢視");
+                            note_show = false;
+                        }
+                        else
+                        {
+                            center_image.color = new Color(1f, 1f, 1f, 1f);
+                            center_image.rectTransform.sizeDelta = new Vector2(1920f, 1080f);
+                            note_page = 1;
+                            center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_" + note_page);
+                            Debug.Log("開啟筆記本檢視");
+                            Debug.Log("筆記本" + note_page);
+                            note_show = true;
+                        }
+                    }
                     if (note_show)
                     {
-                        center_image.color = new Color(1f, 1f, 1f, 0f);
-                        Debug.Log("關閉筆記本檢視");
-                        note_show = false;
-                    }
-                    else
-                    {
-                        center_image.color = new Color(1f, 1f, 1f, 1f);
-                        center_image.rectTransform.sizeDelta = new Vector2(1920f, 1080f);
-                        note_page = 1;
-                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
-                        Debug.Log("開啟筆記本檢視");
-                        Debug.Log("筆記本" + note_page);
-                        note_show = true;
+                        if ((Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d")) && (note_page < 4))
+                        {
+                            note_page++;
+                            Debug.Log("按下右 " + "筆記本" + note_page);
+                            center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_" + note_page);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a")) && (note_page > 1))
+                        {
+                            note_page--;
+                            Debug.Log("按下左 " + "筆記本" + note_page);
+                            center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/日記本_黑底_" + note_page);
+                        }
                     }
                 }
-                if (note_show)
+                else
                 {
-                    if ((Input.GetKeyDown(KeyCode.RightArrow) | Input.GetKeyDown("d")) && (note_page < 4))
-                    {
-                        note_page++;
-                        Debug.Log("按下右 " + "筆記本" + note_page);
-                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
-                    }
-                    if ((Input.GetKeyDown(KeyCode.LeftArrow) | Input.GetKeyDown("a")) && (note_page > 1))
-                    {
-                        note_page--;
-                        Debug.Log("按下左 " + "筆記本" + note_page);
-                        center_image.sprite = Resources.Load<Sprite>("BrotherRoomImage/介面_日記本_" + note_page);
-                    }
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_日記");
+                    item_description.text = "未收集";
                 }
+                item_check.transform.localPosition = new Vector3(-280, -16, item_check.transform.localPosition.z);
+
             }
-            else if (item_count == 5 && Key == true)
+            else if (item_count == 5)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/鑰匙");
-                item_check.SetActive(true);
+                if (Key)
+                {
+                    item_description.text = "這裡怎麼會有鑰匙？哪裡的鑰匙？";
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/鑰匙");
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_鑰匙");
+                    item_description.text = "未收集";
+                }
                 item_check.transform.localPosition = new Vector3(-100, -16, item_check.transform.localPosition.z);
-                item_description.text = "這裡怎麼會有鑰匙？哪裡的鑰匙？";
+
             }
-            else if (item_count == 6 && Blood_Tissue == true)
+            else if (item_count == 6)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/染血衛生紙");
-                item_check.SetActive(true);
+                if (Blood_Tissue)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/染血衛生紙");
+                    item_description.text = "在弟弟房間看到的。\n是血跡嗎？";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_染血衛生紙");
+                    item_description.text = "未收集";
+                }
                 item_check.transform.localPosition = new Vector3(80, -16, item_check.transform.localPosition.z);
-                item_description.text = "在弟弟房間看到的。\n是血跡嗎？";
+
             }
-            else if (item_count == 7 && Invoice == true)
+            else if (item_count == 7)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/旅館發票");
-                item_check.SetActive(true);
+                if (Invoice)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/旅館發票");
+                    item_description.text = "究竟去那麼多次旅館是跟誰一起呢...？";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_旅館發票");
+                    item_description.text = "未收集";
+                }
                 item_check.transform.localPosition = new Vector3(-280, -154, item_check.transform.localPosition.z);
-                item_description.text = "究竟去那麼多次旅館是跟誰一起呢...？";
+
             }
-            else if (item_count == 8 && Insurance == true)
+            else if (item_count == 8)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/保單");
-                item_check.SetActive(true);
+                if (Insurance)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/保單");
+                    item_description.text = "這幾張的保險金受益人看起來都是男生的名字。\n是不想讓女生拿錢的那種戲碼嗎？";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_保單");
+                    item_description.text = "未收集";
+                }
                 item_check.transform.localPosition = new Vector3(-100, -154, item_check.transform.localPosition.z);
-                item_description.text = "這幾張的保險金受益人看起來都是男生的名字。\n是不想讓女生拿錢的那種戲碼嗎？";
+
             }
-            else if (item_count == 9 && Tissue == true)
+            else if (item_count == 9)
             {
-                zoomin.SetActive(true);
-                zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/衛生紙");
-                item_check.SetActive(true);
+                if (Tissue)
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/衛生紙");
+                    item_description.text = "拿起來的時候聽到了哭聲......";
+                }
+                else
+                {
+                    zoomin.GetComponent<Image>().sprite = Resources.Load<Sprite>("Bag/剪影_衛生紙");
+                    item_description.text = "未收集";
+                }
                 item_check.transform.localPosition = new Vector3(80, -154, item_check.transform.localPosition.z);
-                item_description.text = "拿起來的時候聽到了哭聲......";
+
             }
         }
     }

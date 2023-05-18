@@ -30,7 +30,7 @@ public class BloodController : MonoBehaviour
             trig.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 3.5f, trig.transform.position.z);
         }
         if (Input.GetKeyDown("f") && touched == true)
-        {
+        {   
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
             this.dialog_box.SetActive(true);

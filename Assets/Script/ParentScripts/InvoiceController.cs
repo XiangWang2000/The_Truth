@@ -8,6 +8,7 @@ public class InvoiceController : MonoBehaviour
     private bool touched = false;
     private bool move;
     private bool read = false;
+    private int count;
     private GameObject trig;
     private GameObject Player;
     private GameObject dialog_box;
@@ -26,7 +27,8 @@ public class InvoiceController : MonoBehaviour
         center_image = GameObject.FindGameObjectWithTag("Center_Image").GetComponent<Image>();
         center_image.color = new Color(1f, 1f, 1f, 0f);
         // trig.SetActive(false);
-        if(GameDataManager.Invoice){
+        if (GameDataManager.Invoice)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -46,12 +48,13 @@ public class InvoiceController : MonoBehaviour
             this.trig.SetActive(false);
             touched = false;
             move = false;
+            count = 0;
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "我是過期發票";
+            dialog.text = "都是一些飯店、旅館的發票，開銷驚人。";
             center_image.sprite = Resources.Load<Sprite>("Bag/旅館發票");
             GameDataManager.Invoice = true;
             read = true;
@@ -60,13 +63,33 @@ public class InvoiceController : MonoBehaviour
         {
             if (Input.GetKeyDown("space"))
             {
-                dialog.text = "";
-                GameDataManager.move = true;
-                Debug.Log("開始人物移動");
-                center_image.color = new Color(1f, 1f, 1f, 0f);
-                dialog_box.SetActive(false);
-                this.gameObject.SetActive(false);
-                read = false;
+                if (count == 0)
+                {
+                    dialog.text = "今年情人節還有去開房間，這對夫妻其實挺浪漫的？";
+                }
+                else if (count == 1)
+                {
+                    dialog.text = "⋯等等，不對。";
+                }
+                else if (count == 2)
+                {
+                    dialog.text = "情人節⋯這男人該不會是帶小三去吧⋯⋯⋯";
+                }
+                else if (count == 3)
+                {
+                    dialog.text = "就這樣隨手丟在床頭櫃，他是完全不把老婆放在眼裡嗎⋯？";
+                }
+                else if (count == 4)
+                {
+                    dialog.text = "";
+                    GameDataManager.move = true;
+                    Debug.Log("開始人物移動");
+                    center_image.color = new Color(1f, 1f, 1f, 0f);
+                    dialog_box.SetActive(false);
+                    this.gameObject.SetActive(false);
+                    read = false;
+                }
+                count++;
             }
         }
     }

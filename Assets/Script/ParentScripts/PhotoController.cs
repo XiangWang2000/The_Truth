@@ -52,7 +52,7 @@ public class PhotoController : MonoBehaviour
             Debug.Log("開始對話");
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "婚紗照怎麼會在這裡";
+            dialog.text = "婚紗照怎麼會在這裡。";
             // center_image.sprite = Resources.Load<Sprite>("Bag/旅館發票");
             read = true;
             count++;
@@ -67,7 +67,7 @@ public class PhotoController : MonoBehaviour
                 }
                 else if (count == 2)
                 {
-                    dialog.text = "畢竟她似乎有個很差勁的丈夫";
+                    dialog.text = "畢竟她似乎有個很差勁的丈夫。";
                 }
                 else if (count == 3)
                 {

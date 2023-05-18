@@ -12,9 +12,7 @@ public class DadFight : MonoBehaviour
     float timer_f = 0f;
     int timer_i = 0;
     int timer_i_f = 0;
-
     private bool Rope;
-
     private int state;
     // Start is called before the first frame update
     void Start()
@@ -46,7 +44,7 @@ public class DadFight : MonoBehaviour
         {
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            Debug.Log("全域變數Rope值" + GameDataManager.Rope);
+            // Debug.Log("全域變數Rope值" + GameDataManager.Rope);
             if (Rope == false)
             {
                 Debug.Log("道具不夠");

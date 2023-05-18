@@ -11,10 +11,10 @@ public class RopeController : MonoBehaviour
     public GameObject draw;
     public GameObject Player;
     public Text dialog;
-    int count = 0;
-    bool take = false;
-    bool touched = false;
-    bool read = false;
+    private int count = 0;
+    private bool take = false;
+    private bool touched = false;
+    private bool read = false;
     private bool move;
     private bool Rope;
     // Start is called before the first frame update

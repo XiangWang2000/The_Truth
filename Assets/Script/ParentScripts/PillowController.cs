@@ -8,7 +8,6 @@ public class PillowController : MonoBehaviour
     private bool touched = false;
     private bool move;
     private bool read = false;
-    private int count = 0;
     private GameObject trig;
     private GameObject Player;
     private GameObject dialog_box;
@@ -40,7 +39,6 @@ public class PillowController : MonoBehaviour
         if (Input.GetKeyDown("f") && touched == true)
         {
             Debug.Log("輸入F了");
-            count = 0;
             // center_image.color = new Color(1f, 1f, 1f, 1f);
             // center_image.rectTransform.sizeDelta = new Vector2(300f, 300f);
             this.trig.SetActive(false);
@@ -51,10 +49,9 @@ public class PillowController : MonoBehaviour
             Debug.Log("開始對話");
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "雖然上面都是灰塵\n但這枕頭看起來沒怎麼睡過的樣子";
+            dialog.text = "床上都是灰塵。\n左邊這顆枕頭相比起來沒怎麼睡過的樣子。";
             // center_image.sprite = Resources.Load<Sprite>("Bag/旅館發票");
             read = true;
-            count++;
         }
         if (read)
         {
@@ -67,7 +64,6 @@ public class PillowController : MonoBehaviour
                 dialog_box.SetActive(false);
                 read = false;
             }
-            count++;
         }
     }
     void OnTriggerEnter2D(Collider2D other)

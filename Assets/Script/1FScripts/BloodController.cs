@@ -10,10 +10,9 @@ public class BloodController : MonoBehaviour
     public GameObject camera_position;
     public GameObject Player;
     public Text dialog;
-    int count = 0;
-    bool take = false;
-    bool touched = false;
-    bool read = false;
+    private int count = 0;
+    private bool touched = false;
+    private bool read = false;
     private bool move;
     // Start is called before the first frame update
     void Start()
@@ -37,27 +36,29 @@ public class BloodController : MonoBehaviour
             this.dialog_box.SetActive(true);
             // Debug.Log(camera_position.transform.position.y);
             this.dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            take = true;
             touched = false;
+            read = false;
             move = false;
+            count = 0;
+            count++;
+            if (count == 1)
+            {
+                dialog.text = "乾掉的血跡，令人發毛⋯⋯";
+            }
             GameDataManager.move = move;
             Debug.Log("停止人物移動");
             Debug.Log("開始對話");
         }
-        if (read == false && take == true)
+        if (read == false)
         {
-            if (count == 0)
-            {
-                dialog.text = "乾掉的血跡，令人發毛⋯⋯";
-                count++;
-            }
             if (Input.GetKeyDown("space"))
             {
-                if (count == 1)
+                count++;
+                if (count == 2)
                 {
                     dialog.text = "是有人在這裡跌倒嗎？";
                 }
-                else if (count == 2)
+                else if (count == 3)
                 {
                     dialog.text = "";
                     move = true;
@@ -66,20 +67,17 @@ public class BloodController : MonoBehaviour
                     this.dialog_box.SetActive(false);
                     read = true;
                 }
-                count++;
             }
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && take == false)
+        if (other.gameObject.tag == "Player")
         {
             this.trig.SetActive(true);
             Debug.Log("碰到血跡了");
             touched = true;
         }
-
-
     }
     private void OnTriggerExit2D(Collider2D other)
     {

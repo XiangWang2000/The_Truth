@@ -62,9 +62,9 @@ public class Wardrobe2Controller : MonoBehaviour
             {
                 if (count == 1)
                 {
-                  dialog.text = ".......看久了有點毛毛的";
+                  dialog.text = ".......看久了有點毛毛的。";
                 }
-                else if (count == 3)
+                else if (count == 2)
                 {
                     dialog.text = "";
                     GameDataManager.move = true;

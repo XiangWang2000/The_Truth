@@ -51,7 +51,7 @@ public class CabinetController : MonoBehaviour
             Debug.Log("開始對話");
             dialog_box.SetActive(true);
             dialog_box.transform.position = new Vector3(camera_position.transform.position.x, camera_position.transform.position.y - 3, dialog_box.transform.position.z);
-            dialog.text = "這裡面除了灰塵還真是沒有其他有用的東西";
+            dialog.text = "這裡面除了灰塵還真是沒有其他有用的東西。";
             // center_image.sprite = Resources.Load<Sprite>("Bag/旅館發票");
             read = true;
             count++;

@@ -15,14 +15,15 @@ public class DadFight : MonoBehaviour
 
     private bool Rope;
 
-    private int state ;
+    private int state;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state > 1){
+        if (state > 1)
+        {
             Destroy(this.gameObject);
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GrandmaFight : MonoBehaviour
 {
-   public GameObject trig;
+    public GameObject trig;
     public Animation Anim;
     public GameObject Player;
     bool touched = false;
@@ -19,12 +19,13 @@ public class GrandmaFight : MonoBehaviour
     public GameObject B;
     // Start is called before the first frame update
     void Start()
-    {   
-        scene = SceneManager.GetActiveScene ();
+    {
+        scene = SceneManager.GetActiveScene();
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state != 3){
+        if (state != 3)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -47,22 +48,26 @@ public class GrandmaFight : MonoBehaviour
         {
             Debug.Log("輸入F了");
             this.trig.SetActive(false);
-            if(scene.name!="SecondScene"){
+            if (scene.name != "SecondScene")
+            {
                 StartCoroutine(ToFightLose());
                 Debug.Log("這是一場註定失敗的戰鬥");
                 Anim.Play("SwitchFadeOut");
                 touched = false;
-            }else{
+            }
+            else
+            {
                 StartCoroutine(ToFightWin());
                 Debug.Log("這是一場有機會勝利的戰鬥");
                 Anim.Play("SwitchFadeOut");
                 touched = false;
             }
-            if(Player.transform.position.x>A.transform.position.x&&
-                Player.transform.position.x<B.transform.position.x){
+            if (Player.transform.position.x > A.transform.position.x &&
+                Player.transform.position.x < B.transform.position.x)
+            {
                 GameDataManager.GrandMaCanDie = true;
             }
-           
+
         }
         else if (touched == true)
         {
@@ -102,7 +107,7 @@ public class GrandmaFight : MonoBehaviour
         SceneManager.LoadScene("GrandMaFightOUT");
     }
     IEnumerator ToDead()
-    {   
+    {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("DeadScene");
     }

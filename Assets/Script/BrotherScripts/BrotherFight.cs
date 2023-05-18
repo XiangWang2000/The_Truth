@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BrotherFight : MonoBehaviour
-{   
+{
     public GameObject trig;
     public Animation Anim;
     public GameObject Player;
@@ -15,14 +15,15 @@ public class BrotherFight : MonoBehaviour
 
     private bool Rope;
 
-    private int state ;
+    private int state;
     // Start is called before the first frame update
     void Start()
     {
         this.trig.SetActive(false);
         Rope = GameDataManager.Rope;
         state = GameDataManager.state;
-        if(state > 2){
+        if (state > 2)
+        {
             Destroy(this.gameObject);
         }
     }

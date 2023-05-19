@@ -76,7 +76,7 @@ public class TrashCanController : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        if (GameDataManager.backfrombloodytissue && timer > 2)
+        if (GameDataManager.backfrombloodytissue && timer > 2 && GameDataManager.Bloody_Tissue_drama_played)
         {
             if (count == 0)
             {

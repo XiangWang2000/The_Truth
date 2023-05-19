@@ -96,7 +96,7 @@ public class AlbumController : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        if (GameDataManager.backfromalbum && timer > 2)
+        if (GameDataManager.backfromalbum && timer > 2 && drama_played)
         {
             if (count == 0)
             {

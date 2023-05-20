@@ -657,7 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1062092609}
   basemap: {fileID: 1650315704}
-  instruction_rightimage: {fileID: 1148929676}
+  instruction_rightimage: {fileID: 1155909955}
   item_album: {fileID: 1361164391}
   item_rope: {fileID: 185799209}
   item_pot: {fileID: 255812815}
@@ -1482,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 256018881867303920, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 256018881867303935, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
       propertyPath: m_RootOrder
@@ -1649,7 +1649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518844019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.580631, y: -0.34999967, z: -10}
+  m_LocalPosition: {x: -18.584972, y: -0.34999967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2714,9 +2714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 978779759}
---- !u!1 &1148929676 stripped
+--- !u!1 &1155909955 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 256018882327166961, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
+  m_CorrespondingSourceObject: {fileID: 256018882346711781, guid: 53006db4701adcc4b9d5288e371a2139, type: 3}
   m_PrefabInstance: {fileID: 498261356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232399622
